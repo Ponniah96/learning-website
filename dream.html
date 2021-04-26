@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Salary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">        
+    <object class="iframe-header" data="headerlayout.html"></object>
+    <img src="dream_salary.jpg" alt="dream_salary_image" height="500px" width="100%">
+    <div id="webchat" role="main"></div>
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.5.0/lib/index.min.js"></script>
+    <script>
+      WebChat.default.init({
+        selector: "#webchat",
+        customData:{"language":"en"},
+        socketUrl: "http://localhost:5005",
+        //socketUrl: "http://f3bc0821fc50.ngrok.io",
+        socketPath: "/socket.io/",
+        title: "Welcome to RASA Chatbot!!!",
+        subtitle: "Interact with bot!!"
+      })
+    </script>
+    <object class="iframe-footer" data="footerlayout.html" ></object>
+</body>
+</html>

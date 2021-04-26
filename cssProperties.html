@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cssStyles.css">
+</head>
+<body id="top">
+    <object data="headerlayout.html" class="iframe-header"></object>
+    <section class="body-section">
+        <nav class="left-nav-bar">
+            <ul>
+                <li class="left-nav-header default-highlighted">Quick Navigation</li>
+                <li><a href="#colors">Colors</a></li>
+                <li><a href="#background">Background</a></li>
+                <li><a href="#border">Border</a></li>
+                <li><a href="#margin-padding">Margin & padding</a></li>
+                <li><a href="#outline">Outline</a></li>
+                <li><a href="#text-properties">Text properties</a></li>
+            </ul>
+        </nav>
+        <div class="content-section">
+            <center><h1>CSS Properties</h1></center>
+            <div id="colors"><br>
+                <div class="DodgerBlue">DodgerBlue</div>
+                <div class="Mediumseagreen">MediumSeaGreen</div>
+                <div class="slateBlue">slateBlue</div>
+                <div class="tomato">Tomato Orange</div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="background"><br>
+                <h2>Background</h2>
+                <div class="background-tile">
+                    <h3>1.Color-Background</h3>
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20">Tile 1</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20">Tile 2</div>
+                    <div class="float-left w-15 square-padding slateBlue text-center color-white m-20">Tile 3</div>
+                    <div class="float-left w-15 square-padding tomato text-center color-white m-20">Tile 4</div>
+                </div>
+                <hr>
+                <div class="background-tile">
+                    <h3>2.Background Clip</h3>
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20" style="background-clip: border-box;border: 5px dotted black;background-attachment: fixed;">Full Background</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20" style="background-clip: padding-box;border: 5px dotted black;">Padding Background</div>
+                    <div class="float-left w-15 square-padding slateBlue text-center color-white m-20" style="background-clip: content-box;border: 5px dotted black;">Content Background</div>
+                    <div class="float-left w-15 square-padding tomato text-center color-white m-20" style="background-clip: initial;border: 5px dotted black;">Tile 4</div>
+                </div>
+                <div>
+                    <h3>3.Background Image Map Attribut(Click anywhere on link)</h3>
+                    <img src="images/background_shortand_rules.PNG" alt="background-image" usemap="#background">
+                    <map name="background">
+                        <area shape="rect" coords="30 60 250 90" href="https://www.w3schools.com/css/css_background.asp" alt="background-color" target="_blank">
+                        <area shape="rect" coords="30 100 250 130" href="https://www.w3schools.com/css/css_background_image.asp" alt="background-color" target="_blank">
+                        <area shape="rect" coords="30 140 250 170" href="https://www.w3schools.com/css/css_background_repeat.asp" alt="background-color" target="_blank">
+                        <area shape="rect" coords="30 180 250 210" href="https://www.w3schools.com/css/css_background_attachment.asp" alt="background-color" target="_blank">
+                    </map>
+                </div>
+                <br>
+                <hr>
+                <br>
+            </div>
+            <div id="border">
+                <h2>Borders <a href="https://www.w3schools.com/css/css_border.asp" target="_blank">Learn More</a></h2>
+                <div class="background-tile">
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20" style="border: 5px solid black;">Normal border</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20" style="border: 5px dashed black;">Dashed Border</div>
+                    <div class="float-left w-15 square-padding slateBlue text-center color-white m-20" style="border: 5px dotted black;">Dotted Border</div>
+                    <div class="float-left w-15 square-padding tomato text-center color-white m-20" style="border: 5px double black;">Double Border</div>
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20" style="border: 5px ridge black;">Ridge border</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20" style="border: 5px inset black;">Inset Border</div>
+                    <div class="float-left w-15 square-padding slateBlue text-center color-white m-20" style="border: 5px outset black;">Outset Border</div>
+                    <div class="float-left w-15 square-padding tomato text-center color-white m-20" style="border-color: black !important;border-left:5px solid;">Left side Border</div>
+                </div>
+            </div>
+            <hr>
+            <div id="margin-padding">
+                <h2>Margin</h2>
+                <p>margin:0px 5px 10px (3 values)</p>
+                <p>margin-top:0px</p>
+                <p>margin-left,margin-right:5px</p>
+                <p>margin-bottom:10px</p>
+                <dl>
+                    <dt>What is margin-collapse? </dt>
+                    <dd>If <code>h1</code>  tag has 30px margin-bottom and <code>h2</code> next tag has 20 margin-top. Then <i>margin will be collapsed</i> and the result will be <b>30px(which is maximum of 2 values).</b> </dd>
+                </dl>
+                <hr>
+                <h2>Padding</h2>
+                <dl>
+                    <dt>Padding and Element width</dt>
+                    <dd>If both <code>element width and padding</code> is there. <b>both width and padding values will be added</b></dd>
+                </dl>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="outline">
+                <h2>Outline</h2>
+                <dl>
+                    <dt>What is outline</dt>
+                    <dl>Outline is the line drawn outside element border</dl>
+                </dl>
+                <h4>Example:</h4>
+                <div class="background-tile">
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20" style="border: 5px solid black;outline: 15px solid red;">Normal Outline (red color)</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20" style="border: 5px dashed black;outline-offset: 15px;outline: 1px solid red;">offset outline</div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="text-properties">
+
+            </div>
+        </div>
+    </section>
+    <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;" href="#top" >Scroll to top</a></section>
+   <object data="footerlayout.html" class="iframe-footer"></object>
+</body>
+</html>

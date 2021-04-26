@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <title>Basic HTML Elements</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="description" content="basicElements">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body id="top">
+        <object class="iframe-header" data="headerlayout.html"></object>
+        <section class="body-section">
+            <nav class="left-nav-bar">
+                <ul>
+                    <li class="left-nav-header default-highlighted"><h3>Quick Navigation</h3></li>
+                    <li><a href="#tags">HTML tags</a></li>
+                    <li><a href="#list">List</a></li>
+                    <li><a href="#images">Images</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#anchor">Anchor</a></li>
+                    <li><a href="#table">Table</a></li>
+                    <li><a href="#i-frame">iFrame</a></li>
+                </ul>
+            </nav>
+            <div class="content-section">
+                <div id="tags">
+                    <center><h2>HTML tags</h1></center>
+                    <h1>This is H1</h1>
+                    <h2>This is H2</h2>
+                    <h3>This is H3</h3>
+                    <h4>This is H4</h4>
+                    <h5>This is H5</h5>
+                    <h6>This is H6</h6>
+                    <p>This is Para tag</p>
+                    <b>This is bold tag</b><br>
+                    <span>This is Span Tag</span><br>
+                    <big>this is big tag</big><br>
+                    <small>This is Small Tag</small>
+                    <div>This is Div Tag</div>
+                    <header>This is header tag</header>
+                    <footer>This is footer tag</footer>
+                    <kbd>This is Keyboard tag</kbd>&nbsp;
+                    <code>This is code tag</code>&nbsp;
+                    <var>This is var tag</var>&nbsp;
+                    <samp>This is Samp Tag</samp>&nbsp;
+                    <article>This is article Tag</article>
+                    <time>This is time Tag</time>
+                    <div><a href="https://www.w3schools.com/html/html_entities.asp" target="_blank">Special Character Page</a></div>
+                    <div>This is Emoji tag &#128525 &#8377; &nbsp; <a href="https://www.w3schools.com/html/html_emojis.asp">Learn more</a></div>
+                </div>
+                <hr>
+                <div id="list">
+                    <center><h2>Lists</h1></center>
+                    <div>This is Ordered List
+                        <ol>
+                            <li>first item</li>
+                            <li>second item</li>
+                            <li>third item</li>
+                        </ol>
+                    </div>
+                    <hr>
+                    <div>This is unordered list
+                        <ul>
+                            <li>first item</li>
+                            <li>second item</li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div>This is description tag
+                        <dl>
+                            <dt>What is description tag?</dt>
+                            <dd>It is one of the list tag in HTML</dd>
+                            <dt>What are the tags in description tag</dt>
+                            <dd>dl. dt, dd</dd>
+                        </dl>
+                        
+                    </div>
+                </div>
+                <hr>
+                <div id="images" style="background-image: url('https://images.unsplash.com/photo-1491555103944-7c647fd857e6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHw%3D&w=1000&q=80');background-size: cover;">
+                    <center><h2>Images</h1></center>
+                    <h3>HTML Images &nbsp; <a target="_blank" href="https://www.w3schools.com/html/html_images.asp">Learn More</a></h1>
+                    <br>
+                    <img src="https://www.diygenius.com/wp-content/uploads/2013/07/learn-html5.jpg" alt="Html5 Image Tag" height="300px" width="300px"><br>
+                    <h2>Image map <h3>(Click anywhere on image it will redirects to different links)</h3> </h2>
+                    <img src="https://image.shutterstock.com/image-photo/mountains-under-mist-morning-amazing-260nw-1725825019.jpg" alt="Mountain Image" height="300px" width="300px" usemap="#mountain">
+                    <map name="mountain">
+                        <area shape="rect" coords="50 50 250 200" href="https://www.w3schools.com/html/html_images_imagemap.asp" alt="Image Map Path" target="_blank">
+                        <area shape="rect" coords="270 50 300 200" href="https://www.w3schools.com/html/html_images_imagemap.asp" alt="Image Map Path" target="_blank">
+                    </map>
+                </div>
+                <hr>
+                <div id="video">
+                    <center><h2>Video</h1></center>
+                    This is youtube video<br>
+                    <iframe src="https://www.youtube.com/embed/Q33KBiDriJY?controls" ></iframe>
+                </div>
+                <hr>
+                <div id="anchor">
+                    <center><h2>Anchor Tag</h1></center>
+                    Anchor Tag section <br>
+                    <a href="https://www.w3schools.com/html/default.asp" target="_blank">Learn HTML</a>
+                </div>
+                <hr>
+                <table id="table" >
+                    <center><h2>Table</h2></center>
+                    <caption>Create Table &nbsp; <a href="https://www.w3schools.com/html/html_tables.asp" target="_blank">Learn More</a> </caption>
+                    <tr>
+                        <th style="border: 1px solid;">Name</th>
+                        <th style="border: 1px solid;">Age</th>
+                        <th style="border: 1px solid;">Role</th>
+                        <th style="border: 1px solid;">Domains</th>
+                        <th style="border: 1px solid;">Experience</th>
+                    </tr>
+                    <tr aria-rowspan="3">
+                        <td style="border: 1px solid;">Ponniah</td>
+                        <td style="border: 1px solid;">24</td>
+                        <td style="border: 1px solid;">Software Enginner</td>
+                        <td style="border: 1px solid;">HTML,CSS,JS,React,Redux,Node</td>
+                        <td style="border: 1px solid;">2+</td>
+                    </tr>
+                </table>
+                <hr>
+                <div id="i-frame">
+                    <center><h2>iFrame</h2></center>
+                    <iframe src='basicElements.html#image' frameborder="0" height="300" width="100%" name="iframe_a" style="background-color: yellowgreen;"></iframe>
+                    <a href="https://www.w3schools.com/html/html_iframe.asp" target="iframe_a">iframe w3schools Webpage </a>
+                </div>
+            </div>
+        </section>
+        <div id="webchat" role="main"></div>
+        <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.5.0/lib/index.min.js"></script>
+        <script>
+          WebChat.default.init({
+            selector: "#webchat",
+            customData:{"language":"en"},
+            socketUrl: "http://localhost:5005",
+            //socketUrl: "http://f3bc0821fc50.ngrok.io",
+            socketPath: "/socket.io/",
+            title: "Welcome to RASA Chatbot!!!",
+            subtitle: "Interact with bot!!"
+          })
+        </script>
+        <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;" href="#top" >Scroll to top</a></section>
+       <object data="footerlayout.html" class="iframe-footer"></object>
+
+    </body>
+</html>
