@@ -1,0 +1,423 @@
+Contents:
+
+1.SASS
+
+2.JavaScript
+
+3.React
+
+4.Redux
+
+5.React Redux
+
+6.jQuery
+
+7.Bootstrap
+
+8.NodeJs
+
+
+
+1.SASS:
+	Syntactically Awesome Stylesheets
+	
+	CSS Extensions,Prepoecessor
+	
+	reduce time, number of lines, complexity while developing.
+
+	Installation: Using Apps/command Prompt
+
+	$variables- define variables as a global scope
+
+	@import - Import entire css file
+
+	@mixin- Import set of codes
+
+	@extend- Import css properties from one class to another
+
+	Nesting - nest paent ,child class like a tree structure.
+
+2.Javscript:
+
+	Defintion 	- JavaScript is a 
+
+				lightweight 		- small memory footprint, minimalized syntax
+
+				Interpreted		- connect both server side and client side application
+
+				just-in-time compilation- It executing computer code during execution of program (run-time)
+
+				first-inclass-fnction	- functions are passed as arguments or variabes from another function.
+
+			
+			 It is popular scripting language for web pages.
+	
+			 It runs code on client side of web page which is used to define on how webpage behaves based on event occurence.
+
+			 It also used for server scripting language.
+
+
+	Advantages	-Javascript is a 
+
+				single thread		- compiling /executingevent one at a time.
+
+				dynamic programming	- executes program at a run time in browser
+
+				prototype based 	- Which means class are not expilcitly defines but properties get it from another function.
+
+				multi-paradigm`		- JavaScript approaches multiple approach like
+
+
+								oops(Programming)	- defined how data should be, not what we desired.
+
+
+								functional(declarative) - defined what we desires, not how to do
+	
+											  Eg: React Hooks.
+			
+
+	ES5(2009), ES6(2016)
+
+	ES6		- Arrow functions, let, Array.findIndexof(), Javascript classes.
+
+	Events		- load,click,mouseover,submit
+
+	strings		- var x="test". 	x.length, x.indexof(), x.search()
+
+	Array		- var x=['1','2'].  	x.toString(), x.join(), x.splice(), x.find()
+
+	Objects		- var x={a:"1", b:"2"}. this.
+
+	Data Types	- number, string, null, undefined, object
+
+	JS Form Valid	- document.forms['formName']['inputName']
+
+
+3.React:
+
+	JavaScript library which is used fro user interfaces.
+
+	Advantages		- It creates Virtual DOM before enter into browser.
+
+				  It is independent components which can be reused at anywhere.
+
+
+	React ES6		- arrow functions (simple comapre to normal functions)
+
+			  	  let		- block scope (outside loop we can use)
+
+			  	  const		- block scope only
+
+			  	  var		- global scope (using this data types will be assigned based on values in DOM)
+
+
+	
+	Components		- Piece of Code which is independent and reusable.
+
+	
+	ClassComponents		- It is similar to functions which returns HTML code under render function.
+
+				  Contains consturctor, state managemant, lifecycle, event handler.
+
+
+	Functional Components   - It also return HTMl codes.
+
+	
+	Consturctor		- It is method which is used to initialize state/ properties of components.
+		
+				  super()	- Inbuilt functions which is used to get parent porperties/functions(React.component)
+	
+
+	Props			- Props is an argument which is used to pass data betweeen componets as strings/ variables/ objects.
+
+
+	State			- State is property of the components which should be initialized under constructor function.
+
+				  We can change the value of the state by using setState().
+
+
+	render			- It is used to retrun HTML codes.
+
+
+	JSX			- JavaScript XML (JavaScript Extension)
+
+				  Used to render HTL codes in react
+
+
+	LifeCycle		- Phases of cycle which describes when react component executed in DOM.
+
+				  1.Mounting			- It executes while put elements itno DOM.
+
+				  1.1 constuctor()		- Method calls after DOM elemets loaded 
+
+				  1.2 render()
+
+				  1.3 ComponentDidMount()	- Method calls after DOM elemets loaded  
+
+				  1.4 getDerivedStateFromProps()- Method calls after DOM elemets loaded 
+
+								  Helps to change state value from props
+
+								  getDerivedStateFromProps(props,state){name:props.name}
+
+
+				  2.Update			- It executes once state or props values are updates or changed.
+
+			`	  2.1 render()
+
+				  2.2 getDerivedStateFromProps
+
+				  2.3 ComponentDidUpdate()
+
+				  2.4 getSnapshotBeforeUpdate() - It invokes beofre render method.Helps to get PrevProps, PrevState.
+
+								  getSnapShotBeofreUpdate(prevProps,prevState){this.setState({previuospropsvalue:prevProps, previosstatevalue: prevState});
+
+				  2.5 shouldComponentUpdate()	- Return boolean value to decide whether component should update or not.
+
+
+				
+				  3. Unmounting			- It invokes whwnever componet is removed from DOM.
+
+				  3.1 ComponentWillUpdate()
+
+
+	Events			- Events is function which is similar to javaScript but it is executed whenever required event gets trigeerred ( click, load, change, submit)
+
+
+				  It is always looks like a camelCase (onClick)
+
+
+				  <h3 onClick={()=>methodName(this)}>Hi</h3> or <h3 onClick={this.methodName}>Hi</h3>
+
+
+
+	CSS			- We can use CSS for both inline as wel as external style sheets.
+
+
+				  Inline style sheets- <h3 style={{bckgroundColor:"red"}}>Hi</h3>
+
+	
+	SASS			- We can install sass using below commands.
+
+				  npm install node-sass
+
+	Lists and Keys		- Using map methos we can display array in our own format.
+
+				  const number=[1,2,3] 
+				  <ul>{number.map((number)=>{<li>{number}</li>})</ul>
+
+	Forms			- onChange{}, onSubmit{}, value={this.value}, {props/setState:event.target.value}
+
+
+	Advanced Concept	- Hooks				- Declarative/functional components. Without Class we can use state using usestate.
+			
+								- useState  => const [state]=useState(0)
+
+
+								  useEffect(()=>componentDidMount(),ComponentDidUpdate())
+
+
+
+				  Rules of Hooks		- It should be deifned at top level, not inbetween functions.
+	
+	
+				  React API Refernce		- ReactDOM,ReactDOMServer(for node), DOMElements(style), SYntheticEvent(click, hover,submit)
+	
+
+				  
+
+
+4.Redux
+
+	A predictable state container for react apps.
+
+	React Terminology
+
+	1.Actions		- It is an object which acts as an event to change state value
+
+				  const action={type:'event',payload:stateValue}
+
+
+	2.reducer		- It is method which is used to update stateValue .It Looks like AddEventistener
+
+				  const reducer=(stateValue, action)=>{return newState;}
+
+
+	3.Store			- Like Name itself is used to store global state object and reducers
+
+				  const store=Configurestore{reducer:reducerName}; console.log(store.getState(store));
+				  
+
+	4.Dispatch		- It is used to triggering actions whenver we get update from UI. It Hits store with new actions to change newStateValue.
+				  
+				  const dispatchName= store.dispatch{(type:"actionType")}; console.log(store.getState());
+
+
+	5.Selector		- It is used to store each piece of state value.
+
+				  const selectorName= state=>state.value;
+
+
+	6.State			- In Redux, State are read only variable.
+
+				  State value should be immutable(Not changing values).
+
+				  using Spread operator (...objName) we can take copy of exisiting state and update it to new state.
+
+
+
+5.React Redux:
+
+	Advantages:		- It is offical binding of react for reduz and it is maintained by redux team.
+
+				  It is mainly used fr optimized performance and it creates react as good environment.
+
+	Provider		- Provider is used to storeredux data and get it back to react components.
+
+	
+	connectAPI		- It is mainly used to connect react and redux.
+
+
+	2 ways to use connectAPI- mapStatetoProps()
+
+				  mapDispatchtoProps()
+
+
+	mapStatetoProps()	- It is used to connect or extarxt store data from redux to needed components
+
+
+				  It will take entire store value for reach time (store.getData())
+
+				  mapStatetoProps((state, ownProps)=>{state:this.propsValue});
+
+
+	Prerequisites: 		- Reshape data(get requires store data), should be syncronous, use selector functions to run fast and reduces slowness
+
+ 
+	Arguments		- state, ownProps
+
+
+	State			- object which is used to store data to needed components based on props
+
+
+	ownProps		- It is optional method. It is kind of adding unique ID's.
+
+
+	mapDispatchtoProps()	- It is used to dispatch actions to store in redux.
+
+				  mapDispatchtoProps((dispatch)=>{  dispatch:function() })
+
+
+	Two Types of Approach   - Use as a function		- We can customize as we want
+
+				  use as an object		- Easy to initialze directly in objetcs.
+
+
+	function form		- it is mainly used for customized functions based on user actions.
+
+				  conect mapDispatchtoProps=(dispatch)=>{retuen{function()}}
+
+
+	bindActionCreators	- It is used to connect all functions to simplify dispatch actions.
+
+	`			` const bindFunctions= bindActionCreators=()=>{{increment(),decrement()}, dispatch}
+
+				
+
+
+
+6.jQuery:
+
+	Advantages		- It is a JavaScript library, fast, lightweight		
+
+
+	Disadvantages		- In DOM compare to JS it is slow
+
+
+	jQuery Selectors	- $("p"), $(".class"),$('#id"), $("[href]"), $("[target="test"]")
+
+
+	jQuery Events		- Mouse Events			- click, doubleclick(dblClick), mouseover, mouseleave
+
+
+				  Keyboard Events		- keypress, keyup, keydown
+
+				
+				  window events			- load, scroll, resize
+
+
+				  form				- onChange, submit
+
+
+
+
+	jQuery Effects		- hide				- hide(), show(), toggle()
+
+
+				  fade				- fadeIn(), fadeOut(), fadeToggle()
+
+	
+				  slide				- slideIn(), slideOut(), slideToggle()
+
+
+				  animate			- animate({top:15px}) css: fixed | absolute | relative	
+
+
+
+	jQuery DOM		- get				- text(), html('also get child HTML'), val('for input')
+
+
+				  set				- text(), html(), val()
+
+
+				  add(html elements/text)	- append(end of elem), prepend(start of elem), before(), after()	
+
+			
+				  CSS Class			- addClass('many class can add'), removeClass(), toggleClass()
+
+
+				  css				- css('color','red')     css({'color':'red',display':'none'})  
+
+
+
+				  Dimenstions			- width, innerWidth(), outerWidth('upto border') , outerwidth(true) till margin
+
+
+
+
+	jQuery Traversing	- ancestors			- parent, parents, parentsUntil
+
+
+				  descendent			- children, find()
+
+
+				  siblings			- siblings, prev, prevall,prevUntil, next, nextAll, nextUntil
+
+
+				  filter
+
+
+	jQuery AJAX		- load, get, post
+
+
+				  $('ajax').({
+					method:"GET",
+					data:"input",
+					utl:"url",
+					success(function(data){}		  
+				  }}
+
+
+      jQuery Misc		- noConflict 			- $.noconflict()
+
+
+				  filter			- $('#id').filter(function(){ $(this).toggle($(this).text().indexOf('inputValue')) })
+
+
+
+
+	
+
+
+	

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS properties-phase2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cssStyles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <object data="headerlayout.html" class="iframe-header"></object>
+    <section class="body-section">
+        <nav class="left-nav-bar">
+            <ul>
+                <li class="left-nav-header default-highlighted">Quick Navigation</li>
+                <li><a href="#tables">Tables</a></li>
+                <li><a href="#position">Position</a></li>
+                <li><a href="#overflow">Overflow</a></li>
+                <li><a href="#float">Float</a></li>
+                <li><a href="#text-align">Text Align</a></li>
+                <li><a href="#combinators">Combinators</a></li>
+                <li><a href="#pseudo-elements">Pesudo Elements & Classes</a></li>
+                <li><a href="#opacity">Opacity</a></li>
+                <li><a href="#image-gallery">Image Gallery</a></li>
+                <li><a href="#attribute">Attribute</a></li>
+                <li><a href="#counters">Counters</a></li>
+                <li><a href="#layout">Website Layout</a></li>
+                <li><a href="#units">Units</a></li>
+                <li><a href="#specificity">Specificity</a></li>
+            </ul>
+        </nav>
+        <div class="content-section" style="background: white;">
+            <h1 class="text-center">CSS Properties- Phase 2</h1>
+            <div id="tables">
+                <h2>Tables</h2>
+                <table class="default-table">
+                    <caption> Table- Without Border</caption>
+                    <thead>
+                        <th>Emp ID</th>
+                        <th>Emp Name</th>
+                        <th>Role</th>
+                        <th>Project</th>
+                    </thead>
+                    <tr>
+                        <td>2851</td>
+                        <td>Ponniah</td>
+                        <td>Software Engineer</td>
+                        <td>Windstream.com Portal</td>
+                    </tr>
+                    <tr>
+                        <td>2851</td>
+                        <td>Ponniah</td>
+                        <td>Software Engineer</td>
+                        <td>Windstream.com Portal</td>
+                    </tr>
+                    <tr>
+                        <td>2851</td>
+                        <td>Ponniah</td>
+                        <td>Software Engineer</td>
+                        <td>Windstream.com Portal</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <table class="default-table-border">
+                    <caption> Table- With Border</caption>
+                    <thead class="default-table-border-head">
+                        <th>Emp ID</th>
+                        <th>Emp Name</th>
+                        <th>Role</th>
+                        <th>Project</th>
+                    </thead>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data" >Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data">Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data">Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <table class="default-table-border-collapse">
+                    <caption> Table- With Border collapse</caption>
+                    <thead class="default-table-border-head">
+                        <th>Emp ID</th>
+                        <th>Emp Name</th>
+                        <th>Role</th>
+                        <th>Project</th>
+                    </thead>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data" >Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data">Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data">Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <table class="default-table-border-styles">
+                    <caption> Table- With Styles</caption>
+                    <thead class="default-table-border-head">
+                        <th>Emp ID</th>
+                        <th>Emp Name</th>
+                        <th>Role</th>
+                        <th>Project</th>
+                    </thead>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data" >Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data">Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data">Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                </table>
+                <table class="default-table-border-bottom-styles">
+                    <caption> Table- With Border Bottom Styles</caption>
+                    <thead class="default-table-border-head">
+                        <th>Emp ID</th>
+                        <th>Emp Name</th>
+                        <th>Role</th>
+                        <th>Project</th>
+                    </thead>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data" >Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data">Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                    <tr class="default-table-row">
+                        <td class="default-table-data">2851</td>
+                        <td class="default-table-data">Ponniah</td>
+                        <td class="default-table-data">Software Engineer</td>
+                        <td class="default-table-data">Windstream.com Portal</td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <div class="default-table-color-scroll-styles-parent">
+                    <table class="default-table-color-scroll-styles">
+                        <caption> Table- With Border Bottom Styles</caption>
+                        <thead class="default-table-border-head">
+                            <th>Emp ID</th>
+                            <th>Emp Name</th>
+                            <th>Role</th>
+                            <th>Project</th>
+                        </thead>
+                        <tr class="default-table-row">
+                            <td class="default-table-data">2851</td>
+                            <td class="default-table-data" >Ponniah</td>
+                            <td class="default-table-data">Software Engineer</td>
+                            <td class="default-table-data">Windstream.com Portal</td>
+                        </tr>
+                        <tr class="default-table-row">
+                            <td class="default-table-data">2851</td>
+                            <td class="default-table-data">Ponniah</td>
+                            <td class="default-table-data">Software Engineer</td>
+                            <td class="default-table-data">Windstream.com Portal</td>
+                        </tr>
+                        <tr class="default-table-row">
+                            <td class="default-table-data">2851</td>
+                            <td class="default-table-data">Ponniah</td>
+                            <td class="default-table-data">Software Engineer</td>
+                            <td class="default-table-data">Windstream.com Portal</td>
+                        </tr>
+                        <tr class="default-table-row">
+                            <td class="default-table-data">2851</td>
+                            <td class="default-table-data">Ponniah</td>
+                            <td class="default-table-data">Software Engineer</td>
+                            <td class="default-table-data">Windstream.com Portal</td>
+                        </tr>
+                        <tr class="default-table-row">
+                            <td class="default-table-data">2851</td>
+                            <td class="default-table-data">Ponniah</td>
+                            <td class="default-table-data">Software Engineer</td>
+                            <td class="default-table-data">Windstream.com Portal</td>
+                        </tr>
+                        <tr class="default-table-row">
+                            <td class="default-table-data">2851</td>
+                            <td class="default-table-data">Ponniah</td>
+                            <td class="default-table-data">Software Engineer</td>
+                            <td class="default-table-data">Windstream.com Portal</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <div id="position">
+                <h2>CSS Position</h2>
+                <ul style="list-style-type: circle;list-style-position: inside;">Types of CSS Positions
+                    <li>Static</li>
+                    <li>Sticky</li>
+                    <li>Absolute</li>
+                    <li>Relative</li>
+                    <li>Fixed</li>
+                </ul>
+                <div style="position: relative;">
+                    <img src="images/dream_place.jpg" alt="dream_place" style="opacity: 0.3;width: 100%;">
+                    <p class="border-bright absolute-top-left">Absolute Top left</p>
+                    <p class="border-bright absolute-top-right">Absolute Top Right</p>
+                    <p class="absolute-center" style="font-weight: bolder;">Absolute center</p>
+                    <p class="border-bright absolute-bottom-left">Absolute bottom left</p>
+                    <p class="border-bright absolute-bottom-right">Absolute bottom right</p>
+                </div>
+            </div>
+            <hr>
+            <div id="overflow">
+                <h2>Overflow</h2>
+                <dl>
+                    <dt>Types of overflow properties</dt>
+                    <dd><kbd>overlow:auto|hidden|scroll|visible(default)|overflow-x|overflow-y</kbd></dd>
+                </dl>
+            </div>
+            <hr>
+            <div id="float">
+                <h2>Float Examples</h2>&nbsp; <a href="https://www.w3schools.com/css/css_float_examples.asp" target="_blank">Learn More...</a>
+                <div>
+                    <h3 class="text-center">Float Boxes</h3>
+                    <div class="float-parent">
+                        <div class="float box">Box 1</div>
+                        <div class="float box">Box 2</div>
+                        <div class="float box">Box 3</div>
+                    </div>
+                    <br>
+                    <h3 class="text-center">Float Boxes</h3>
+                    <div class="img-float-parent">
+                        <img class="float image-float" src="images/dream_place.jpg"></img>
+                        <img class="float image-float" src="images/dream_place_2.jpg"></img> 
+                        <img class="float image-float" src="images/dream_place_3.jpg"></img>
+                    </div>
+
+                </div>
+            </div>  
+            <hr>
+            <div id="text-align">
+                <h2 style="display: inline-block;">Text-align</h2> &nbsp;<a href="https://www.w3schools.com/css/css_align.asp" target="_blank">Learn More...</a>
+                <div style="border: 3px solid green;text-align: center;">text-align:center</div>
+                <br>
+                <div style="border: 3px solid green;padding: 10px;margin: auto;max-width: 100%;">Horizontally center align using <kbd>margin:auto</kbd> </div>
+                <br>
+                <div style="border: 3px solid green;padding: 10px;margin: auto;max-width: 100%; text-align: center;">Horizontally center align using <kbd>margin:auto;text-align:center</kbd> </div>
+                <br>
+                <div class="center-align-absolute-parent" style="border: 3px solid green;"><p class="center-align-absolute">Center aligned Items using <kbd>position:absolute;transform:transalate(-50%,-50%)</kbd></p></div>
+                <br>
+                <div class="center-align-flex" style="border: 3px solid green;"><p>Center aligned items using <kbd>display:flex;justify-content:center;align-items:center;</kbd></p></div>
+            
+            </div>
+            <hr>
+            <div id="combinators">
+                <h2 style="display: inline;">Combinators</h2>&nbsp; <a href="https://www.w3schools.com/css/css_combinators.asp">Learn More...</a>
+                <ul style="list-style-type: circle;">
+                    <li>Child Selectors (>)</li>
+                    <li>Adjacent Sibiling Selectors (+)</li>
+                    <li>general Sibiling Selectors (~ where same element after particular element <kbd>div~p</kbd> )</li>
+                    <li>Descendant Selector (space)</li>
+                </ul>
+            </div>
+            <hr>
+            <div id="pseudo-elements">
+                <h2>Pseudo Elements & Pseudo Classes</h2>
+                <h3>Pseudo Elements</h3>
+                <ul style="list-style-type: square;">
+                    <li>::first-line</li>
+                    <li>::first-letter</li>
+                    <li>::before</li>
+                    <li>::after</li>
+                    <li>::marker</li>
+                    <li>::selection</li>
+                </ul>
+                <br>
+                <h3>Pesudo Classes</h3>
+                <ul>
+                    <li>:active</li>
+                    <li>:hover</li>
+                    <li>:visited</li>
+                    <li>:first-child</li>
+                    <li>:nth-child</li>
+                    <li>:nth-type</li>
+                    <li>:checked</li>
+                    <li>:empty</li>
+                    <li>:required</li>
+                </ul>
+                <dl>
+                    <dt>What is ::marker pseudo-elements?</dt>
+                    <dd>we can add css styles for list items</dd>
+                    <dd>Examples
+                        <ul class="marker-elements">
+                        <li>item 1</li>
+                        <li>item 2</li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>What is ::selection pseudo-elements?</dt>
+                    <dd>selection pseudo-elements apply styles whenever text is selected</dd>
+                    <dd class="selection-elements">Example: Select any text in this example</dd>
+                </dl>
+                <img src="images/css_pseudo_elements.PNG" alt="Pseudo Elemnts" height="500" width="1000">
+            </div>
+            <hr>
+            <div id="opacity">
+                <h2 style="display: inline;">Opacity</h2>&nbsp;<a href="https://www.w3schools.com/css/css_image_transparency.asp" target="_blank">Learn More...</a>
+                <p>Hovering Image you will see opacity property</p>
+                <div class="img-float-parent">
+                    <div class="float image-float opacity-parent" style="background: url('images/dream_place.jpg');position: relative;"><div class="center-align-absolute opacity-child">Img 1</div></div>
+                    <div class="float image-float opacity-parent" style="background: url('images/dream_place_2.jpg');position: relative;" ><div class="center-align-absolute opacity-child">Img 2</div></div> 
+                    <div class="float image-float opacity-parent" style="background: url('images/dream_place_3.jpg');position: relative;" ><div class="center-align-absolute opacity-child">Img 3</div></div>
+                </div>
+            </div>
+            <hr>
+            <div id="image-gallery">
+                <h2>Responsive Image Gallery</h2>
+                <div class="row img-float-parent">
+                    <div class="column-4 float hover-effect">
+                        <a href="images/dream_salary.jpg" target="_blank" rel="noopener noreferrer"><img style="height: 400px;" src="images/dream_salary.jpg" alt="dream salary"></a>
+                        <div style="padding: 15px; text-align: center;background: lightgrey;">Dream Salary</div>
+                    </div>
+                    <div class="column-4 float hover-effect">
+                        <a href="images/dream_place.jpg" target="_blank" rel="noopener noreferrer"><img style="height: 400px;" src="images/dream_place.jpg" alt="dream place 1"></a>
+                        <div style="padding: 15px; text-align: center;background: lightgrey;">Dream Place 1</div>
+                    </div>
+                    <div class="column-4 float hover-effect">
+                        <a href="images/dream_place_2.jpg" target="_blank" rel="noopener noreferrer"><img style="height: 400px;"src="images/dream_place_2.jpg" alt=" dream_place_2"></a>
+                        <div style="padding: 15px; text-align: center; background: lightgrey;">Dream Place 2</div>
+                    </div>
+                    <div class="column-4 float hover-effect">
+                        <a href="images/dream_place_3.jpg" target="_blank" rel="noopener noreferrer"><img style="height: 400px;" src="images/dream_place_3.jpg" alt="dream_place_3"></a>
+                        <div style="padding: 15px; text-align: center; background: lightgrey;">Dream Place 3</div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="attribute">
+                <h2>Attibute properties</h2>
+                <dl>
+                    <dt>What is attribute Properties</dt>
+                    <dd>
+                        [Properties]-[href| id| class|target|Prop]
+                    </dd>
+                </dl>
+                <ul>
+                    <li>[class]</li>
+                    <li>[class="classname"]</li>
+                    <li><b>[class~="classname"]</b></li>
+                    <li>[class^="classname"]</li>
+                    <li>[class|="classname"]</li>
+                    <li>[class$="classname"]</li>
+                    <li><b>[class*="classname"]</b></li>
+                </ul>
+            </div>
+            <hr>
+            <div id="counters">
+                <h2 style="display: inline-block;">Counters</h2>&nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_counters.asp">Learn More...</a>
+                <ol>
+                    <li>Web Developer Flow</li>
+                    <ol>
+                        <li>Front End
+                            <ol>
+                                <li>HTML,CSS</li>
+                                <li>Javascript</li>
+                                <li>React</li>
+                            </ol>
+                        </li>
+                        <li>Back End
+                            <ol>
+                                <li>Node JS</li>
+                                <li>ASP.Net</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </ol>
+            </div>
+            <hr>
+            <div id="layout">
+                <header>
+                    <div class="title-container">
+                        <h2 class="text-center">My New Website</h2>
+                        <nav class="layout-navBar">
+                            <ul>
+                                <li>Link1</li>
+                                <li>Link2</li>
+                                <li>Link3</li>
+                                <li style="float: right;">Link4</li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <nav></nav>
+                </header>
+                <div class="row float-parent">
+                    <div class="column-75 float">
+                        <div class="card">
+                            <h3 class="text-center">Section 1</h3>
+                            <img src="images/dream_salary.jpg" alt="dream_salary">
+                            <dd>
+                                <dt>SubHead</dt>
+                                <dd>This is test data to verify hw it working in browser.</dd>
+                            </dd>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-center">Section 2</h3>
+                            <img src="images/dream_place_2.jpg" alt="dream_place">
+                            <dl>
+                                <dt>SubHead</dt>
+                                <dd>This is also test data , to verify how its working in vbrowser</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="column-4 float">
+                        <div class="card">
+                            <h3 class="text-center">Code Skills</h3>
+                            <ul style="list-style-position: inside;list-style-type: square;">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>Javascript</li>
+                                <li>React</li>
+                                <li>NodeJS</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3 class="text-center">Contact us</h3>
+                            <ul class="layout-contact-us" style="list-style-type: none;">
+                                <li><a href="https://www.facebook.com/ponniah.k" target="_blank"><i class="bi bi-facebook" style="font-size:24px;"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/ponniah-kothandaraman-948732156/" target="_blank"><i class="bi bi-linkedin" style="font-size:24px;"></i></a></li>
+                                <li><a href="https://twitter.com/ponniah96" target="_blank"><i class="bi bi-twitter" style="font-size:24px;color: dodgerblue;"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <div class="footer-container">
+                        <h2 class="text-center">Footer</h2>
+                    </div>
+                </footer>
+            </div>
+            <hr>
+            <div id="units" style="background: lightgrey;padding: 20px;">
+                <h2>CSS units</h2>
+                <ol>Types of CSS units
+                    <li>Absolute Units</li>
+                    <li>Relative Units</li>
+                </ol>
+                <div class="row float-parent" >
+                    <div class="column-2 float" >
+                        <div class="card"style="padding:20px 50px">
+                            <h3 class="text-center">Absolute Units</h3>
+                            <dl>
+                                <dt>What is absolute units?</dt>
+                                <dd>Units value <b>doesn't change</b> based on screen resolution</dd>
+                            </dl>
+                            <ul style="list-style-type: square;list-style-position: inside;">Absolute Units List
+                                <li>cm(centimeter <b><kbd>46px</kbd></b>)</li>
+                                <li>mm(millimeter <b><kbd>4.6px</kbd></b> )</li>
+                                <li>in(inch <b><kbd>96px</kbd></b> )</li>
+                                <li>pt(point <b><kbd>1.33px</kbd></b> )</li>
+                                <li>pc(picas <b><kbd>1.33*12=16px</kbd></b> )</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column-2 float " >
+                        <div class="card" style="padding:20px 50px">
+                            <h3 class="text-center">Absolute Units</h3>
+                            <dl>
+                                <dt>What is absolute units?</dt>
+                                <dd>Units value <b>doesn't change</b> based on screen resolution</dd>
+                            </dl>
+                            <ul style="list-style-type: square;list-style-position: inside;">Relative Units List
+                                <li>em(element)</li>
+                                <li>rem(root element)</li>
+                                <li>vw(viewport width)</li>
+                                <li>vh(viewport height)</li>
+                                <li>%(relative to parent element)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="specificity">
+                <h2>CSS Specificity</h2>
+                <img src="images/css-specificity.PNG" alt="Css_specificity">
+            </div>
+        </div>
+    </section>
+    <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;font-size: 32px;" href="#top" ><i class="bi bi-arrow-up-circle-fill"></i></a></section>
+    <object data="footerlayout.html" class="iframe-footer"></object>
+</body>
+</html>

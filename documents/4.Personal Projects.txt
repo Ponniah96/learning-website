@@ -1,0 +1,50 @@
+1. Video Calling:
+
+	Description		- Developing Video Calling Websites using WebRTC Peerjs and Socket.io and deployed it using Heroku app.
+
+
+	TechStack		- Node Express, Peerjs, Socket.io, ejs, css, js. 
+
+
+	Working procedure	- Whenever host is connected he got specific ROOMID. By using this ROMID, he can connect numbers of users as we want.
+
+
+				  Whwn user joins can can connect audio, camera for real time communications.
+
+
+	Advantages		- Connect many users in 1 group call.
+
+				  Connect different groups simultaneously.
+
+				  Connect Call Irrespective of locations.
+
+				  Free of Cost.
+
+
+
+2. ChatBot Appications using RASA
+
+	Description		- Developing Conversational based framework using RASA .
+
+
+	TechStack		- Anaconda, RASA, python.
+
+
+	Working Procedure	- Based on user Intents, we already predeined user stoies it will get response either staic or custom responses.
+
+				  We created resposne for text, buttons, custom actions using python.
+
+				  We are doing POC for coonversation bot, entity extraction,custom actions for covid response.
+
+
+	Adavantages		- Open source
+
+				  RASA based on AI it can identity user intents.
+
+				  It is future for every website.
+
+			  
+
+				
+
+

@@ -1,0 +1,41 @@
+
+Gesture			- Hi this is Ponniah. 
+
+
+Company Name		- I'm working on Prdoapt solutions.
+
+
+Project Name		- My current project is to develop ecommerce websites for windstream enterprises.
+
+
+HTML,CSS, SASS		- Develeoped Web pages,forms, icons,modules.
+
+
+JavaScript, jQuery	- Event Handlers, DOM Manipulations, Effects, Traversing, filter, AJAX, json.
+
+
+
+React			- Integrate timout modue into our application.
+
+			  Working on components, lifecycles.
+
+			  Conditional Re-rendering based on state, props value.
+
+
+
+Kentico CMS		- develop web parts,forms, transformations.
+
+
+
+Testing			- unit, impact, sanity once we developed fixing an issue.
+
+
+
+Chrome dev tools 	- console, ,network, sources, react, redux tools for debugging.
+
+
+
+Deployment Process	- Git, Heroku, CMS, Azure& Kudu (understood process).
+
+
+Basic Experience	- Redux, Node express, mvc,RASA, mssql, kentico.

@@ -1,0 +1,181 @@
+.site-theme{
+    background-color: #3aafa9;
+}
+
+
+.flex-header{
+    width: 100%;
+    text-align: center;
+    color:white;
+    padding: 50px 0px;
+}
+
+.dark-flex-theme{
+    background-color: #2b7a78;
+}
+
+.flex-navbar{
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+    flex-wrap: wrap;
+}
+
+
+
+@media(max-width:768px){
+    .flex-navbar{
+        flex-direction: column;
+    }
+}
+
+.black-theme{
+    background-color: #17252a;
+    color: white;
+}
+
+.flex-navbar-link{
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+.flex-navbar-link:hover{
+    background-color: white;
+    color: #17252a;
+}
+
+@media(max-width:768px){
+    .flex-navbar-link{
+        text-align: center;
+        margin-left: 0px !important;
+    }
+}
+
+.flex-body{
+    display: flex;
+}
+
+.flex-left-layout{
+    flex: 30%;
+}
+
+.flex-right-layout{
+    flex: 70%;
+    height: 700px;
+    padding: 20px;
+}
+
+@media(max-width:768px){
+    .flex-body{
+        flex-wrap: wrap;
+    }
+    .flex-left-layout,
+    .flex-right-layout{
+        flex:100%;
+    }
+}
+
+.flex-layout-left-content{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+.flex-layout-profile-picture{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin: 10px auto 0px;
+}
+
+.flex-layout-left-content-header{
+    font-size: 32px;
+}
+
+.flex-layout-left-content-subheader1{
+    font-size:24px
+}
+
+.flex-layout-left-content-subheader2{
+    font-size: 20px;
+}
+
+.flex-layout-left-content-header,
+.flex-layout-left-content-subheader1,
+.flex-layout-left-content-subheader2{
+    margin-bottom: 0px;
+}
+
+.flex-layout-left-links-description{
+    font-size: 18px;
+    flex-basis: 40%;
+}
+
+@media(max-width:768px)
+{
+    .flex-layout-left-links-description{
+        flex-basis: 25%;
+    }
+}
+
+
+
+.techstacks .flex-navbar-link a{
+    color: white;
+}
+
+
+
+.techstacks .flex-navbar-link:hover a{
+    color: #17252a;
+}
+
+.st0{
+    fill-rule:evenodd;
+    clip-rule:evenodd;
+    fill:white;
+}
+
+.techstacks .flex-navbar-link:hover .st0{
+    fill: #17252a;
+}
+
+.cls-1,.cls-2{
+    fill:white;
+}
+
+.cls-2{
+    fill-rule:evenodd;
+}
+
+.techstacks .flex-navbar-link:hover .cls-1{
+    fill: #17252a;
+}
+
+.techstacks .flex-navbar-link:hover .cls-2{
+    fill: #17252a;
+}
+
+.st0-text{
+    fill:#17252a ;
+}
+.techstacks .flex-navbar-link:hover .st0-text{
+    fill: white;
+}
+
+.svg-icons{
+    height: 30px;
+    width: 30px;
+}
+
+.svg-icons path{
+    fill:  white;
+}
+
+.techstacks .flex-navbar-link:hover .svg-icons path{
+    fill:  #17252a;
+}

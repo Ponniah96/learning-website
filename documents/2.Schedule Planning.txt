@@ -1,0 +1,47 @@
+On 20th may 2021,
+	I'm going to attend sabba technology interview at 5PM-6PM.
+	
+	Now time is 12:45PM
+
+Time to Prepare for interview - 3 hrs
+
+1st hour:
+
+0-15 min - HTML			: Study my HTML code and elements behaviour and study basic html questions
+
+15-30 min - CSS, SASS		: Study CSSS code and CSS related basic questions. Learn SASS from W3 Schools.
+
+30-45 min - Javascript		: Learn Basic Javscript (event hadlers,objects,array,ajax) and interview questions.
+
+45-60 min - React		: Learn our react code(state, props,components,jsx,lifecycle,hooks) and interview questions.
+
+
+2nd hour:
+
+0-15 min: Video Calling App	: Understand code flow. study interview questions for node express, socket.io, peerjs webrtc.
+
+15-30 min: MVC Application	: Understand code flow. Learn basic ASP.net,SSMS, dapper orm and study asp.net mvc interview questions
+
+30-45 min: RASA application	: Understand code flow. understand basic questions of RASA,NLP and study interview questions.
+
+45-60 min: .com application	: Understand site flow. know react versions, npm version all this process.
+
+
+3rd hour: 
+
+0-15 min: Learn left out things : If you missed out any of the technical stack learn (react advantages, es6 vs functional,etc..)
+
+15-30min: Read resume thorougly : Read resume thoroughly if i missed out any thing on skills.
+
+30-45min: Communication		: Practice tell me about yourself and project explaination.
+
+45-60 min:things ready		: Setup room, dress, environments.
+
+
+4:45PM
+
+Do meditation.
+
+
+Good luck
+	

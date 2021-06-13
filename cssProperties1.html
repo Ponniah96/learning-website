@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS properties-phase 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cssStyles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Ubuntu">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/74ec50ab0f.js" crossorigin="anonymous"></script>
+</head>
+<body id="top">
+    <object data="headerlayout.html" class="iframe-header"></object>
+    <section class="body-section">
+        <nav class="left-nav-bar">
+            <ul>
+                <li class="left-nav-header default-highlighted">Quick Navigation</li>
+                <li><a href="#colors">Colors</a></li>
+                <li><a href="#background">Background</a></li>
+                <li><a href="#border">Border</a></li>
+                <li><a href="#margin-padding">Margin & padding</a></li>
+                <li><a href="#outline">Outline</a></li>
+                <li><a href="#text-properties">Text properties</a></li>
+                <li><a href="#font-family">Font Family</a></li>
+                <li><a href="#icons">Icons</a></li>
+                <li><a href="#links">Links</a></li>
+                <li><a href="#lists">Lists</a></li>
+            </ul>
+        </nav>
+        <div class="content-section">
+            <center><h1>CSS Properties- Phase 1</h1></center>
+            <div id="colors"><br>
+                <div class="DodgerBlue">DodgerBlue</div>
+                <div class="Mediumseagreen">MediumSeaGreen</div>
+                <div class="slateBlue">slateBlue</div>
+                <div class="tomato">Tomato Orange</div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="background"><br>
+                <h2>Background</h2>
+                <div class="background-tile">
+                    <h3>1.Color-Background</h3>
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20">Tile 1</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20">Tile 2</div>
+                    <div class="float-left w-15 square-padding slateBlue text-center color-white m-20">Tile 3</div>
+                    <div class="float-left w-15 square-padding tomato text-center color-white m-20">Tile 4</div>
+                </div>
+                <hr>
+                <div class="background-tile">
+                    <h3>2.Background Clip</h3>
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20" style="background-clip: border-box;border: 5px dotted black;background-attachment: fixed;">Full Background</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20" style="background-clip: padding-box;border: 5px dotted black;">Padding Background</div>
+                    <div class="float-left w-15 square-padding slateBlue text-center color-white m-20" style="background-clip: content-box;border: 5px dotted black;">Content Background</div>
+                    <div class="float-left w-15 square-padding tomato text-center color-white m-20" style="background-clip: initial;border: 5px dotted black;">Tile 4</div>
+                </div>
+                <div>
+                    <h3>3.Background Image Map Attribut(Click anywhere on link)</h3>
+                    <img src="images/background_shortand_rules.PNG" alt="background-image" usemap="#background">
+                    <map name="background">
+                        <area shape="rect" coords="30 60 250 90" href="https://www.w3schools.com/css/css_background.asp" alt="background-color" target="_blank">
+                        <area shape="rect" coords="30 100 250 130" href="https://www.w3schools.com/css/css_background_image.asp" alt="background-color" target="_blank">
+                        <area shape="rect" coords="30 140 250 170" href="https://www.w3schools.com/css/css_background_repeat.asp" alt="background-color" target="_blank">
+                        <area shape="rect" coords="30 180 250 210" href="https://www.w3schools.com/css/css_background_attachment.asp" alt="background-color" target="_blank">
+                    </map>
+                </div>
+                <br>
+                <hr>
+                <br>
+            </div>
+            <div id="border">
+                <h2>Borders <a href="https://www.w3schools.com/css/css_border.asp" target="_blank">Learn More</a></h2>
+                <div class="background-tile">
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20" style="border: 5px solid black;">Normal border</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20" style="border: 5px dashed black;">Dashed Border</div>
+                    <div class="float-left w-15 square-padding slateBlue text-center color-white m-20" style="border: 5px dotted black;">Dotted Border</div>
+                    <div class="float-left w-15 square-padding tomato text-center color-white m-20" style="border: 5px double black;">Double Border</div>
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20" style="border: 5px ridge black;">Ridge border</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20" style="border: 5px inset black;">Inset Border</div>
+                    <div class="float-left w-15 square-padding slateBlue text-center color-white m-20" style="border: 5px outset black;">Outset Border</div>
+                    <div class="float-left w-15 square-padding tomato text-center color-white m-20" style="border-color: black !important;border-left:5px solid;">Left side Border</div>
+                </div>
+            </div>
+            <hr>
+            <div id="margin-padding">
+                <h2>Margin</h2>
+                <p>margin:0px 5px 10px (3 values)</p>
+                <p>margin-top:0px</p>
+                <p>margin-left,margin-right:5px</p>
+                <p>margin-bottom:10px</p>
+                <dl>
+                    <dt>What is margin-collapse? </dt>
+                    <dd>If <code>h1</code>  tag has 30px margin-bottom and <code>h2</code> next tag has 20 margin-top. Then <i>margin will be collapsed</i> and the result will be <b>30px(which is maximum of 2 values).</b> </dd>
+                </dl>
+                <hr>
+                <h2>Padding</h2>
+                <dl>
+                    <dt>Padding and Element width</dt>
+                    <dd>If both <code>element width and padding</code> is there. <b>both width and padding values will be added</b></dd>
+                </dl>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="outline">
+                <h2>Outline</h2>
+                <dl>
+                    <dt>What is outline</dt>
+                    <dl>Outline is the line drawn outside element border</dl>
+                </dl>
+                <h4>Example:</h4>
+                <div class="background-tile">
+                    <div class="float-left w-15 square-padding Mediumseagreen text-center color-white m-20" style="border: 5px solid black;outline: 15px solid red;">Normal Outline (red color)</div>
+                    <div class="float-left w-15 square-padding DodgerBlue text-center color-white m-20" style="border: 5px dashed black;outline-offset: 15px;outline: 1px solid red;">offset outline</div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="text-properties">
+                <dl>
+                    <dt>Text Properties</dt>
+                    <dd style="color: red;background-color: yellowgreen;">1.Text Color</dd>
+                    <dd >2.<p style="text-align: left;">Text(Left Align)</p> <p style="text-align: center;">Alignment(Center Align)</p> <p style="text-align: right;">Properties(Right Align)</p></dd>
+                    <dd>3.<p style="text-decoration: overline;display: inline-block;">Text(Overline)</p> &nbsp;&nbsp;<p style="text-decoration: line-through;display: inline-block;">Decoration(Line Through)</p> </dd>
+                    <dd>4. <p style="text-transform: uppercase;display: inline-block;">Text(uppercase)</p>&nbsp;&nbsp;<p style="text-transform: lowercase;display: inline-block;">Transformation(lowercase)</p>&nbsp;&nbsp;<p style="text-transform: capitalize;display: inline-block;">Properties(captilaise)</p></dd>
+                    <dd style="text-indent: 50px;letter-spacing: 2px; word-spacing: 3px;line-height: 1.8;">5.Text Spacing properties (text-indent,letter-spacing,wod-spacing,Line-height)</dd>
+                    <dd style="text-shadow: 2px 2px 2px red;">6.Text Shadow</dd>
+                </dl>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="font-family">
+                <h2>Font Family</h2>
+                <ol>
+                    <li>Sans Serif
+                        <dl>
+                            <dt><p style="font-family:Calibri; display: inline-block;">calibri</p>&nbsp;, &nbsp;<p style="font-family: Arial;display: inline-block;">Arial</p> </dt>
+                        </dl>
+                    </li>
+                    <li>Serif
+                        <dl>
+                            <dt><p style="font-family:'Times New Roman';display: inline-block;">Times New Roman</p>&nbsp;, &nbsp;<p style="font-family: Georgia;display: inline-block;">Georgia</p> </dt>
+                        </dl>
+                    </li>
+                    <li>Monospace
+                        <dl>
+                            <dt><p style="font-family:Courier New;display: inline-block;">Courier New</p>&nbsp;,&nbsp;<p style="font-family: Lucida Console;display: inline-block;">Lucida Console</p> </dt>
+                        </dl>
+                    </li>
+                    <li>Cursive
+                        <dl>
+                            <dt><p style="font-family:Brush Script MT;display: inline-block;">Brush Script MS</p>&nbsp;,&nbsp;<p style="font-family: Lucida Handwriting;display: inline-block;">Lucida handwriting</p> </dt>
+                        </dl>
+                    </li>
+                    <li>Fantasy
+                        <dl>
+                            <dt><p style="font-family:cooperate;display: inline-block;">Cooperate</p>&nbsp;,&nbsp;<p style="font-family: papyrus;display: inline-block;">Papyrus</p> </dt>
+                        </dl>
+                    </li>
+                </ol>
+                <hr>
+                <h3>Font Style</h2>
+                <ul>
+                    <li style="font-style: normal;">Normal</li>
+                    <li style="font-style: italic;">Italic</li>
+                    <li style="font-style: oblique;">Oblique</li>
+                </ul>
+                <hr>
+                <h3>FOnt variant</h3>
+                <ul>
+                    <li style="font-variant: normal;">Normal Font variant</li>
+                    <li style="font-variant: small-caps;">Small Caps Font Variant</li>
+                </ul>
+                <h3>Google Fonts</h3>
+                <ul>
+                    <li class="google-font-ubuntu">Ubuntu</li>
+                    <li class="google-font-sofia">Sofia</li>
+                </ul>
+                <hr>
+                <h3>Font Shorthand</h3>
+                <div>font:&nbsp;<span style="font-style: oblique;">font-style</span>,<span style="font-variant: small-caps;">font variant</span>,<span style="font-weight: bold;">font weight</span>,<span style="font-size: 2vw;">font size(Responsive size)</span>,<span class="google-font-sofia">Goodgle font</span></div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id='icons'>
+                <h2 class="text-center">Icons </h2>
+                <dl>
+                    <dt>1.Bootstrap icons &nbsp;<a href="https://icons.getbootstrap.com/" target="_blank">(Learn More...)</a></dt>
+                    <dd><i class="bi bi-facebook" style="font-size: 32px; color: blue;"></i>&nbsp;,&nbsp;<i class="bi bi-youtube" style="font-size: 32px; color: red;"></i>&nbsp;,&nbsp;<i class="bi bi-twitter" style="font-size: 32px; color: blue;"></i></dd>
+                    <br>
+                    <dt>2.Google Icons &nbsp;<a href="https://fonts.google.com/icons" target="_blank">(Learn More...)</a></dt>
+                    <dd><i class="material-icons" style="font-size: 32px; color: black;">fingerprint</i>&nbsp;,&nbsp;<i class="material-icons" style="font-size: 32px; color: green;">mood</i>&nbsp;,&nbsp;<i class="material-icons" style="font-size: 32px; color: orange;">shopping_cart</i></dd>
+                    <br>
+                    <dt>3.Font Awesome Icons&nbsp;<a href="https://fontawesome.com/kits/74ec50ab0f/use?welcome=yes" target="_blank">(Learn More...)</a></dt>
+                    <dd><i class="fas fa-circle-notch fs-spin"></i>&nbsp;,&nbsp;<i class="fas fa-sync-alt fa-spin"></i> &nbsp;, &nbsp;<i class="fas fa-spinner fa-pulse"></i></dd>
+                </dl>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="links">
+                <h2>Links</h2>
+                <div><a href="https://www.w3schools.com/css/css_link.asp" target="_blank" class="button-link" style="font-size: 20px;">Link1</a>&nbsp; &nbsp;<a href="https://www.w3schools.com/css/css_link.asp" target='_blank'class="button-background-white" >Link2</a>&nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_link.asp" target="_blank" class="button-background-color">Link3</a></div>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div id="lists">
+                <h2>Lists</h2>
+                <h4>Ordered Lists</h4>
+                <ol>
+                    <li>List 1</li>
+                    <li>list 2</li>
+                </ol><br>
+                <h4>Unordered list</h4>
+                <ul>
+                    <li>list 1</li>
+                    <li>list 2</li>
+                </ul><br>
+                <h4>Unordered List - Square type</h4>
+                <ul style="list-style-type: square;">
+                    <li>List 1</li>
+                    <li>List 2</li>
+                </ul><br>
+                <h4>Unordered List - Circle type</h4>
+                <ul style="list-style-type: circle;">
+                    <li>List 1</li>
+                    <li>List 2</li>
+                </ul><br>
+                <h4>Ordered list- Outside position</h4>
+                <ol style="list-style-position: outside;">
+                    <li>List 1</li>
+                    <li>List 2</li>
+                </ol><br>
+                <h4>Ordered list- Inside position</h4>
+                <ol style="list-style-position: inside;">
+                <li>List 1</li>
+                <li>List 2</li>
+                </ol>         
+
+            </div>
+        </div>
+    </section>
+    <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;font-size: 32px;" href="#top" ><i class="bi bi-arrow-up-circle-fill"></i></a></section>
+   <object data="footerlayout.html" class="iframe-footer"></object>
+</body>
+</html>

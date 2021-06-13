@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Media</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">        
+    <object class="iframe-header" data="headerlayout.html"></object>
+    <center><h1>HTML Media Player</h1></center>
+    <video controls style="width: 350px;height: 200px;margin: 0 auto;display: block;">
+      <source src="" type="video/mp4"></video></source>
+    </video>
+    <center><h2>HTML Youtube Video Player</h2></center>
+    <iframe src="https://www.youtube.com/embed/Q33KBiDriJY?controls" style="margin: 0 auto;display: block;"></iframe>
+    <div id="webchat" role="main"></div>
+    <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.5.0/lib/index.min.js"></script>
+    <script>
+      WebChat.default.init({
+        selector: "#webchat",
+        customData:{"language":"en"},
+        socketUrl: "http://localhost:5005",
+        //socketUrl: "http://f3bc0821fc50.ngrok.io",
+        socketPath: "/socket.io/",
+        title: "Welcome to RASA Chatbot!!!",
+        subtitle: "Interact with bot!!"
+      })
+    </script>
+    <object class="iframe-footer" data="footerlayout.html" ></object>
+</body>
+</html>
