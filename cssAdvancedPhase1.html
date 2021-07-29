@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Advanced Phase1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cssStyles.css">
+    <link rel="stylesheet" href="cssAdvancedPhase.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <object data="headerlayout.html" class="iframe-header"></object>
+    <section class="body-section">
+        <nav class="left-nav-bar">
+            <ul>
+                <li class="left-nav-header default-highlighted">Quick Navigation</li>
+                <li><a href="#border-radius">Border Radius</a></li>
+                <li><a href="#border-image">Border Image</a></li>
+                <li><a href="#background-images">Backgound Image</a></li>
+                <li><a href="#gradient">Gradient</a></li>
+                <li><a href="#shadows">Shadows</a></li>
+                <li><a href="#text-effects">Text Effects & Web Fonts</a></li>
+            </ul>
+        </nav>
+        <div class="content-section">
+            <h1>CSS Advanced Properties Phase1</h1>
+            <div id="border-radius">
+                <h2>Border Radius</h2>
+                <p>Example for border radius shorthand property</p>
+                <br>
+                <kbd>border-radius:5px 10px 15px 20px</kbd>
+                <br>
+                <ul>
+                    <li>border-top-left-radius:5px</li>
+                    <li>border-top-right-radius:10px</li>
+                    <li>border-radius-bottom-radius:15px</li>
+                    <li>border-bottom-left-radius:20px</li>
+                </ul>
+                <div class="row float-parent" style="background: lightgrey;">
+                    <div class="row float column-4">
+                        <div class="card" style="border: 3px solid green; border-radius: 12px;">Border-radius=12px</div>
+                    </div>
+                    <div class="row float column-4">
+                        <div class="card" style="border: 3px solid green;border-radius: 150px;">Border radius=150px</div>
+                    </div>
+                    <div class="row float column-4">
+                        <div class="card" style="border: 3px solid green;border-radius: 5px 50px 20px;">border-radius: 5px 50px 20px;
+                            border-top-left-radius: 5px;
+                            border-top-right-radius: 50px;
+                            border-bottom-right-radius: 20px;
+                            border-bottom-left-radius: 50px;
+                        </div>
+                    </div>
+                    <div class="row float column-4">
+                        <div class="card" style="border: 3px solid green;border-radius: 50px/15px;">border-radius: 50px/15px;
+                            border-top-left-radius: 50px 15px;
+                            border-top-right-radius: 50px 15px;
+                            border-bottom-right-radius: 50px 15px;
+                            border-bottom-left-radius: 50px 15px;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="border-image">
+                <h2>Border Image</h2>
+                <ul style="list-style-type: square;list-style-position: inside;">Border Image is the shothan property of below property
+                    <li>Border-image-path</li>
+                    <li>Border-image-slice</li>
+                    <li>Border-image-width</li>
+                    <li>Border-image-outset</li>
+                    <li>Border-image-repeat</li>
+                </ul>
+                <br>
+                <p>Below imagewe are going to use border-image property</p><br>
+                <img src="images/border_images.png" alt="border-images">
+                <div class="row float-parent"  style="background: lightgrey;">
+                    <div class="column-3 float">
+                        <div class="card" style="border: 10px solid transparent;border-image: url('images/border_images.png') 30 round;"><kbd>border-image: url('images/border_images.png') 30 round;</kbd></div>
+                    </div>
+                    <div class="column-3 float">
+                        <div class="card" style="border: 10px solid transparent;border-image: url('images/border_images.png') 30 stretch;"><kbd>border-image: url('images/border_images.png') 30 stretch;</kbd></div>
+                    </div>
+                    <div class="column-3 float">
+                        <div class="card" style="border: 10px solid transparent;border-image: url('images/border_images.png') 30% round;"><kbd>border-image: url('images/border_images.png') 30% round;</kbd></div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="background-images">
+                <h2>Background Images Properties</h2>
+                <ul>
+                    <li><a href="backgroundImage.html" target="_blank">Background Image</a></li>
+                    <li><a href="heroImage.html" target="_blank">Hero Background</a></li>
+                </ul> 
+            </div>
+            <hr>
+            <div id="gradient">
+                <h2>Gradient</h2>
+                <dl>
+                    <dt>What is gradient</dt>
+                    <dd>Gradient is the mixing of 2 colours</dd>
+                </dl>
+                <ul>
+                    <li>linear-gradient</li>
+                    <li>radial gradient</li>
+                </ul>
+                <h3>Linear Gradient</h3>
+                <div class="row float-parent" style="color: white;">
+                    <div class="column-4 float"><div class="card text-center" style="background-image: linear-gradient(darkblue,rgb(62, 240, 62));">Top-bottom(default)</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: linear-gradient(to right,darkblue,rgb(62, 240, 62));">To right</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: linear-gradient(to right bottom,darkblue,rgb(62, 240, 62));">To right bottom</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: linear-gradient(-90deg,darkblue,rgb(62, 240, 62));">-90deg(right to left)</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: linear-gradient(-90deg,darkblue,rgb(62, 240, 62),red);">-90deg(right to left) 3 colours</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: linear-gradient(-90deg,rgba(255,0,0,0),rgba(255,0,0,1));">-90deg(right to left)</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: repeating-linear-gradient(rgba(255,0,0,0),rgba(255,0,0,1) 10%,yellow 20%);">Repaeting linar gradient</div></div>
+                </div>
+                <h3>Radial Gradient</h3>
+                <div class="row float-parent" style="color: white;">
+                    <div class="column-4 float"><div class="card text-center" style="background-image: radial-gradient(darkblue,rgb(62, 240, 62));">Evenly Spaced(default)</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: radial-gradient(darkblue,rgb(62, 240, 62),red);">3 Colours</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: radial-gradient(circle,darkblue,rgb(62, 240, 62));">Circle</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: radial-gradient(closest-side at 60% 55%,darkblue,rgb(62, 240, 62),red);">Closest Side</div></div>
+                    <div class="column-4 float"><div class="card text-center" style="background-image: repeating-radial-gradient(darkblue 10%,rgb(62, 240, 62)20%);">Repeating Radial Gradient</div></div>
+                </div>
+            </div>   
+            <hr>
+            <div id="shadows">
+                <h2>Shadows</h2>
+                <ul style="list-style-type: square;">Types of shadows
+                    <li>Text-shadows</li>
+                    <li>Box-shadows</li>
+                </ul>
+                <div>
+                    <h3>Text Shadows</h3>
+                    <p>In the easier note text-shadows looks like <kbd>text-shadow:horizontal-shadow, vertical-shadow, blur, backgroynd-color</kbd>1px 1px 1px red, 1px 1px 15px blue</p>
+                    <div class="row float-parent">
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;text-shadow:16px 10px;"><kbd>text-shadow: 16px 10px;</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;text-shadow:16px 10px red;"><kbd>text-shadow: 16px 10px red;</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;text-shadow:16px 10px 2px red;"><kbd>text-shadow: 16px 10px 2px red;</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;text-shadow:16px 10px 2px red ,10px 5px 1px blue;"><kbd>text-shadow: 16px 10px 2px red ,10px 5px 1px blue</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;text-shadow:1px 1px 1px red, 1px 1px 15px blue;"><kbd>text-shadow: 1px 1px 1px red, 1px 1px 15px blue</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;text-shadow:1px 1px 5px red, 1px 1px 15px blue, 1px 3px 24px orange;"><kbd>text-shadow:1px 1px 5px red, 1px 1px 15px blue, 1px 3px 24px orange</kbd></div></div>
+                    </div>
+                    <br>
+                    <h3>Box Shadows</h3>
+                    <p>In the simple way, box shadow looks like, <kbd>box-sadow: horizontal-shadow, vertical-shadow, blur, spread, background-color</kbd></p>
+                    <div class="row float-parent">
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;box-shadow:10px 10px;"><kbd>box-shadow:10px 10px;</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;box-shadow:10px 10px #d0d0d0;"><kbd>box-shadow:10px 10px #d0d0d0;</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;box-shadow:10px 10px 5px;"><kbd>box-shadow:10px 10px 5px(blur);</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;box-shadow:10px 10px 5px 3px;"><kbd>box-shadow:10px 10px 5px(blur) 3px(spread);</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;box-shadow:10px 10px 5px 3px #d0d0d0;"><kbd>box-shadow:10px 10px 5px(blur) 3px(spread) grey-backgound;</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;box-shadow: 0 8px 4px 0 rgba(0,0,0,0.2);"><kbd>box-shadow: 0 8px 4px 0 rgba(0,0,0,0.2);</kbd></div></div>
+                        <div class="column-4 float"><div class="card text-center" style="background-color: white;color: black;box-shadow: 0 8px 4px 0 rgba(0,0,0,0.2), 0 4px 5px 0 greenyellow;"><kbd>box-shadow: 0 8px 4px 0 rgba(0,0,0,0.2), 0 4px 5px 0 greenyellow;</kbd></div></div>
+                    </div>
+                </div>
+            </div>   
+            <hr>
+            <div id="text-effects">
+                <h3>Text Effects</h3>
+                <ul>Type of text effects properties
+                    <li><kbd>text-overflow:ellipsis | normal</kbd></li>
+                    <li><kbd>word-wrap:break-word</kbd></li>
+                    <li><kbd>word-break:keep-all | break-all</kbd></li>
+                    <li><kbd>writing-mode: horizontal-tb | verticl-rl</kbd></li>
+                </ul>
+                <br>
+                <h3>Web Fonts</h3>
+                <ul style="list-style-type: square;">Types of Web Fonts
+                    <li>True Type Fonts(TTF)</li>
+                    <li>Open TYpe Fonts(OTF)</li>
+                    <li>Web Open Type Fonts(WOTF)</li>
+                    <li>SVG Fonts</li>
+                    <li>Emedded TYpe Fonts</li>
+                </ul>
+            </div>
+            <div id="2D-Transforms">
+                <h3>2d Transforms</h3>
+                <div class="row float-parent">
+                    <div class="column-4 float text-center" style="transform: rotate(-10deg);background-color: white;border: 1px solid #d0d0d0;">
+                        <h4>Rotate</h6>
+                        <p><kbd>transform:rotate(-10deg)</kbd></p>
+                    </div>
+                    <div class="column-4 float text-center" style="transform: translate(10px,20px);background-color: white;border: 1px solid #d0d0d0;">
+                        <h4>Translate</h6>
+                        <p><kbd>transform:translate(10,20)</kbd></p>
+                    </div>
+                    <div class="column-4 float text-center" style="transform: scale(1.1,2.1);background-color: white;border: 1px solid #d0d0d0;">
+                        <h4>Scale</h6>
+                        <p><kbd>transform:scale(1.1,2.1)</kbd></p>
+                    </div>
+                    <div class="column-4 float text-center" style="transform: skew(10deg,20deg);background-color: white;border: 1px solid #d0d0d0;">
+                        <h4>Skew</h6>
+                        <p><kbd>transform:skew(10deg,20deg)</kbd></p>
+                    </div>
+                    <div class="column-4 float text-center" style="transform: rotate3d(-10deg,20deg,30deg);background-color: white;border: 1px solid #d0d0d0;">
+                        <h4>Rotate 3d</h6>
+                        <p><kbd>transform:rotate(-10deg,20deg,30deg)</kbd></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;font-size: 32px;" href="#top" ><i class="bi bi-arrow-up-circle-fill"></i></a></section>
+    <object data="footerlayout.html" class="iframe-footer"></object>
+</body>
+</html>
