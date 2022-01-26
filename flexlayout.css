@@ -194,7 +194,11 @@
     }
 }
 
-
+@media(min-width:1200px) and (max-width:1400px){
+    .techstacks .flex-navbar-link{
+        padding: 14px 13px !important;
+    }
+}
 
 .techstacks .flex-navbar-link a{
     color: white;
