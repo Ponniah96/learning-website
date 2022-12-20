@@ -12,9 +12,9 @@ Contents:
 
 6.jQuery
 
-7.Bootstrap
+7.NodeJs
 
-8.NodeJs
+8.Bootstrap
 
 
 
@@ -36,6 +36,7 @@ Contents:
 	@extend- Import css properties from one class to another
 
 	Nesting - nest paent ,child class like a tree structure.
+
 
 2.Javscript:
 
@@ -91,6 +92,10 @@ Contents:
 	Data Types	- number, string, null, undefined, object
 
 	JS Form Valid	- document.forms['formName']['inputName']
+
+	Data Structures	- JavaScript Data Types
+
+				Primitive Data Types - Boolean, Null(object with no values), undefined(identifier property of global object), 
 
 
 3.React:
@@ -210,7 +215,7 @@ Contents:
 	Forms			- onChange{}, onSubmit{}, value={this.value}, {props/setState:event.target.value}
 
 
-	Advanced Concept	- Hooks				- Declarative/functional components. Without Class we can use state using usestate.
+    Hooks			- Declarative/functional components. Without Class we can use state using usestate.
 			
 								- useState  => const [state]=useState(0)
 
@@ -219,14 +224,13 @@ Contents:
 
 
 
-				  Rules of Hooks		- It should be deifned at top level, not inbetween functions.
+					  Rules of Hooks		- It should be deifned at top level, not inbetween functions.
 	
 	
-				  React API Refernce		- ReactDOM,ReactDOMServer(for node), DOMElements(style), SYntheticEvent(click, hover,submit)
+	React API Refernce	- ReactDOM,ReactDOMServer(for node), DOMElements(style), SYntheticEvent(click, hover,submit)
 	
-
+	Advanced Concepts 	- 
 				  
-
 
 4.Redux
 
@@ -264,7 +268,6 @@ Contents:
 				  State value should be immutable(Not changing values).
 
 				  using Spread operator (...objName) we can take copy of exisiting state and update it to new state.
-
 
 
 5.React Redux:
@@ -322,9 +325,6 @@ Contents:
 	bindActionCreators	- It is used to connect all functions to simplify dispatch actions.
 
 	`			` const bindFunctions= bindActionCreators=()=>{{increment(),decrement()}, dispatch}
-
-				
-
 
 
 6.jQuery:
@@ -414,6 +414,83 @@ Contents:
 
 				  filter			- $('#id').filter(function(){ $(this).toggle($(this).text().indexOf('inputValue')) })
 
+
+7.NodeJs:
+
+	Defintion: NodeJs is a Powerful Javascript framework
+	
+				1.Open Source
+
+				2.Chrome V8 Engine
+
+				3.Server side applications
+
+	
+	Advantages:
+
+				1.Asyncronous
+
+				2.Single Threaded	-	Based on Event Loops, multiple client request are processed as single thread 
+
+				3.No buffering
+
+				4.Run time Compiler - 	 Unlike Java, Python (Tomcat server). We don't have any server for nodeJS (CreateServer)
+
+			
+	NPM:
+
+				It is package manager which looks like under <head> tag in html.
+
+				It will have all dependencies, starting HTML & JS files, describe title of the project.
+
+		Types of Node Module:
+
+				1.Core Modules			- Default modules will be installed while installing node project using npm command.
+										
+										  Eg: http, fs, path
+
+				2.Local Modules			- User developed modules 
+
+										  
+
+				3.Third Party Modules	- Third party repositeries we can get it through npm command
+
+										  Eg: Express, Reacr, Redux, angular
+
+
+	
+	Node Modules Basics
+
+		1.Data types
+
+				1.1.Primitive Data types - String, number, boolean, null, undefined
+
+				1.2.Abstarct Data types  - Object, Array, Date.
+
+				1.3.Operators			 - Arithmetic, Assignment, Conditional
+
+	    
+		2.functions
+
+		
+		3.Objects
+
+				3.1.Object Literal
+
+				3.2.Constructors
+
+		4.Filetype (fs module)
+
+				Methods of fs 			- fs.readFile(), fs.writeFile()
+
+		5.HttpServer (http)
+
+				Callback properties		- res, req
+
+		
+		6.Events 
+
+				Event Handler methods	- events.emit(), events.on()
 
 
 
