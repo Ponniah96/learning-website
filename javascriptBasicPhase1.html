@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Introduction</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cssStyles.css">
+    <link rel="stylesheet" href="cssAdvancedPhase.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <script>
+        // String functions Start 
+        function stringLength(){
+            var string="ABCDEFGH";
+            document.getElementById("stringLength").innerHTML=string.length
+        }
+        function stringSlice(){
+            let originalString="ABCDEFGH";
+            let sliceString=originalString.slice(2,5);
+            document.getElementById("stringSlice").innerHTML=sliceString;
+        }
+        function subString(){
+            let originalString="ABCDEFGH";
+            let subString=originalString.substr(2,5);
+            document.getElementById("subString").innerHTML=subString;
+        }
+        function replaceString(){
+            let originalString="Replace String";
+            let replaceString=originalString.replace("Replace","Replace Done");
+            document.getElementById("replaceString").innerHTML=replaceString;
+        }
+        function trimString(){
+            let originalString=" "+"Trim String";
+            let trimString=originalString.replace("Replace","Replace Done");
+            document.getElementById("trimString").innerHTML=trimString;
+        }
+        function padString(){
+            let originalString="string";
+            let padString=originalString.padEnd(15,"s");
+            document.getElementById("padString").innerHTML=padString;
+        }
+        function splitString(){
+            let originalString="string";
+            const splitString=originalString.split("");
+            alert(splitString)
+            document.getElementById("splitString").innerHTML=splitString[0];
+        }
+        function indexOfString(){
+            let originalString="Find a Value in string";
+            let indexOfString=originalString.indexOf("value");
+            document.getElementById("indexOfString").innerHTML=indexOfString;
+        }
+        function stringSearch(){
+            let originalString="Find a Value in string";
+            let stringSearch=originalString.search("Value");
+            document.getElementById("stringSearch").innerHTML=stringSearch;
+        }
+        function matchAllString(){
+            let originalString="Matches All value in string value";
+            const matchAllString=originalString.matchAll("value");
+            document.getElementById("matchAllString").innerHTML=Array.from(matchAllString);
+        }
+        function startsWith(){
+            let originalString="Please find value in string";
+            const startsWith=originalString.startsWith("Please");
+            document.getElementById("startsWith").innerHTML=startsWith;
+        }
+        function stringIncludes(){
+            let originalString="Please find value in string";
+            const stringIncludes=originalString.includes("value");
+            document.getElementById("stringIncludes").innerHTML=stringIncludes;
+        }
+        //String Functions Ends
+    </script>
+</head>
+<body>
+    <object data="headerlayout.html" class="iframe-header"></object>
+    <section class="body-section">
+        <nav class="left-nav-bar">
+            <ul>
+                <li class="left-nav-header default-highlighted">W3 Schools</li>
+                <li><a href="#statements">1.Statements</a></li>
+                <li><a href="#operators">2.Operators</a></li>
+                <li><a href="#dataTypes">3.Data Types</a></li>
+                <li><a href="#functions">4.Functions</a></li>
+                <li><a href="#Objects">5.Objects</a></li>
+                <li><a href="this">6.This</a></li>
+                <li><a href="events">7.Events</a></li>
+                <li><a href="strings">8.Strings</a></li>
+            </ul>
+        </nav>
+        <div class="content-section">
+            <div id="w3Schools">
+                <h3>1.Concepts in W3 Schools <a href="https://www.w3schools.com/js/default.asp" target="_blank" >Learn More...</a></h3>
+                <div>
+                    <dl id="statements">
+                        <dt>1.Statements</dt>
+                        <dd>1.keywords
+                            <ol>
+                                <li>var (global scope, older version, redeclare, reassign, hoist after asign value)</li>
+                                <li>let (block scope, newwer verion, not redclare, reassign, not hoist after assign value)</li>
+                                <li>const(bloack scope,newer version not redeclare, not ressign(not ressign elements, bt reassign array object because its takes reference of value), not hoist after assign value</li>
+                                <li>for, if, switch</li>
+                            </ol>                            
+                        </dd>
+                        <dd>2.Identifiers (x, y, carName)</dd>
+                        <dd>3.Assignment (=)</dd>
+                        <dd>4.Values (data types) </dd>
+                        <dd>5.Operators (+ - * /)</dd>
+                    </dl>
+                    <br> <br>
+                    <dl id="operators" >
+                        <dt>2.Operators</dt>
+                        <dd>"5"+55=555</dd>
+                        <dd>"Hello"+5=Hello5 (concatenate)</dd>
+                        <dd>Types of Operators
+                            <ol>
+                                <li>Arithmetic Operators (Order of precedence: *,/,=,- ,(Inside brackets 1st priority),same priority means left to right)</li>
+                                <li>Logical Operators</li>
+                                <li>Conditional Operators</li>
+                            </ol>
+                        </dd>
+                    </dl>
+                    <br> <br>
+                    <dl id="dataTypes">
+                        <dt>3.Data Types</dt>
+                        <dd>Numbers</dd>
+                        <dd>Strings</dd>
+                        <dd>Boolean</dd>
+                        <dd>Null</dd>
+                        <dd>Undefined</dd>
+                        <dd>Symbol</dd>
+                        <dd>Big Int</dd>
+                        <dd>Objects (Array, Date, object)</dd>
+                    </dl>
+                    <br> <br>
+                    <dl id="functions">
+                        <dt>4.Functions</dt>
+                        <dd>Functions are the building block of elements</dd>
+                        <dd>Syntax: function FunctionName(){return data;}</dd>
+                        <dd>We can call function as a variables. Eg: let x=myFunction("Hello World")</dd>
+                        <dd>Function call without parenthesis will return function as a object Eg: console.log(myFunction) will display entire function as a object</dd>
+                    </dl>
+                    <br> <br>
+                    <dl id="objects">
+                        <dt>5.Objects</dt>
+                        <dd>Objects are the refernce data types of javascript where we can store multiple values in a single object</dd>
+                        <dd>Objects basically contain properties, value, and also methods</dd>
+                        <dd>Defining object: const object={proprty:value,method:function functionname(){return this.property}}</dd>
+                    </dl>
+                    <br> <br>
+                    <dl id="this">
+                        <dt>6.This Keyword</dt>
+                        <dd>In Object, this refers to object name</dd>
+                        <dd>In Functions, this refers to global object</dd>
+                        <dd>In Events, this refers to HTML Element</dd>
+                        <dd>In Strict mode, this refers to undefined</dd>
+                    </dl>
+                    <br> <br>
+                    <dl id="events">
+                        <dt>7.Events</dt>
+                        <dd>Events are thee actions done by user, browser or by automatically(timer)</dd>
+                        <dd>Events are handled with the help of event listener in html</dd>
+                        <dd>Eg: "< button >onclick="this.innerHTML='HI'"< /button >"</dd>
+                        <dd>Eg: "< button >onclick="onClick()">< button >"</dd>
+                    </dl>
+                    <br> <br>
+                    <dl id="strings">
+                        <dt><b>8.Strings</b> </dt><br>
+                        <dd><b>8.1.Definition</b></dt>
+                        <dd>Strings are data type which is used to store text</dd>                        
+                        <dd>Strings can be assigned with in single, double quotes</dd>
+                        <dd>Eg:let x="test"; x=new String("test")</dd><br>
+                        <dd><b>8.2.Methods</b>
+                            <ol>
+                                <li>String Length:
+                                    <p>String is :ABCDEFGH</p>
+                                    <button onclick="stringLength()">Click Here to Find Length</button>
+                                    <p>String length: <span id="stringLength"></span></p>
+                                </li>
+                                <li>String Slice (start,end):
+                                    <p>String is :ABCDEFGH</p>
+                                    <button onclick="stringSlice()">Click Here to Find Slice</button>
+                                    <p>String Slice Part is: <span id="stringSlice"></span></p>
+                                </li>
+                                <li>subString (start,length):
+                                    <p>String is :ABCDEFGH</p>
+                                    <button onclick="subString()">Click Here to Find Slice</button>
+                                    <p>Sub String Part is: <span id="subString"></span></p>
+                                </li>
+                                <li>String Replace:
+                                    <p>String is :Replace string</p>
+                                    <button onclick="replaceString()">Click Here to Replace Slice</button>
+                                    <p>Sub String Part is: <span id="replaceString"></span></p>
+                                </li>
+                                <li>String Trim(Remove White spaces):
+                                    <p>    Trim String   </p>
+                                    <button onclick="trimString()">Click Here to Trim Slice</button>
+                                    <p>Trim String: <span id="trimString"></span></p>
+                                </li>
+                                <li>String Pad(Duplicate Same Character):
+                                    <p>String Pad</p>
+                                    <button onclick="padString()">Click Here to Pad String</button>
+                                    <p>Trim String: <span id="padString"></span></p>
+                                </li>
+                                <li>Split String (Converting String into array):
+                                    <p>Split String</p>
+                                    <button onclick="splitString()">Click Here to split String</button>
+                                    <p>Split String: <span id="splitString"></span></p>
+                                </li>
+                            </ol>
+                        </dt>
+                        <dd><b>8.3.Search</b>
+                            <ol>
+                                <li>String IndexOf(Return Index position of value in string)
+                                    <p>String: Find a Value in string</p>
+                                    <p>Search Word: Value</p>
+                                    <button onclick="indexOfString()">Click Here to find Indexof String</button>
+                                    <p>String Search: <span id="indexOfString"></span></p>
+                                </li>
+                                <li>String Search(Return Index position of value in string, Accepts regular expression)
+                                    <p>String: Find a Value in string</p>
+                                    <p>Search Word: Value</p>
+                                    <button onclick="stringSearch()">Click Here to Search String</button>
+                                    <p>String Search: <span id="stringSearch"></span></p>
+                                </li>
+                                <li>String Matches All(Return Index position of value in string, Also Return search values in array)
+                                    <p>String: Matches All value in string value</p>
+                                    <p>Match Word: Value</p>
+                                    <button onclick="matchAllString()">Click Here to Match String</button>
+                                    <p>String Search: <span id="matchAllString"></span></p>
+                                </li>
+                                <li>String StartsWith (Return true or false if string starts with particlar word)
+                                    <p>String: Please find value in this staring</p>
+                                    <p>Search Word: Please</p>
+                                    <button onclick="startsWith()">Click Here to find StartsWith position</button>
+                                    <p>String Startswith indexposition: <span id="startsWith"></span></p>
+                                </li>
+                                <li>String Includes
+                                    <p>String: Please find a value in the string</p>
+                                    <p>Search Word: value</p>
+                                    <button onclick="stringIncludes()">Click Here to find String Includes</button>
+                                    <p>String Includes result: <span id="stringIncludes"></span></p>
+                                </li>
+                            </ol>
+                        </dd>
+                        <dd><b>8.4.Advanced String Concepts (String Literals)</b></dd>
+                        <dd>Concepts of String Template Literals
+                            <ol>
+                                <li>String Back Ticks(``):
+                                    <p>Instead of Quote we can use back ticks to declare strings</p>
+                                    <p>Eg: let string=`String is in back ticks`</p>
+                                    <p>Advantages:
+                                        <ul>
+                                            <li>Multiple lines decalration of sting is possible</li>
+                                            <li><b>String Interpolation is possible:</b>
+                                                <p>Calling variable name is string is possible</p>
+                                                <p>Eg: let firstName="Ponniah"</p>
+                                                <p>console.log(`Hello ${firstName}`)</p>
+                                            </li>
+                                            <li>Calling HTML tag as a string
+                                                <p>Eg: let html=`<h2>Hi</h2>`</p>
+                                            </li>
+
+                                        </ul>
+                                    </p>
+                                </li>
+                            </ol>
+                        </dd>
+                        <dd></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;font-size: 32px;" href="#top" ><i class="bi bi-arrow-up-circle-fill"></i></a></section>
+    <object data="footerlayout.html" class="iframe-footer"></object>
+</body>
+</html>
