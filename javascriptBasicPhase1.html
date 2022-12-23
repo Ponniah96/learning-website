@@ -72,6 +72,62 @@
             document.getElementById("stringIncludes").innerHTML=stringIncludes;
         }
         //String Functions Ends
+
+        //Array Function Starts
+        function arrayToString(){
+            const array=["Hello", "World", "to","JavaScript","Array"];
+            document.getElementById("arrayToString").innerHTML=array.toString();
+            
+        }
+        function arrayJoin(){
+            const array=["Hello", "World", "to","JavaScript","Array"];
+            document.getElementById("arrayJoin").innerHTML=array.join(" ");
+        }
+        function arrayLength(){
+            const array=["Hello", "World", "to","JavaScript","Array"];
+            document.getElementById("arrayLength").innerHTML=array.length;
+        } 
+        function arrayPush(){
+            const array=["Hello", "World", "to","JavaScript"];
+            document.getElementById("arrayPush").innerHTML=array.push("Array");
+            document.getElementById("arrayPushRemaining").innerHTML=array.join(" ");
+        } 
+        function arrayPop(){
+            const array=["Hello", "World", "to","JavaScript","Array"];
+            document.getElementById("arrayPop").innerHTML=array.pop();
+            document.getElementById("arrayPopRemaining").innerHTML=array.join(" ");
+        } 
+        function arrayShift(){
+            const array=["Hello", "World", "to","JavaScript","Array"];
+            document.getElementById("arrayShift").innerHTML=array.shift();
+            document.getElementById("arrayShiftRemaining").innerHTML=array.join(" ");
+        } 
+        function arrayUnshift(){
+            const array=["World", "to","JavaScript","Array"];
+            document.getElementById("arrayUnshift").innerHTML=array.unshift("Hello");
+            document.getElementById("arrayUnshiftRemaining").innerHTML=array.join(" ");
+        } 
+        function arraySplice(){
+            const array=["Hello","World", "JavaScript","Array"];
+            document.getElementById("arraySplice").innerHTML=array.splice(2,0,"to");
+            document.getElementById("arraySpliceRemaining").innerHTML=array.join(" ");
+        }
+        function spliceRemove(){
+            const array=["Hello","World","to", "JavaScript","Array"];
+            document.getElementById("spliceRemove").innerHTML=array.splice(2,1);
+            document.getElementById("spliceRemoveRemaining").innerHTML=array.join(" ");
+        } 
+        function arraySlice(){
+            const array=["Hello","World","to", "JavaScript","Array"];
+            document.getElementById("arraySlice").innerHTML=array.splice(1,1);
+            document.getElementById("arraySliceRemaining").innerHTML=array.join(" ");
+        } arrayConcatenate
+        function arrayConcatenate(){
+            const array1=["Hello","World","to"];
+            const array2=["JavaScript","Array"];
+            const concatenateArray=array1.concat(array2);
+            document.getElementById("arrayConcatenate").innerHTML=concatenateArray.join(" ");
+        }
     </script>
 </head>
 <body>
@@ -85,9 +141,12 @@
                 <li><a href="#dataTypes">3.Data Types</a></li>
                 <li><a href="#functions">4.Functions</a></li>
                 <li><a href="#Objects">5.Objects</a></li>
-                <li><a href="this">6.This</a></li>
-                <li><a href="events">7.Events</a></li>
-                <li><a href="strings">8.Strings</a></li>
+                <li><a href="#this">6.This</a></li>
+                <li><a href="#events">7.Events</a></li>
+                <li><a href="#strings">8.Strings</a></li>
+                <li><a href="#numbers">9.Numbers</a></li>
+                <li><a href="#bigInt">10.BigInt</a></li>
+                <li><a href="#arrays">11.Arrays</a></li>
             </ul>
         </nav>
         <div class="content-section">
@@ -269,6 +328,273 @@
                             </ol>
                         </dd>
                         <dd></dd>
+                    </dl>
+                    <br><br>
+                    <dl id="numbers">
+                        <dt><b>9.Numbers</b></dt>
+                        <br>
+                        <dd>9.1.Points to Be Remembered
+                            <ol>
+                                <li>Numbers are 64-bit Floating Point
+                                    <ul>
+                                        <li>Js Numbers can display precisely upto <b>17 decimals</b></li>
+                                        <li>Floating Point arithmetic operaions wont work accurate
+                                            <p>Eg: 0.2+0.3 will not work. Instead use (0.2*10 +0.3*10)/10 it will work</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Numeric Strings
+                                    <ul>
+                                        <li>Adding Numers and string will display string oncatenation
+                                            <p>Eg: 10 + "20" =1020(Because + symbol considered as string concatenation operator)</p>
+                                            <p>But 10+20+"30"=3030</p>
+                                            <p> x=10, y=20 , document.innerHTML= x+y ==> 1020 (Because it will do as string concatenation)</p>
+                                        </li>
+                                        <li>All Artimetic operations between strings are possible except addition
+                                            <p>"10" * "20"=200 </p>
+                                            <p>"20" - "10"=10</p>
+                                            <p>"20" / "10"=2</p>
+                                            <p>"20"+"10"=1020</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>NaN operator (Not a Number)
+                                    <ul>
+                                        <li>It will occur on below scenarios
+                                            <p>10 * "Hi"</p>
+                                            <p>2 / 0</p>
+                                        </li>
+                                        <li>NaN operator
+                                            <p>It will display true or false if resultant value is number or not</p>
+                                            <p>x=10*"Hi". isNaN(x)==>True</p>
+                                            <p>x=10*2.    isNan(x)==>false</p>
+                                            <p>x=NaN+5    //x is Nan</p>
+                                        </li>
+                                        <li>typeofNaN is number</li>
+                                    </ul>
+                                </li>
+                                <li>Infinity
+                                    <ul>
+                                        <li>if numbers are beyond limitations then infinity wil come</li>
+                                        <li>typeof(infiniy)= numbers because it is also number</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </dd>
+                        <br>
+                        <dd>9.2.Number Methods
+                            <ol>
+                                <li>toString()
+                                    <ul>
+                                        <li>Converts Number to string</li>
+                                        <li>Eg: (10).toString()</li>
+                                    </ul>
+                                </li>
+                                <li>toFixed()
+                                    <ul>
+                                        <li>It is used to round of numbers</li>
+                                        <li>
+                                            <p>x=5.63</p>
+                                            <p>x.toFixed(0) ==> 6</p>
+                                            <p>x.toFixed(4) ==> 5.6200</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>toPrecision()
+                                    <ul>
+                                        <li>It is used to display precise numbers</li>
+                                        <li>
+                                            <p>x=5.63</p>
+                                            <p>x.toPrecise() ==> 6</p>
+                                            <p>x.toPrecise(1) ==> 5.7</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>parseInt()
+                                    <ul>
+                                        <li>Convert numerical string into number</li>
+                                        <li>Convert number as a whole number</li>
+                                    </ul>
+                                </li>
+                                <li>parseFloat()
+                                    <ul>
+                                        <li>Returns number as a precise number (like accept floating point also)</li>
+                                    </ul>
+                                </li>
+                                <li>Number
+                                    <ul>
+                                        <li>Convert variable into numbers (both whole and floating point)
+                                            <p>Number(true) ==>1</p>
+                                        </li>
+                                        <li>Conert dates into number (like milliseconds)
+                                            <p>eg: Number(new Date('2020-10-09')) will display milliseconds from 1970</p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </dd>
+                    </dl>
+                    <br><br>
+                    <dl id="bigInt">
+                        <dt><b>10.Big Int</b></dt>
+                        <dd>Points to Remembered
+                            <ol>
+                                <li>Since number can have max limit upto 15 decimals for precision, js introduced BigInt</li>
+                                <li>BigInt was introduced in ES2020</li>
+                                <li>We can assign numbers as BigInt using below formats
+                                    <ul>
+                                        <li>let x=1000000000000000n</li>
+                                        <li>let x=BigInt(10000000000000)</li>
+                                    </ul>
+                                </li>
+                                <li>Big Int Operators
+                                    <p>x=1246142561562651426; y=76523761527612;  z=x*y</p>
+                                </li>
+                                <li>BigInt cannot have decimals
+                                    <p>x=5n; y=2; z=Number(x)*2</p>
+                                </li>
+                                <li>MAX_SAFE_INTEGER , MIN_SAFE_INTEGER</li>
+                                <li>Numeric Methods: isInterger(), isSafeInteger()
+                                    <ul>
+                                        <li>Number.isInteger(5),Number.isSafeInteger(23751253712)</li>
+                                        <li>isSafeInteger limits: 2<sup>-53</sup>+1 to 2<sup>53</sup>+1</li>
+                                    </ul>
+                                </li>
+
+                            </ol>
+                        </dd>
+                    </dl>
+                    <br><br>
+                    <dl id="arrays">
+                        <dt><b> 11.Arrays</b></dt>
+                        <br>
+                        <dd><b>11.1.Points to be Remembered</b>
+                            <ol>
+                                <li>Arrays are used to store multiple values under single variable</li>
+                                <li>We can access array elements using index</li>
+                                <li>Arrays are special kind of objects. <b>typeOf(array) is object</b></li>
+                                <li>Difference between arrays & objects <b>Arrays use number index. Object use named index</b></li>
+                                <li>We can change array values by calling index of an array</li>
+                            </ol>
+                        </dd>
+                        <br>
+                        <dd><b>11.2.Array Methods</b>
+                        <ol>
+                            <li><b>Array.toString()</b>
+                                <ul>
+                                    <li>This method used to convert array into string</li>
+                                    <li>Eg: const array=[Hello,World]
+                                        <button onclick="arrayToString()">Click Here to conver String</button>
+                                        <p>Result is: <span id="arrayToString"></span></p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Array.join() Prefer to use</b>
+                                <ul>
+                                    <li>This method also used to convert array into string</li>
+                                    <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
+                                        <button onclick="arrayJoin()">Click Here to conver String</button>
+                                        <p>Result is: <span id="arrayJoin"></span></p>
+                                        <p>Difernece between toString() and Join(): <b>Join methods creates space between array elements and also add operators inbetween sperators</b></p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Array.length</b>
+                                <ul>
+                                    <li>This method also used to get legth of array elements</li>
+                                    <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
+                                        <button onclick="arrayLength()">Click Here to Get Length</button>
+                                        <p>Result is: <span id="arrayLength"></span></p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Array.push</b>
+                                <ul>
+                                    <li>This method is used to add elements at the <b>end of  array elements</b></li>
+                                    <li>Eg: const array=["Hello", "World", "to","JavaScript"]
+                                        <p>Add Elements: Array </p>
+                                        <button onclick="arrayPush()">Click Here to push array</button>
+                                        <p>Result is: <span id="arrayPush"></span> ,<span id="arrayPushRemaining"></span></p>
+                                        <p><b>Note: </b> Array.push() will return array elements length</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Array.pop</b>
+                                <ul>
+                                    <li>This method is used to remove elements at the <b>end of  array elements</b></li>
+                                    <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
+                                        <p>Add Elements: Array </p>
+                                        <button onclick="arrayPop()">Click Here to pop array</button>
+                                        <p>Result is: <span id="arrayPop"></span> ,<span id="arrayPopRemaining"></span></p>
+                                        <p><b>Note: </b> Array.pop() will return removed array elements</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Array.shift</b>
+                                <ul>
+                                    <li>This method is used to remove elements at the <b>first element of array</b></li>
+                                    <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
+                                        <p>Shift Elements: Array </p>
+                                        <button onclick="arrayShift()">Click Here to Shift array</button>
+                                        <p>Result is: <span id="arrayShift"></span> ,<span id="arrayShiftRemaining"></span></p>
+                                        <p><b>Note: </b> Array.Shift() will return removed array elements</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Array.Unshift</b>
+                                <ul>
+                                    <li>This method is used to insert elements at the <b>first element of array</b></li>
+                                    <li>Eg: const array=[ "World", "to","JavaScript","Array"]
+                                        <p>Add Elements: Hello </p>
+                                        <button onclick="arrayUnshift()">Click Here to Unshift array</button>
+                                        <p>Result is: <span id="arrayUnshift"></span> ,<span id="arrayUnshiftRemaining"></span></p>
+                                        <p><b>Note: </b> Array.unshift() will return array elements length</p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><b>Array.splice</b>
+                                <ul>
+                                    <li>This method is used to insert or replcae elements at the <b>first /inbetween / end element of array</b></li>
+                                    <li>Eg: const array=[ "Hello","World","JavaScript","Array"]
+                                        <p>Add Elements: to </p>
+                                        <button onclick="arraySplice()">Click Here to Splice array</button>
+                                        <p>Result is: <span id="arraySplice"></span> ,<span id="arraySpliceRemaining"></span></p>
+                                        <p><b>Note: </b> Array.unshift() will return array elements length</p>
+                                    </li>
+                                    <li><b>Array Splice is also used to delete elements of an array at any position</b>
+                                        <p>Eg: const array=[ "World", "to","JavaScript","Array"]</p>
+                                        <p>Delte Elements at 2nd index :"to"</p>
+                                        <button onclick="spliceRemove()">Click Here to remove element</button>
+                                        <p>Result is <span id="spliceRemove"></span>,<span id="spliceRemoveRemaining"></span></p>
+                                   </li>
+                                </ul>
+                            </li>
+                            <li><b>Array.Slice</b>
+                                <ul>
+                                    <li>This method is used to slice elements of the array <b>creates new array</b></li>
+                                    <li>Eg: const array=[ "Hello","World", "to","JavaScript","Array"]
+                                        <p>Slice Elements: World </p>
+                                        <button onclick="arraySlice()">Click Here to Slice array</button>
+                                        <p>Result is: <span id="arraySlice"></span> ,<span id="arraySliceRemaining"></span></p>
+                                        <p><b>Note: </b> Array.unshift() will return new array</p>
+                                    </li>
+                                    <li>If you have 1 paramater (slice(1)) then remaining parameter will be deleted from source array</li>
+                                </ul>
+                            </li>
+                            <li><b>Array.concat</b>
+                                <ul>
+                                    <li>Array concatenation is used to <b>concatenate multiple arrays into new array</b></li>
+                                    <li>Eg: const arr1=[ "Hello","World", "to"], const arr2=[ "JavaScript","Array"]
+                                        <p>Concatenate array</p>
+                                        <button onclick="arrayConcatenate()">click here to concatenate array</button>
+                                        <p>Result is <span id="arrayConcatenate"></span></p>
+                                    </li>
+                                    <li>we can concatenate mulitle arrays like conct concate=arra1.concat(arr2,arr3)</li>
+                                    <li>We can concatenate array with values also lie const concat=arr1.concat("value")</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        </dd>
                     </dl>
                 </div>
             </div>
