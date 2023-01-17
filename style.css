@@ -329,3 +329,11 @@ input.button-padding:hover{
     background-color: grey;
 }
 /*** Flex properties End***/
+
+.table-border,
+.table-border th,
+.table-border td{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
