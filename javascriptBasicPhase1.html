@@ -48,7 +48,7 @@
         }
         function indexOfString(){
             let originalString="Find a Value in string";
-            let indexOfString=originalString.indexOf("value");
+            let indexOfString=originalString.indexOf("Value");
             document.getElementById("indexOfString").innerHTML=indexOfString;
         }
         function stringSearch(){
@@ -77,7 +77,6 @@
         function arrayToString(){
             const array=["Hello", "World", "to","JavaScript","Array"];
             document.getElementById("arrayToString").innerHTML=array.toString();
-            
         }
         function arrayJoin(){
             const array=["Hello", "World", "to","JavaScript","Array"];
@@ -121,12 +120,131 @@
             const array=["Hello","World","to", "JavaScript","Array"];
             document.getElementById("arraySlice").innerHTML=array.splice(1,1);
             document.getElementById("arraySliceRemaining").innerHTML=array.join(" ");
-        } arrayConcatenate
+        } 
         function arrayConcatenate(){
             const array1=["Hello","World","to"];
             const array2=["JavaScript","Array"];
             const concatenateArray=array1.concat(array2);
             document.getElementById("arrayConcatenate").innerHTML=concatenateArray.join(" ");
+        }
+        function arraySortNumbersAscending(){
+            const array=[1,3,5,2,4];
+            document.getElementById("arraySortNumbersAscending").innerHTML=array.sort();
+        }
+        function arraySortNumbersDescending(){
+            const array=[1,3,5,2,4];
+            array.sort();
+            array.reverse()
+            document.getElementById("arraySortNumbersDescending").innerHTML=array;
+        }
+        function arraySortNumbersStringAscending(){
+            const array=[1,3,"4",5,"2"];
+            document.getElementById("arraySortNumbersStringAscending").innerHTML=array.sort();
+        }
+        function arraySortsNumbersTextAscending(){
+            const array=["Ponniah",1,3,"2","Hi"];
+            document.getElementById("arraySortsNumbersTextAscending").innerHTML=array.sort();
+        }
+        function sortStringsAscending(){
+            const array=["Cat","Dog","Elephant","Ball","Apple"];
+            document.getElementById("sortStringsAscending").innerHTML=array.sort();
+        }
+        function sortStringsDescending(){
+            const array=["Cat","Dog","Elephant","Ball","Apple"];
+            array.sort();
+            array.reverse();
+            document.getElementById("sortStringsDescending").innerHTML=array;
+        }
+        function minNumberTraditional(){
+            const array=[2,4,1,5,3];
+            array.sort();
+            document.getElementById("minNumberTraditional").innerHTML=array[0];
+        }
+        function minNumberMethod(){
+            const array=[2,4,1,5,3];
+            document.getElementById("minNumberMethod").innerHTML=Math.min.apply(null,array);
+        }
+        function maxNumberTraditional(){
+            const array=[2,4,1,5,3];
+            array.sort();
+            document.getElementById("maxNumberTraditional").innerHTML=array[(array.length)-1];
+        }
+        function maxNumberMethod(){
+            const array=[2,4,1,5,3];
+            document.getElementById("maxNumberMethod").innerHTML=Math.max.apply(null,array);
+        }
+        function sortArrayObjectsID(){
+            const array=[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}];
+            const sortArrayObjectsID=array.sort(function(a,b){return a.id-b.id});
+            document.getElementById("sortArrayObjectsID").innerHTML=JSON.stringify(sortArrayObjectsID)
+        }
+        function sortArrayObjectsName(){
+            const array=[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}];
+            const sortArrayObjectsID=array.sort(function(a,b){
+                let x = a.name.toLowerCase();
+                let y = b.name.toLowerCase();
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;
+            });
+            document.getElementById("sortArrayObjectsName").innerHTML=JSON.stringify(sortArrayObjectsID)
+        }
+        function sortArrayRandomOrder(){
+            const array= [10,30,40,20,50];
+            for(let i=array.length;i>0;i--){
+                let j=Math.floor(Math.random()*(i+1));
+                let k=array[i];
+                array[i]=array[j];
+                array[j]=k;
+            }
+            document.getElementById("sortArrayRandomOrder").innerHTML=array;
+        }
+        function forEachFunctionDisplayList(){
+            const array= [10,30,40,20,50];
+            array.forEach((value,item,array)=>{
+                let li=document.createElement('li');
+                li.innerText=value;
+                document.getElementById("forEachFunctionDisplayList").appendChild(li)
+            }) 
+        }
+        function forEachFunctionDisplayListArithmeticOperations(){
+            const array= [10,30,40,20,50];
+            const array1=[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}];
+            array1.forEach(value=>console.log(value.id, value.name))
+            array.forEach((value,item,array)=>{
+                let li=document.createElement('li');
+                li.innerText=value*2;
+                document.getElementById("forEachFunctionDisplayListArithmeticOperations").appendChild(li)
+            }) 
+        }
+        function mapFunctionDisplayList(){
+            const array= [10,20,30,40,50];
+            array.map((value,item,array)=>{
+                console.log(value,item,array);
+                let li=document.createElement('li');
+                li.innerText=value**2;
+                document.getElementById("mapFunctionDisplayList").appendChild(li)
+            }) 
+        }
+        function filterFunction(){
+            const array= [10,20,30,40,50];
+            const newArray=array.filter((value,item,array)=>{
+                if(value>25){
+                    let li=document.createElement('li');
+                    li.innerText=value;
+                    document.getElementById("filterFunction").appendChild(li)
+                }
+            });
+        }
+        function reduceFunction(){
+            const array= [10,20,30,40,50];
+            const result=array.reduce((total,value,item,array)=>total+value);
+            document.getElementById("reduceFunction").innerText=result;
+        }
+        function reduceRightFunction(){
+            const array= ['10','20','30','40','50'];
+            const result=array.reduceRight((total,value,item,array)=>total+value);
+            document.getElementById("reduceRightFunction").innerText=result;
         }
     </script>
 </head>
@@ -595,7 +713,198 @@
                             </li>
                         </ol>
                         </dd>
+                        <dd><b>11.3.Array Sort</b>
+                            <ol>
+                                <li>Array Sort Numbers:
+                                    <ul>
+                                        <li>Using Array Sort Method we can sort numbers array ascending order. Using <b>array.sort() & array.reverse()</b> we can sort array descending order</li>
+                                        <li>Array: [1,3,5,2,4]</li>
+                                        <li><b>Ascending Order:</b>
+                                            <button onclick="arraySortNumbersAscending()">Click Here to Sort Array in Ascending Order</button>
+                                            <p>Result: <span id="arraySortNumbersAscending"></span></p>
+                                        </li>
+                                        <li><b>Descending Order:</b>
+                                            <button onclick="arraySortNumbersDescending()">Click Here to Sort Array in Descending Order</button>
+                                            <p>Result: <span id="arraySortNumbersDescending"></span></p>
+                                        </li> 
+                                        <li>Sort Array and Numberical Strings:
+                                            <p>Array:[1,3,"4",5,"2"]</p>
+                                            <button onclick="arraySortNumbersStringAscending()">Click Here to Sort Array in Ascending Order</button>
+                                            <p>Result: <span id="arraySortNumbersStringAscending"></span></p>
+                                        </li>      
+                                        <li>Sort Array Numbers and  Strings:
+                                            <p>Array:["Ponniah",1,3,"2","Hi"]</p>
+                                            <button onclick="arraySortsNumbersTextAscending()">Click Here to Sort Array in Ascending Order</button>
+                                            <p>Result: <span id="arraySortsNumbersTextAscending"></span></p>
+                                        </li>                                  
+                                    </ul>
+                                </li>
+                                <li>Array Sort Strings:
+                                    <ul>
+                                        <li><b>Sort Strings Ascending</b>
+                                            <p>Array:["Cat","Dog","Elephant","Ball","Apple"]</p>
+                                            <button onclick="sortStringsAscending()" >Click Here to Sort Strings Ascending</button>
+                                            <p>Result: <span id="sortStringsAscending"></span></p>
+                                        </li>
+                                        <li><b>Sort Strings Descending:</b>
+                                            <p>Array:["Cat","Dog","Elephant","Ball","Apple"]</p>
+                                            <button onclick="sortStringsDescending()" >Click Here to Sort Strings Descending</button>
+                                            <p>Result: <span id="sortStringsDescending"></span></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Find Min Number in Array
+                                    <ul>
+                                        <li>Traditional Method:
+                                            <p>Sort Arra in Ascening Order and get 1st index element</p>
+                                            <p>Array:[2,4,1,5,3]</p>
+                                            <button onclick="minNumberTraditional()">Click Here to find Min Array Value in Traditional Method</button>
+                                            <p>Result: <span id="minNumberTraditional"></span></p>
+                                        </li>
+                                        <li>Math.min Method:
+                                            <p>Using <b>Math.min.apply(null,array)</b> we can find min numbers in array</p>
+                                            <p>Array:[2,4,1,5,3]</p>
+                                            <button onclick="minNumberMethod()">Click Here to find Min Array Value Using Math.min method</button>
+                                            <p>Result: <span id="minNumberMethod"></span></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Find Max Number in Array
+                                    <ul>
+                                        <li>Traditional Method:
+                                            <p>Sort Array in Ascening Order and get last index element</p>
+                                            <p>Array:[2,4,1,5,3]</p>
+                                            <button onclick="maxNumberTraditional()">Click Here to find Max Array Value in Traditional Method</button>
+                                            <p>Result: <span id="maxNumberTraditional"></span></p>
+                                        </li>
+                                        <li>Math.max Method:
+                                            <p>Using <b>Math.max.apply(null,array)</b> we can find max numbers in array</p>
+                                            <p>Array:[2,4,1,5,3]</p>
+                                            <button onclick="maxNumberMethod()">Click Here to find Max Array Value Using Math.min method</button>
+                                            <p>Result: <span id="maxNumberMethod"></span></p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Array Sort Objects:
+                                    <ul>
+                                        <li>Like Numbers and strings, sorting arrar of objects is not quite easy</li>
+                                        <p>Array:[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}]</p>
+                                        <button onclick="sortArrayObjectsID()">Click Here to Sort Array of Objects by using ID</button>
+                                        <p>Result: <span id="sortArrayObjectsID"></span></p>
+                                        <button onclick="sortArrayObjectsName()">Click Here to Sort Array of Objects by using Name</button>
+                                        <p>Result: <span id="sortArrayObjectsName"></span></p>
+                                        <li>Note: Using <b>JSON.stringfy()</b> we can display array of objects in HTML</li>
+                                    </ul>
+                                </li>
+                                <li>Fisher Yates Method: (Sort Array Elements in random order)
+                                    <p>Using <b>Math.random()</b>method we can sort array elemnts randomly</p>
+                                    <p>Array: [10,30,40,20,50]</p>
+                                    <button onclick="sortArrayRandomOrder()">Click Here to sort array randomly</button>
+                                    <p>Result: <span id="sortArrayRandomOrder"></span></p>
+                                </li>
+                            </ol>
+                        </dd>
+                        <dd><b>11.4.Array Iteration</b>
+                            <ol>
+                                <li>ForEach Function
+                                    <p>ForEach Function calls function at each element of the array</p>
+                                    <p>Syntax: Array.forEach(value,item,array)
+                                        <ul>Definitions:
+                                            <li>Value: Describes individual array element</li>
+                                            <li>Item:  Describes index of array element</li>
+                                            <li>Array: Describes Entire array</li>
+                                        </ul>
+                                    </p>
+                                    <p>Array: [10,20,30,40,50]</p>
+                                    <button onclick="forEachFunctionDisplayList()">ForEach Function to display individual element</button>
+                                    <ul id="forEachFunctionDisplayList"></ul>
+                                    <br>
+                                    <button onclick="forEachFunctionDisplayListArithmeticOperations()">ForEach Function to multiply 2 on each Array element</button>
+                                    <ul id="forEachFunctionDisplayListArithmeticOperations"></ul>
+                                </li>
+                                <br>
+                                <li>Map Function
+                                    <p>Map Function calls function at each element of the array and store resultant operation in new array</p>
+                                    <p>Syntax: const newArray = Array.map(value,item,array)
+                                        <ul>Definitions:
+                                            <li>Value: Describes individual array element</li>
+                                            <li>Item:  Describes index of array element</li>
+                                            <li>Array: Describes Entire array</li>
+                                        </ul>
+                                    </p>
+                                    <p>Array: [10,20,30,40,50]</p>
+                                    <button onclick="mapFunctionDisplayList()">Map Function to display Square value of array element</button>
+                                    <ul id="mapFunctionDisplayList"></ul>
+                                </li>
+                                <br>
+                                <li>Filter Function
+                                    <p>Filter Function returns new array which contains specific exisiting array elements only if we met specific criteria</p>
+                                    <p>Syntax: const newArray= Array.filter(value,item,array)</p>
+                                    <p>Array : [10,20,30,40,50]</p>
+                                    <button onclick="filterFunction()">Filter Function to display array elements greater than 25</button>
+                                    <ul id="filterFunction"></ul>
+                                </li>
+                                <br>
+                                <li>Reduce Function
+                                    <p>Reduce Function <b>reduce entire array into single value(Number/Strings) based on operations done between array elements</b></p>
+                                    <p>Syntax: const newArray = Array.map(<b>total</b>,value,item,array)
+                                        <ul>Definitions:
+                                            <li>Total: Describes Intial or previous result value</li>
+                                            <li>Value: Describes individual array element</li>
+                                            <li>Item:  Describes index of array element</li>
+                                            <li>Array: Describes Entire array</li>
+                                        </ul>
+                                    </p>
+                                    <p>Array: [10,20,30,40,50]</p>
+                                    <button onclick="reduceFunction()">Reduce Function to sum array elements</button>
+                                    <div id="reduceFunction"></div>
+                                </li>
+                                <br>
+                                <li>ReduceRight Function
+                                    <p>Reduce Right Function reduce entire array into single value(Number/Strings) based on operations done between array elements <b>starting from right to left</b></p>
+                                    <p>Syntax: const newArray = Array.map(<b>total</b>,value,item,array)
+                                        <ul>Definitions:
+                                            <li>Total: Describes Intial or previous result value</li>
+                                            <li>Value: Describes individual array element</li>
+                                            <li>Item:  Describes index of array element</li>
+                                            <li>Array: Describes Entire array</li>
+                                        </ul>
+                                    </p>
+                                    <p>Array: ['10','20','30','40','50']</p>
+                                    <button onclick="reduceRightFunction()">Reduce Function to sum array elements</button>
+                                    <div id="reduceRightFunction"></div>
+                                </li>
+                                <br>
+                            </ol>
+                            <table class="table-border">
+                                <caption>Difference between array iteration methods</caption>
+                                <tbody>
+                                    <tr>
+                                        <th>Built in Methods</th>
+                                        <th>ForEach</th>
+                                        <th>Map</th>
+                                        <th>FIlter</th>
+                                        <th>Reduce</th>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Description</b></td>
+                                        <td>Callback function,<b>changes done on exisitng array, returns undefined</b> </td>
+                                        <td>Callback function,<b>changes done on new array, return new array</b> </td>
+                                        <td>Callback function,<b>changes done on new array, return specific elements of old array</b></td>
+                                        <td>Function, <b>reduce entire elements into single value based on operations</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Advantages</b></td>
+                                        <td>Uses for array elements arithetic opertions</td>
+                                        <td>Uses for Binding HTML Child elements into parent elements</td>
+                                        <td>Uses for removing unwanted array elements of old array</td>
+                                        <td>Uses for converting aray into element</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </dd>
                     </dl>
+                    <br><br>
                 </div>
             </div>
         </div>
