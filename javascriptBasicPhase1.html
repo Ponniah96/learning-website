@@ -246,6 +246,195 @@
             const result=array.reduceRight((total,value,item,array)=>total+value);
             document.getElementById("reduceRightFunction").innerText=result;
         }
+        function everyFunction(){
+            const Array = [10,20,30,40,50];
+            const result= Array.every((value,index,array)=>value>5);
+            document.getElementById("everyFunction").innerText=result.toString();
+        }
+        function someFunction(){
+            const Array = [10,20,30,40,50];
+            const result = Array.some(value=>value>20)
+            document.getElementById("someFunction").innerText=result.toString();
+        }
+        function rightAngleTriangle(){
+            const array=[10,20,30,40,50];
+            var result=[];
+            array.forEach((val,index)=>{
+                result.push(index+1);
+                var p=document.createElement("p");
+                p.innerText=result.join(" ");
+                document.getElementById("result").appendChild(p);
+            });
+            result=[];
+        }
+        function maxElementArray(){
+            const givenArray = [1, 2, 3, 4, 1, 1, 2, 3, 4 ,4 ,4 ,4 ,4];
+            var length=0;
+            const maxValue = givenArray.reduce((previous, current, i, arr) => {
+            if (
+                arr.filter(item => item === previous).length >
+                arr.filter(item => item === current).length
+            ) {
+                length=arr.filter(item => item === previous).length
+                return previous ;
+            } else {
+                length=arr.filter(item => item === current).length
+                return current;
+            }
+            });
+            document.getElementById("maxElement").innerText=maxValue;
+            document.getElementById('length').innerText=length;
+        }
+        function nonRepeatedElements(){
+            const numbers = [1,3,2,2,3,3,4,7,5,5,6,5,5,5,5];
+            const duplicates = numbers.filter((item, index) => index === numbers.indexOf(item));
+            document.getElementById("nonRepeatedElements").innerText=duplicates.join(" ");
+        }
+        function repeatedElements(){
+            const numbers = [1,3,2,2,3,3,4,7,5,5,6,5,5,5,5];
+            const duplicates = numbers.filter((item, index) => index !== numbers.indexOf(item));
+            document.getElementById("repeatedElements").innerText=duplicates.join(" ");
+        }
+        function indexofFunction(){
+            const array=[10,20,30,40,50];
+            const result=array.indexOf(20);
+            document.getElementById("indexofFunction").innerText=result;
+        }
+        function lastIndexofFunction(){
+            const array=[10,20,30,20,50];
+            const result=array.lastIndexOf(20);
+            document.getElementById("lastIndexofFunction").innerText=result;
+        }
+        function objectKeyProperties(){
+            const array=[{id:"1",name:"Ponniah"},{id:"2",name:"Periyasamy"}];
+            const result=array.map(val=>Object.keys(val));
+            document.getElementById("objectKeyProperties").innerText=result.join(" ")
+        }
+        function findFunction(){
+            const array=[5,10,15,20,25];
+            const result = array.find(val=>val>12);
+            document.getElementById("findFunction").innerText=result;
+        }
+        function findIndexFunction(){
+            const array=[5,10,15,20,25];
+            const result = array.findIndex(val=>val>12);
+            document.getElementById("findIndexFunction").innerText=result;
+        }
+        function fromFunction(){
+            let string="ABCDEFGH";
+            const arr=Array.from(string);
+            document.getElementById("fromFunction").innerText=arr;
+            document.getElementById("fromFunctionLength").innerText=arr.length;
+        }
+        function keysFunction(){
+            const array=[1,2,3,4,5];
+            const keys=array.keys();
+            let text = "";
+            for (let x of keys) {
+            text += x + "<br>";
+            }
+            document.getElementById("keysFunction").innerHTML=text;
+        }
+        function arrayEntriesFunction(){
+            const array=["Apple","Banana","Orange"];
+            const entries=array.entries();
+            let texts="";
+            for(let f of entries){
+                texts += f+"<br>"
+            }
+            document.getElementById("arrayEntriesFunction").innerHTML=texts;
+        }
+        document.addEventListener("DOMContentLoaded",function(){
+            var json=[{
+                year:"2015",
+                name:"xyz",
+                DOJ:"11-10-2015",
+                Role:"Associate Software Engineer"
+            },
+            {
+                year:"2017",
+                name:"xyz",
+                DOJ:"11-10-2015",
+                Role:"Software Engineer"
+            },
+            {
+                year:"2020",
+                name:"xyz",
+                DOJ:"11-10-2015",
+                Role:"Senior Software Engineer"
+            }];        
+            var result=json.map((val,index,aray)=>{
+                if(index==aray.length-1){
+                    document.getElementById("name").innerText=val.name.toString();
+                    document.getElementById("DOJ").innerText=val.DOJ.toString();
+                    document.getElementById("Role").innerText=val.Role.toString();
+                }
+            });            
+            var timeline=json.map((val,index,aray)=>{
+                var button=document.createElement("button");
+                button.innerText=val.year;
+                document.getElementById("milestone").appendChild(button);
+                button.onclick=function test(e){
+                    const finalResult=json.filter(val=>{
+                        if(val.year==e.target.innerText){
+                            document.getElementById("name").innerText=val.name.toString();
+                            document.getElementById("DOJ").innerText=val.DOJ.toString();
+                            document.getElementById("Role").innerText=val.Role.toString();
+                        }
+                    })
+                };                
+            });
+        })      
+        function arrayIncludes(){
+            const array=["Apple","Banana", "Orange"]
+            var includesResult=array.includes("Banana");
+            document.getElementById("arrayIncludes").innerText=includesResult.toString()
+        }
+        function  arrayFlat(){
+            const array=[10,20,30,40,[40.1,40.2,40.3,[40.31,40.32],40.4,40.5],50];
+            var arrayFlatResult= array.flat(3);
+            console.log(arrayFlatResult);
+            document.getElementById("arrayFlat").innerText=arrayFlatResult;
+        }
+        function sortedArray(){
+            const sortArray=[1,5,2,4,3];
+            //const sortArray=[1,2,3,4,5];
+            //const sortArray=[5,4,3,2,1];
+            var ascending=false;
+            var descending=false;
+            for(let i=0;i<sortArray.length;i++){
+                if(ascending==false && descending==false){
+                    if(sortArray[i]<=sortArray[i+1]){
+                        ascending=true
+                    }
+                    else {
+                        descending=true;
+                    }
+                }
+                else if(ascending==true){
+                    if(sortArray[i]>sortArray[i+1]){
+                        ascending=false
+                        break;
+                    }
+                }
+                else if(descending==true){
+                    if(sortArray[i]<sortArray[i+1]){
+                        descending=false;
+                        break;
+                    }
+                }
+            }
+            if(ascending==false && descending==false){
+                document.getElementById("sortedArray").innerText="Arrays are not in sorted order"
+            }
+            else if(ascending==true){
+                document.getElementById("sortedArray").innerText="Arrays are sorted in ascending order"
+            }
+            else if(descending==true){
+                document.getElementById("sortedArray").innerText="Arrays are sorted in descending order"
+            }
+            console.log(sortedArray)
+        }
     </script>
 </head>
 <body>
@@ -875,6 +1064,86 @@
                                     <div id="reduceRightFunction"></div>
                                 </li>
                                 <br>
+                                <li>Every Function
+                                    <p>Every function is used to <b>find out all the elements should pass test</b></p>
+                                    <p>Syntax: Array.every(value,index,array)</p>
+                                    <p>Example: Array=[10,20,30,40,50]</p>
+                                    <button onclick="everyFunction()">Every function to check all elements are greater than 5</button>
+                                    <p>Result: <span id="everyFunction"></span></p>
+                                </li>
+                                <br>
+                                <li>Some Function
+                                    <p>Every function is used to <b>find out some of the elements should pass test</b></p>
+                                    <p>Syntax: Array.every(value,index,array)</p>
+                                    <p>Example: Array=[10,20,30,40,50]</p>
+                                    <button onclick="someFunction()">Some function to check all elements are greater than 20</button>
+                                    <p>Result: <span  id="someFunction"></span></p>
+                                </li>
+                                <br>
+                                <li>Index Function
+                                    <p>Index Function is used to <b> display index of first occurance of search text</b></p>
+                                    <p>Syntax: Array.indexOf(item,start)</p>
+                                    <p>Array: [10,20,30,40,50]</p>
+                                    <button onclick="indexofFunction()">Click Here to find indexOf element</button>
+                                    <p>Index of element 20: <span id="indexofFunction"></span></p>
+                                </li>
+                                <br>
+                                <li>Last Index Function
+                                    <p>Index Function is used to <b> display index of last occurance of search text</b></p>
+                                    <p>Syntax: Array.lastIndexOf(item,start)</p>
+                                    <p>Array: [10,20,30,40,50]</p>
+                                    <button onclick="lastIndexofFunction()">Click Here to find Last indexOf element</button>
+                                    <p>Index of element 20: <span id="lastIndexofFunction"></span></p>
+                                </li>
+                                <br>
+                                <li>Find Function
+                                    <p>Find Function <b>returns next element value of an array if its passes certain condition</b></p>
+                                    <p>Eg: Array=[5,10,15,20,25]</p>
+                                    <button onclick="findFunction()">Click Here to find Eleemnt of 12</button>
+                                    <p>Result: <span id="findFunction"></span></p>
+                                </li>
+                                <br>
+                                <li>FindIndex Function
+                                    <p>FindIndex Function <b>returns index of an array if its passes certain condition</b></p>
+                                    <p>Eg: Array=[5,10,15,20,25]</p>
+                                    <button onclick="findIndexFunction()">Click Here to findIndex Element of 12</button>
+                                    <p>Result: <span id="findIndexFunction"></span></p>
+                                </li>
+                                <br>
+                                <li>From Function
+                                    <p>Array.from function returns new array from any object with length property</p>
+                                    <p>Given String: ABCDEFGH</p>
+                                    <button onclick="fromFunction()">CLick Here to covert String into Array</button>
+                                    <p>Result: <span id="fromFunction"></span></p>
+                                    <p>Result Length:<span id="fromFunctionLength"></span></p>
+                                </li>
+                                <br>
+                                <li>Keys Function
+                                    <p>Array.keys function returns an array iterable object with key values</p>
+                                    <p>Given Array: [1,2,3,4,5]</p>
+                                    <button onclick="keysFunction()">Click Here to Find Keys of an array</button>
+                                    <p>Result: <span id="keysFunction"></span></p>
+                                </li>
+                                <br>
+                                <li>Entries Function
+                                    <p>Array.entries() method returns an iterable object with pair of keys and values</p>
+                                    <p>Array:["Apple","Orange","Banana"]</p>
+                                    <button onclick="arrayEntriesFunction()">Click Here to find array entries</button>
+                                    <p>Result: <span id="arrayEntriesFunction"></span></p>
+                                </li>
+                                <br>
+                                <li>Includes Function
+                                    <p>Array.includes function returns true or false whether array element was there are not</p>
+                                    <p>Given Array=["Apple","Banana", "Orange"]</p>
+                                    <button onclick="arrayIncludes()">Click Here to find whether Banana Element was there</button>
+                                    <p>Result: <span id="arrayIncludes"></span></p>
+                                </li>
+                                <li>Flat function
+                                    <p>Array.flat function <b>merges nested arrays into single array</b></p>
+                                    <p>Array:[10,20,30,40[40.1,40.2,40.3[40.3.1,40.3.2],40.4,40.5],50]</p>
+                                    <button onclick="arrayFlat()">Click Here to flatten array</button>
+                                    <p>Result: <span id="arrayFlat"></span></p>
+                                </li>
                             </ol>
                             <table class="table-border">
                                 <caption>Difference between array iteration methods</caption>
@@ -905,6 +1174,47 @@
                         </dd>
                     </dl>
                     <br><br>
+                    <p>Special Scenarios</p>
+                    <ol>
+                        <li>Right Angle triangle
+                            <button onclick="rightAngleTriangle()">Click Here to Display Right angle tirangle of numbers</button>
+                            <div id="result"></div>
+                        </li>
+                        <li>Find Max Elements in an array and its occurance
+                            <p>Array = [1, 2, 3, 4, 1, 1, 2, 3, 4 ,4 ,4 ,4 ,4]</p>
+                            <button onclick="maxElementArray()">Click Here to find max occurance</button>
+                            <p>Max Occurance Element: <span id="maxElement"></span></p>
+                            <p>Length: <span id="length"></span></p>
+                        </li>
+                        <li>Find out Non repeated numbers
+                            <p>Array = [1, 3, 2, 2, 3, 3, 4, 7, 5, 5, 6, 5, 5, 5, 5]</p>
+                            <button onclick="nonRepeatedElements()">Click Here to find non repeated elements</button>
+                            <p>Repeated Element: <span id="nonRepeatedElements"></span></p>
+                        </li>
+                        <li>Find out Repeated numbers
+                            <p>Array = [1, 3, 2, 2, 3, 3, 4, 7, 5, 5, 6, 5, 5, 5, 5]</p>
+                            <button onclick="repeatedElements()">Click Here to find repeated elements</button>
+                            <p>Repeated Element: <span id="repeatedElements"></span></p>
+                        </li>
+                        <li>Find out Array of Objects Key properties
+                            <p>Array:[{id:"1",name:"Ponniah"},{id:"2",name:"Periyasamy"}]</p>
+                            <button onclick="objectKeyProperties()">Click Here to find key properties of array of objects</button>
+                            <p>Result: <span id="objectKeyProperties"></span></p>
+                        </li>
+                        <li>TimeLine Progress
+                            <h2>Welcome to Employee Database</h2>
+                            <div style="display: flex;"  id="milestone"></div>
+                            <p>Employee Name: <span id="name"></span></p>
+                            <p>Employee DOJ : <span id="DOJ">""</span></p>
+                            <b><p>Employee Role: <span id="Role">""</span></p></b>
+                        </li>
+                        <li>Find out Array Elements are sorted or not
+                            <p>We can find out whether elements are sorted ot not</p>
+                            <p>Given Array: [1,5,2,4,3]</p>
+                            <button onclick="sortedArray()">Click Here to find out whether above element sorted or not</button>
+                            <p>Result: <span id="sortedArray"></span></p>
+                        </li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -912,4 +1222,4 @@
     <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;font-size: 32px;" href="#top" ><i class="bi bi-arrow-up-circle-fill"></i></a></section>
     <object data="footerlayout.html" class="iframe-footer"></object>
 </body>
-</html>
+</html>                                     
