@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Introduction</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cssStyles.css">
+    <link rel="stylesheet" href="cssAdvancedPhase.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-blue.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+   <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            hljs.highlightAll();
+            var json=[{
+                year:"2015",
+                name:"xyz",
+                DOJ:"11-10-2015",
+                Role:"Associate Software Engineer"
+            },
+            {
+                year:"2017",
+                name:"xyz",
+                DOJ:"11-10-2015",
+                Role:"Software Engineer"
+            },
+            {
+                year:"2020",
+                name:"xyz",
+                DOJ:"11-10-2015",
+                Role:"Senior Software Engineer"
+            }];        
+            var result=json.map((val,index,aray)=>{
+                if(index==aray.length-1){
+                    document.getElementById("name").innerText=val.name.toString();
+                    document.getElementById("DOJ").innerText=val.DOJ.toString();
+                    document.getElementById("Role").innerText=val.Role.toString();
+                }
+            });            
+            var timeline=json.map((val,index,aray)=>{
+                var button=document.createElement("button");
+                button.innerText=val.year;
+                document.getElementById("milestone").appendChild(button);
+                button.onclick=function test(e){
+                    const finalResult=json.filter(val=>{
+                        if(val.year==e.target.innerText){
+                            document.getElementById("name").innerText=val.name.toString();
+                            document.getElementById("DOJ").innerText=val.DOJ.toString();
+                            document.getElementById("Role").innerText=val.Role.toString();
+                        }
+                    })
+                };                
+            });
+        })      
+        function copyFunction(buttonID, functionID){
+            var copyText = document.getElementById(functionID)
+            navigator.clipboard.writeText(copyText.innerText);
+            var buttonElement=document.getElementById(buttonID);
+            buttonElement.innerHTML= '<i class="bi bi-check2"></i> Copied';
+        }
+        function rightAngleTriangle(){
+            const array=[10,20,30,40,50];
+            var result=[];
+            array.forEach((val,index)=>{
+                result.push(index+1);
+                var p=document.createElement("p");
+                p.innerText=result.join(" ");
+                document.getElementById("result").appendChild(p);
+            });
+            result=[];
+        }
+        function maxElementArray(){
+            const givenArray = [1, 2, 3, 4, 1, 1, 2, 3, 4 ,4 ,4 ,4 ,4];
+            var length=0;
+            const maxValue = givenArray.reduce((previous, current, i, arr) => {
+            if (
+                arr.filter(item => item === previous).length >
+                arr.filter(item => item === current).length
+            ) {
+                length=arr.filter(item => item === previous).length
+                return previous ;
+            } else {
+                length=arr.filter(item => item === current).length
+                return current;
+            }
+            });
+            document.getElementById("maxElement").innerText=maxValue;
+            document.getElementById('length').innerText=length;
+        }
+        function nonRepeatedElements(){
+            const numbers = [1,3,2,2,3,3,4,7,5,5,6,5,5,5,5];
+            const duplicates = numbers.filter((item, index) => index === numbers.indexOf(item));
+            document.getElementById("nonRepeatedElements").innerText=duplicates.join(" ");
+        }
+        function repeatedElements(){
+            const numbers = [1,3,2,2,3,3,4,7,5,5,6,5,5,5,5];
+            const duplicates = numbers.filter((item, index) => index !== numbers.indexOf(item));
+            document.getElementById("repeatedElements").innerText=duplicates.join(" ");
+        }
+        function objectKeyProperties(){
+            const array=[{id:"1",name:"Ponniah"},{id:"2",name:"Periyasamy"}];
+            const result=array.map(val=>Object.keys(val));
+            document.getElementById("objectKeyProperties").innerText=result.join(" ")
+        }        
+        function sortedArray(){
+            const sortArray=[1,5,2,4,3];
+            //const sortArray=[1,2,3,4,5];
+            //const sortArray=[5,4,3,2,1];
+            var ascending=false;
+            var descending=false;
+            for(let i=0;i<sortArray.length;i++){
+                if(ascending==false && descending==false){
+                    if(sortArray[i]<=sortArray[i+1]){
+                        ascending=true
+                    }
+                    else {
+                        descending=true;
+                    }
+                }
+                else if(ascending==true){
+                    if(sortArray[i]>sortArray[i+1]){
+                        ascending=false
+                        break;
+                    }
+                }
+                else if(descending==true){
+                    if(sortArray[i]<sortArray[i+1]){
+                        descending=false;
+                        break;
+                    }
+                }
+            }
+            if(ascending==false && descending==false){
+                document.getElementById("sortedArray").innerText="Arrays are not in sorted order"
+            }
+            else if(ascending==true){
+                document.getElementById("sortedArray").innerText="Arrays are sorted in ascending order"
+            }
+            else if(descending==true){
+                document.getElementById("sortedArray").innerText="Arrays are sorted in descending order"
+            }
+        }
+        function arrayPrototype(){
+            const array=["apple","banana","carrot","god"];
+            array.upperCase();
+            document.getElementById("arrayPrototype").innerText=array.join(" ");
+        }
+        Array.prototype.upperCase=function(){
+            for(let i=0;i<this.length;i++){
+                this[i]=this[i].toUpperCase();
+            }
+        }
+    </script>
+</head>
+<body>
+    <object data="headerlayout.html" class="iframe-header"></object>
+    <section class="body-section">
+        <nav class="left-nav-bar">
+            <ul>
+                <li class="left-nav-header default-highlighted">Advanced Concepts</li>
+                <li><a href="#special-scenarios">1.Special Scenarios</a></li>
+            </ul>
+        </nav>
+        <div class="content-section">
+            <div id="w3Schools">
+                <h3>Javascript Advanced Phase 1</h3>
+                <div>
+                    <p id="special-scenarios">Special Scenarios</p>
+                    <ol>
+                        <li>Right Angle triangle
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <button onclick="rightAngleTriangle()">Click Here to Display Right angle tirangle of numbers</button>
+                                    <div id="result"></div>                                                                           
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="rightAngleTriangleCopyText" onclick="copyFunction('rightAngleTriangleCopyText','rightAngleTriangleFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="rightAngleTriangleFunction" class="language-javascript">
+function rightAngleTriangle(){
+    const array=[10,20,30,40,50];
+    var result=[];
+    array.forEach((val,index)=>{
+        result.push(index+1);
+        //var p=document.createElement("p");
+        //p.innerText=result.join(" ");
+        //document.getElementById("result").appendChild(p);
+        console.log(result);
+    });
+    result=[];
+}
+rightAngleTriangle()
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>Find Max Elements in an array and its occurance
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <p>Array = [1, 2, 3, 4, 1, 1, 2, 3, 4 ,4 ,4 ,4 ,4]</p>
+                                    <button onclick="maxElementArray()">Click Here to find max occurance</button>
+                                    <p>Max Occurance Element: <span id="maxElement"></span></p>
+                                    <p>Length: <span id="length"></span></p>                                                                   
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="maxElementArrayCopyText" onclick="copyFunction('maxElementArrayCopyText','maxElementArrayFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="maxElementArrayFunction" class="language-javascript">
+function maxElementArray(){
+    const givenArray = [1, 2, 3, 4, 1, 1, 2, 3, 4 ,4 ,4 ,4 ,4];
+    var length=0;
+    const maxValue = givenArray.reduce((previous, current, i, arr) => {
+    if (
+        arr.filter(item => item === previous).length >
+        arr.filter(item => item === current).length
+    ) {
+        length=arr.filter(item => item === previous).length
+        return previous ;
+    } else {
+        length=arr.filter(item => item === current).length
+        return current;
+    }
+    });
+    //document.getElementById("maxElement").innerText=maxValue;
+    //document.getElementById('length').innerText=length;
+    console.log(maxValue, length);
+}
+maxElementArray()
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>Find out Non repeated numbers
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <p>Array = [1, 3, 2, 2, 3, 3, 4, 7, 5, 5, 6, 5, 5, 5, 5]</p>
+                                    <button onclick="nonRepeatedElements()">Click Here to find non repeated elements</button>
+                                    <p>Repeated Element: <span id="nonRepeatedElements"></span></p>                                                                  
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="nonRepeatedElementsCopyText" onclick="copyFunction('nonRepeatedElementsCopyText','nonRepeatedElementsFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="nonRepeatedElementsFunction" class="language-javascript">
+function nonRepeatedElements(){
+    const numbers = [1,3,2,2,3,3,4,7,5,5,6,5,5,5,5];
+    const duplicates = numbers.filter((item, index) => index === numbers.indexOf(item));
+    //document.getElementById("nonRepeatedElements").innerText=duplicates.join(" ");
+    console.log(duplicates);
+}
+nonRepeatedElements()
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>Find out Repeated numbers
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <p>Array = [1, 3, 2, 2, 3, 3, 4, 7, 5, 5, 6, 5, 5, 5, 5]</p>
+                                    <button onclick="repeatedElements()">Click Here to find repeated elements</button>
+                                    <p>Repeated Element: <span id="repeatedElements"></span></p>                                                                 
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="repeatedElementsCopyText" onclick="copyFunction('repeatedElementsCopyText','repeatedElementsFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="repeatedElementsFunction" class="language-javascript">
+function repeatedElements(){
+    const numbers = [1,3,2,2,3,3,4,7,5,5,6,5,5,5,5];
+    const duplicates = numbers.filter((item, index) => index !== numbers.indexOf(item));
+    //document.getElementById("repeatedElements").innerText=duplicates.join(" ");
+    console.log(duplicates);
+}
+repeatedElements()
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>Find out Array of Objects Key properties
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <p>Array:[{id:"1",name:"Ponniah"},{id:"2",name:"Periyasamy"}]</p>
+                                    <button onclick="objectKeyProperties()">Click Here to find key properties of array of objects</button>
+                                    <p>Result: <span id="objectKeyProperties"></span></p>                                                             
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="objectKeyPropertiesCopyText" onclick="copyFunction('objectKeyPropertiesCopyText','objectKeyPropertiesFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="objectKeyPropertiesFunction" class="language-javascript">
+function objectKeyProperties(){
+    const array=[{id:"1",name:"Ponniah"},{id:"2",name:"Periyasamy"}];
+    const result=array.map(val=>Object.keys(val));
+    //document.getElementById("objectKeyProperties").innerText=result.join(" ")
+    console.log(result);
+}
+objectKeyProperties()
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>TimeLine Progress
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <h2>Welcome to Employee Database</h2>
+                                    <div style="display: flex;"  id="milestone"></div>
+                                    <p>Employee Name: <span id="name"></span></p>
+                                    <p>Employee DOJ : <span id="DOJ">""</span></p>
+                                    <b><p>Employee Role: <span id="Role">""</span></p></b>                                                
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="timeLineCopyText" onclick="copyFunction('timeLineCopyText','timeLineFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="timeLineFunction" class="language-javascript">
+document.addEventListener("DOMContentLoaded",function(){
+    var json=[{
+        year:"2015",
+        name:"xyz",
+        DOJ:"11-10-2015",
+        Role:"Associate Software Engineer"
+    },
+    {
+        year:"2017",
+        name:"xyz",
+        DOJ:"11-10-2015",
+        Role:"Software Engineer"
+    },
+    {
+        year:"2020",
+        name:"xyz",
+        DOJ:"11-10-2015",
+        Role:"Senior Software Engineer"
+    }];        
+    var result=json.map((val,index,aray)=>{
+        if(index==aray.length-1){
+            document.getElementById("name").innerText=val.name.toString();
+            document.getElementById("DOJ").innerText=val.DOJ.toString();
+            document.getElementById("Role").innerText=val.Role.toString();
+        }
+    });            
+    var timeline=json.map((val,index,aray)=>{
+        var button=document.createElement("button");
+        button.innerText=val.year;
+        document.getElementById("milestone").appendChild(button);
+        button.onclick=function test(e){
+            const finalResult=json.filter(val=>{
+                if(val.year==e.target.innerText){
+                    document.getElementById("name").innerText=val.name.toString();
+                    document.getElementById("DOJ").innerText=val.DOJ.toString();
+                    document.getElementById("Role").innerText=val.Role.toString();
+                }
+            })
+        };                
+    });
+})      
+                                            
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>Find out Array Elements are sorted or not
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <p>We can find out whether elements are sorted ot not</p>
+                                    <p>Given Array: [1,5,2,4,3]</p>
+                                    <button onclick="sortedArray()">Click Here to find out whether above element sorted or not</button>
+                                    <p>Result: <span id="sortedArray"></span></p>                                                               
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="sortedArrayCopyText" onclick="copyFunction('sortedArrayCopyText','sortedArrayFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="sortedArrayFunction" class="language-javascript">
+function sortedArray(){
+    const sortArray=[1,5,2,4,3];
+    //const sortArray=[1,2,3,4,5];
+    //const sortArray=[5,4,3,2,1];
+    var ascending=false;
+    var descending=false;
+    for(let i=0;i&lt;sortArray.length;i++){
+        if(ascending==false && descending==false){
+            if(sortArray[i]&lt;=sortArray[i+1]){
+                ascending=true
+            }
+            else {
+                descending=true;
+            }
+        }
+        else if(ascending==true){
+            if(sortArray[i]>sortArray[i+1]){
+                ascending=false
+                break;
+            }
+        }
+        else if(descending==true){
+            if(sortArray[i]&lt;sortArray[i+1]){
+                descending=false;
+                break;
+            }
+        }
+    }
+    if(ascending==false && descending==false){
+        //document.getElementById("sortedArray").innerText="Arrays are not in sorted order"
+        console.log("Arrays are not in sorted order")
+    }
+    else if(ascending==true){
+        //document.getElementById("sortedArray").innerText="Arrays are sorted in ascending order"
+        console.log("Arrays are not in sorted order")
+    }
+    else if(descending==true){
+        //document.getElementById("sortedArray").innerText="Arrays are sorted in descending order"
+        console.log("Arrays are not in sorted order")
+    }
+}
+sortedArray()
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>Array.Prototype Method
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <p>Array Prototype method helps us to create own custom methods in arrays like standard build in methods (sort, filter, map)</p>
+                                    <p>Syntax : Array.Prototype.functionName= funtion(){return} </p>
+                                    <p>Syntax2: Array.functionName()</p>
+                                    <p>Array=["apple","banana","carrot","god"]</p>
+                                    <button onclick="arrayPrototype()">Click Here to display Array Elements in Uppercase</button>
+                                    <p>Result: <span id="arrayPrototype"></span></p>                                                             
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="arrayPrototypeCopyText" onclick="copyFunction('arrayPrototypeCopyText','arrayPrototypeFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="arrayPrototypeFunction" class="language-javascript">
+function arrayPrototype(){
+    const array=["apple","banana","carrot","god"];
+    array.upperCase();
+    //document.getElementById("arrayPrototype").innerText=array.join(" ");
+    console.log(array);
+}
+Array.prototype.upperCase=function(){
+    for(let i=0;i&lt;this.length;i++){
+        this[i]=this[i].toUpperCase();
+    }
+}
+arrayPrototype()
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;font-size: 32px;" href="#top" ><i class="bi bi-arrow-up-circle-fill"></i></a></section>
+    <object data="footerlayout.html" class="iframe-footer"></object>
+</body>
+</html>                                     

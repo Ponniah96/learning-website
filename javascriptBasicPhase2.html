@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Introduction</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cssStyles.css">
+    <link rel="stylesheet" href="cssAdvancedPhase.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <script>
+
+    </script>
+</head>
+<body>
+    <object data="headerlayout.html" class="iframe-header"></object>
+    <section class="body-section">
+        <nav class="left-nav-bar">
+            <ul>
+                <li class="left-nav-header default-highlighted">Concepts</li>
+                <li><a href="#objects">12.Objects</a></li>
+            </ul>
+        </nav>
+        <div class="content-section">
+            <div id="w3Schools">
+                <h3>Javascript Basic Concepts Phase2</a></h3>
+                <div>
+                    <dl id="objects">
+                        <dt>12.Objects</dt>
+                        <dd id="object-definition"><b>Definition</b></dd>
+                        <dd>JavaScript Object is a variable whoch contains multiple values</dd>
+                        <dd>Javascript objects is a <b>collection of named values and pair, called properties and methods</b></dd>
+                        <dd>Ways to create Object 
+                            <ol>
+                                <li>1.Using Object Literals (Most Preferrable)
+                                    <p>const objName={id:"1",name:"Ponniah", methodName:function(){}}</p>
+                                    <p>const objName={};</p>
+                                    <p>objName.id="1"</p>
+                                    <p>objName.name="Ponniah"</p>
+                                    <p>objName.methodName=function(){}</p>
+                                </li>
+                                <li>2.Using Object new keyword (Non Preferrable)
+                                    <p>const objName=new Object();</p>
+                                    <p>objName.id="1"</p>
+                                    <p>objName.name="Ponniah"</p>
+                                </li>
+                                <li>Object.create()
+                                    <p>Object.Create() will create new objects</p>
+                                    <p>const objName={id:"1",name:"Ponniah", methodName:function(){}}</p>
+                                    <p>const newObj=Object.Create(objName)</p>
+                                </li>
+                            </ol>
+                        </dd>
+                        <dd>Objects values are mutable
+                            <p>If we create an object and assign to another variable like below, if we add value, it will overwrite exisiting property also</p>
+                            <p>const objName={id:"1",name:"Ponniah", methodName:function(){}}</p>  
+                            <p>const newObj=objName;</p>               
+                            <p><b>newObj.id="2" //Overwrit objName.id property value also</b></p>
+                        </dd>
+                        <br>
+                        <dd id="object-properties"><b>Object Properties</b></dd>
+                        <dd>Object properties contained named values</dd>
+                        <dd>Objects properties we can add, del, access, modify, change it as read-only</dd>
+                        <dd>Access Object Properties
+                            <ol>
+                                <li>Object.PropertyName (obj.id)</li>
+                                <li>Object["PropertyName"] (obj["id"])</li>
+                            </ol>
+                        </dd>
+                        <dd>Add New Properties
+                            <p>const objName={id:"1",name:"Ponniah", methodName:function(){}}</p>
+                            <p>objName.age="26"</p>
+                        </dd>
+                        <dd>Delete Properties
+                            <p>const objName={id:"1",name:"Ponniah", methodName:function(){}}</p>
+                            <p>delete objName.age</p>
+                            <p>or</p>
+                            <p>delete objName["age"]</p>
+                        </dd>
+                        <dd>Javascript for...in loop
+                            <ol>
+                                <li>Access JS for...in loop we can access individual obj property</li>
+                                <li>
+                                    <p>const objName={id:"1",name:"Ponniah", methodName:function(){}}</p>
+                                    <p>for(let x in ObjName){</p>
+                                    <p>text+=person[x]</p>
+                                    <p>}</p>
+                                </li>
+                            </ol>
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="default-highlighted scrollTop"><a style="color: white;text-decoration: none;font-weight: 600;font-size: 32px;" href="#top" ><i class="bi bi-arrow-up-circle-fill"></i></a></section>
+    <object data="footerlayout.html" class="iframe-footer"></object>
+</body>
+</html>                                     
