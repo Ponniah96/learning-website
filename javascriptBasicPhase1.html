@@ -9,7 +9,18 @@
     <link rel="stylesheet" href="cssStyles.css">
     <link rel="stylesheet" href="cssAdvancedPhase.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-blue.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+   <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            hljs.highlightAll();
+        })      
+        function copyFunction(buttonID, functionID){
+            var copyText = document.getElementById(functionID)
+            navigator.clipboard.writeText(copyText.innerText);
+            var buttonElement=document.getElementById(buttonID);
+            buttonElement.innerHTML= '<i class="bi bi-check2"></i> Copied';
+        }
         // String functions Start 
         function stringLength(){
             var string="ABCDEFGH";
@@ -191,7 +202,7 @@
         }
         function sortArrayRandomOrder(){
             const array= [10,30,40,20,50];
-            for(let i=array.length;i>0;i--){
+            for(let i=array.length-1;i>0;i--){
                 let j=Math.floor(Math.random()*(i+1));
                 let k=array[i];
                 array[i]=array[j];
@@ -256,45 +267,6 @@
             const result = Array.some(value=>value>20)
             document.getElementById("someFunction").innerText=result.toString();
         }
-        function rightAngleTriangle(){
-            const array=[10,20,30,40,50];
-            var result=[];
-            array.forEach((val,index)=>{
-                result.push(index+1);
-                var p=document.createElement("p");
-                p.innerText=result.join(" ");
-                document.getElementById("result").appendChild(p);
-            });
-            result=[];
-        }
-        function maxElementArray(){
-            const givenArray = [1, 2, 3, 4, 1, 1, 2, 3, 4 ,4 ,4 ,4 ,4];
-            var length=0;
-            const maxValue = givenArray.reduce((previous, current, i, arr) => {
-            if (
-                arr.filter(item => item === previous).length >
-                arr.filter(item => item === current).length
-            ) {
-                length=arr.filter(item => item === previous).length
-                return previous ;
-            } else {
-                length=arr.filter(item => item === current).length
-                return current;
-            }
-            });
-            document.getElementById("maxElement").innerText=maxValue;
-            document.getElementById('length').innerText=length;
-        }
-        function nonRepeatedElements(){
-            const numbers = [1,3,2,2,3,3,4,7,5,5,6,5,5,5,5];
-            const duplicates = numbers.filter((item, index) => index === numbers.indexOf(item));
-            document.getElementById("nonRepeatedElements").innerText=duplicates.join(" ");
-        }
-        function repeatedElements(){
-            const numbers = [1,3,2,2,3,3,4,7,5,5,6,5,5,5,5];
-            const duplicates = numbers.filter((item, index) => index !== numbers.indexOf(item));
-            document.getElementById("repeatedElements").innerText=duplicates.join(" ");
-        }
         function indexofFunction(){
             const array=[10,20,30,40,50];
             const result=array.indexOf(20);
@@ -304,11 +276,6 @@
             const array=[10,20,30,20,50];
             const result=array.lastIndexOf(20);
             document.getElementById("lastIndexofFunction").innerText=result;
-        }
-        function objectKeyProperties(){
-            const array=[{id:"1",name:"Ponniah"},{id:"2",name:"Periyasamy"}];
-            const result=array.map(val=>Object.keys(val));
-            document.getElementById("objectKeyProperties").innerText=result.join(" ")
         }
         function findFunction(){
             const array=[5,10,15,20,25];
@@ -344,47 +311,6 @@
             }
             document.getElementById("arrayEntriesFunction").innerHTML=texts;
         }
-        document.addEventListener("DOMContentLoaded",function(){
-            var json=[{
-                year:"2015",
-                name:"xyz",
-                DOJ:"11-10-2015",
-                Role:"Associate Software Engineer"
-            },
-            {
-                year:"2017",
-                name:"xyz",
-                DOJ:"11-10-2015",
-                Role:"Software Engineer"
-            },
-            {
-                year:"2020",
-                name:"xyz",
-                DOJ:"11-10-2015",
-                Role:"Senior Software Engineer"
-            }];        
-            var result=json.map((val,index,aray)=>{
-                if(index==aray.length-1){
-                    document.getElementById("name").innerText=val.name.toString();
-                    document.getElementById("DOJ").innerText=val.DOJ.toString();
-                    document.getElementById("Role").innerText=val.Role.toString();
-                }
-            });            
-            var timeline=json.map((val,index,aray)=>{
-                var button=document.createElement("button");
-                button.innerText=val.year;
-                document.getElementById("milestone").appendChild(button);
-                button.onclick=function test(e){
-                    const finalResult=json.filter(val=>{
-                        if(val.year==e.target.innerText){
-                            document.getElementById("name").innerText=val.name.toString();
-                            document.getElementById("DOJ").innerText=val.DOJ.toString();
-                            document.getElementById("Role").innerText=val.Role.toString();
-                        }
-                    })
-                };                
-            });
-        })      
         function arrayIncludes(){
             const array=["Apple","Banana", "Orange"]
             var includesResult=array.includes("Banana");
@@ -396,44 +322,11 @@
             console.log(arrayFlatResult);
             document.getElementById("arrayFlat").innerText=arrayFlatResult;
         }
-        function sortedArray(){
-            const sortArray=[1,5,2,4,3];
-            //const sortArray=[1,2,3,4,5];
-            //const sortArray=[5,4,3,2,1];
-            var ascending=false;
-            var descending=false;
-            for(let i=0;i<sortArray.length;i++){
-                if(ascending==false && descending==false){
-                    if(sortArray[i]<=sortArray[i+1]){
-                        ascending=true
-                    }
-                    else {
-                        descending=true;
-                    }
-                }
-                else if(ascending==true){
-                    if(sortArray[i]>sortArray[i+1]){
-                        ascending=false
-                        break;
-                    }
-                }
-                else if(descending==true){
-                    if(sortArray[i]<sortArray[i+1]){
-                        descending=false;
-                        break;
-                    }
-                }
-            }
-            if(ascending==false && descending==false){
-                document.getElementById("sortedArray").innerText="Arrays are not in sorted order"
-            }
-            else if(ascending==true){
-                document.getElementById("sortedArray").innerText="Arrays are sorted in ascending order"
-            }
-            else if(descending==true){
-                document.getElementById("sortedArray").innerText="Arrays are sorted in descending order"
-            }
-            console.log(sortedArray)
+        function arraySetFunction(){
+            const array=[1,2,3,4,5,6,5,4,3,2];
+            const setResult=new Set(array);
+            const result=[...setResult];
+            document.getElementById("arraySetFunction").innerText=result.join(" ");
         }
     </script>
 </head>
@@ -442,7 +335,7 @@
     <section class="body-section">
         <nav class="left-nav-bar">
             <ul>
-                <li class="left-nav-header default-highlighted">W3 Schools</li>
+                <li class="left-nav-header default-highlighted">Concepts</li>
                 <li><a href="#statements">1.Statements</a></li>
                 <li><a href="#operators">2.Operators</a></li>
                 <li><a href="#dataTypes">3.Data Types</a></li>
@@ -458,7 +351,7 @@
         </nav>
         <div class="content-section">
             <div id="w3Schools">
-                <h3>1.Concepts in W3 Schools <a href="https://www.w3schools.com/js/default.asp" target="_blank" >Learn More...</a></h3>
+                <h3>Javascript Bsic Phase 1</h3>
                 <div>
                     <dl id="statements">
                         <dt>1.Statements</dt>
@@ -541,73 +434,288 @@
                         <dd><b>8.2.Methods</b>
                             <ol>
                                 <li>String Length:
-                                    <p>String is :ABCDEFGH</p>
-                                    <button onclick="stringLength()">Click Here to Find Length</button>
-                                    <p>String length: <span id="stringLength"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String is :ABCDEFGH</p>
+                                            <button onclick="stringLength()">Click Here to Find Length</button>
+                                            <p>String length: <span id="stringLength"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="stringLengthCopyText" onclick="copyFunction('stringLengthCopyText','stringLengthFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="stringLengthFunction" class="language-javascript">
+function stringLength(){
+    var string="ABCDEFGH";
+    //document.getElementById("stringLength").innerHTML=string.length
+    console.log(string.length);
+}  
+stringLength();                                          
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>String Slice (start,end):
-                                    <p>String is :ABCDEFGH</p>
-                                    <button onclick="stringSlice()">Click Here to Find Slice</button>
-                                    <p>String Slice Part is: <span id="stringSlice"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String is :ABCDEFGH</p>
+                                            <button onclick="stringSlice()">Click Here to Find Slice</button>
+                                            <p>String Slice Part is: <span id="stringSlice"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="stringSliceCopyText" onclick="copyFunction('stringSliceCopyText','stringSliceFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="stringSliceFunction" class="language-javascript">
+function stringSlice(){
+    let originalString="ABCDEFGH";
+    let sliceString=originalString.slice(2,5);
+    //document.getElementById("stringSlice").innerHTML=sliceString;
+    console.log(sliceString);
+}                            
+stringSlice();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>subString (start,length):
-                                    <p>String is :ABCDEFGH</p>
-                                    <button onclick="subString()">Click Here to Find Slice</button>
-                                    <p>Sub String Part is: <span id="subString"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String is :ABCDEFGH</p>
+                                            <button onclick="subString()">Click Here to Find Slice</button>
+                                            <p>Sub String Part is: <span id="subString"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="subStringCopyText" onclick="copyFunction('subStringCopyText','subStringFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="subStringFunction" class="language-javascript">
+function subString(){
+    let originalString="ABCDEFGH";
+    let subString=originalString.substr(2,5);
+    //document.getElementById("subString").innerHTML=subString;
+    console.log(subString);
+}                         
+subString();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>String Replace:
-                                    <p>String is :Replace string</p>
-                                    <button onclick="replaceString()">Click Here to Replace Slice</button>
-                                    <p>Sub String Part is: <span id="replaceString"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String is :Replace string</p>
+                                            <button onclick="replaceString()">Click Here to Replace Slice</button>
+                                            <p>Sub String Part is: <span id="replaceString"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="replaceStringCopyText" onclick="copyFunction('replaceStringCopyText','replaceStringFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="replaceStringFunction" class="language-javascript">
+function replaceString(){
+    let originalString="Replace String";
+    let replaceString=originalString.replace("Replace","Replace Done");
+    //document.getElementById("replaceString").innerHTML=replaceString;
+    console.log(replaceString);
+}                  
+replaceString();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
-                                <li>String Trim(Remove White spaces):
-                                    <p>    Trim String   </p>
-                                    <button onclick="trimString()">Click Here to Trim Slice</button>
-                                    <p>Trim String: <span id="trimString"></span></p>
+                                <li>String Trim(Remove White spaces):                                    
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>    Trim String   </p>
+                                            <button onclick="trimString()">Click Here to Trim Slice</button>
+                                            <p>Trim String: <span id="trimString"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="trimStringCopyText" onclick="copyFunction('trimStringCopyText','trimStringFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="trimStringFunction" class="language-javascript">
+function trimString(){
+    let originalString=" "+"Trim String";
+    let trimString=originalString.replace("Replace","Replace Done");
+    //document.getElementById("trimString").innerHTML=trimString;
+    console.log(trimString)
+}               
+trimString();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>String Pad(Duplicate Same Character):
-                                    <p>String Pad</p>
-                                    <button onclick="padString()">Click Here to Pad String</button>
-                                    <p>Trim String: <span id="padString"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String Pad</p>
+                                            <button onclick="padString()">Click Here to Pad String</button>
+                                            <p>Trim String: <span id="padString"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="padStringCopyText" onclick="copyFunction('padStringCopyText','padStringFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="padStringFunction" class="language-javascript">
+function padString(){
+    let originalString="string";
+    let padString=originalString.padEnd(15,"s");
+    //document.getElementById("padString").innerHTML=padString;
+    console.log(padString);
+}               
+padString();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>Split String (Converting String into array):
-                                    <p>Split String</p>
-                                    <button onclick="splitString()">Click Here to split String</button>
-                                    <p>Split String: <span id="splitString"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Split String</p>
+                                            <button onclick="splitString()">Click Here to split String</button>
+                                            <p>Split String: <span id="splitString"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="splitStringCopyText" onclick="copyFunction('splitStringCopyText','splitStringFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="splitStringFunction" class="language-javascript">
+function splitString(){
+    let originalString="string";
+    const splitString=originalString.split("");
+    //document.getElementById("splitString").innerHTML=splitString[0];
+    console.log(splitString)
+}            
+splitString();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                             </ol>
                         </dt>
                         <dd><b>8.3.Search</b>
                             <ol>
-                                <li>String IndexOf(Return Index position of value in string)
-                                    <p>String: Find a Value in string</p>
-                                    <p>Search Word: Value</p>
-                                    <button onclick="indexOfString()">Click Here to find Indexof String</button>
-                                    <p>String Search: <span id="indexOfString"></span></p>
+                                <li>String IndexOf(Return Index position of value in string)                                    
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String: Find a Value in string</p>
+                                            <p>Search Word: Value</p>
+                                            <button onclick="indexOfString()">Click Here to find Indexof String</button>
+                                            <p>String Search: <span id="indexOfString"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="indexStringCopyText" onclick="copyFunction('indexStringCopyText','indexStringFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="indexStringFunction" class="language-javascript">
+function indexOfString(){
+    let originalString="Find a Value in string";
+    let indexOfString=originalString.indexOf("Value");
+    //document.getElementById("indexOfString").innerHTML=indexOfString;
+    console.log(indexOfString);
+}          
+indexOfString();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>String Search(Return Index position of value in string, Accepts regular expression)
-                                    <p>String: Find a Value in string</p>
-                                    <p>Search Word: Value</p>
-                                    <button onclick="stringSearch()">Click Here to Search String</button>
-                                    <p>String Search: <span id="stringSearch"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String: Find a Value in string</p>
+                                            <p>Search Word: Value</p>
+                                            <button onclick="stringSearch()">Click Here to Search String</button>
+                                            <p>String Search: <span id="stringSearch"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="stringSearchCopyText" onclick="copyFunction('stringSearchCopyText','stringSearchFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="stringSearchFunction" class="language-javascript">
+function stringSearch(){
+    let originalString="Find a Value in string";
+    let stringSearch=originalString.search("Value");
+    //document.getElementById("stringSearch").innerHTML=stringSearch;
+    console.log(stringSearch)
+}         
+stringSearch();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>String Matches All(Return Index position of value in string, Also Return search values in array)
-                                    <p>String: Matches All value in string value</p>
-                                    <p>Match Word: Value</p>
-                                    <button onclick="matchAllString()">Click Here to Match String</button>
-                                    <p>String Search: <span id="matchAllString"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String: Matches All value in string value</p>
+                                            <p>Match Word: Value</p>
+                                            <button onclick="matchAllString()">Click Here to Match String</button>
+                                            <p>String Search: <span id="matchAllString"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="matchAllStringCopyText" onclick="copyFunction('matchAllStringCopyText','matchAllStringFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="matchAllStringFunction" class="language-javascript">
+function matchAllString(){
+    let originalString="Matches All value in string value";
+    const matchAllString=originalString.matchAll("value");
+    //document.getElementById("matchAllString").innerHTML=Array.from(matchAllString);
+    console.log(Array.from(matchAllString))
+}         
+matchAllString();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
-                                <li>String StartsWith (Return true or false if string starts with particlar word)
-                                    <p>String: Please find value in this staring</p>
-                                    <p>Search Word: Please</p>
-                                    <button onclick="startsWith()">Click Here to find StartsWith position</button>
-                                    <p>String Startswith indexposition: <span id="startsWith"></span></p>
+                                <li>String StartsWith (Return true or false if string starts with particlar word)                                    
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String: Please find value in this staring</p>
+                                            <p>Search Word: Please</p>
+                                            <button onclick="startsWith()">Click Here to find StartsWith position</button>
+                                            <p>String Startswith indexposition: <span id="startsWith"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="startsWithCopyText" onclick="copyFunction('startsWithCopyText','startsWithFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="startsWithFunction" class="language-javascript">
+function startsWith(){
+    let originalString="Please find value in string";
+    const startsWith=originalString.startsWith("Please");
+    //document.getElementById("startsWith").innerHTML=startsWith;
+    console.log(startsWith)
+}       
+startsWith();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>String Includes
-                                    <p>String: Please find a value in the string</p>
-                                    <p>Search Word: value</p>
-                                    <button onclick="stringIncludes()">Click Here to find String Includes</button>
-                                    <p>String Includes result: <span id="stringIncludes"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>String: Please find a value in the string</p>
+                                            <p>Search Word: value</p>
+                                            <button onclick="stringIncludes()">Click Here to find String Includes</button>
+                                            <p>String Includes result: <span id="stringIncludes"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="stringIncludesWithCopyText" onclick="copyFunction('stringIncludesWithCopyText','stringIncludesFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="stringIncludesFunction" class="language-javascript">
+function stringIncludes(){
+    let originalString="Please find value in string";
+    const stringIncludes=originalString.includes("value");
+    //document.getElementById("stringIncludes").innerHTML=stringIncludes;
+    console.log(stringIncludes)
+}       
+stringIncludes();            
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                             </ol>
                         </dd>
@@ -788,361 +896,1195 @@
                         <dd><b>11.2.Array Methods</b>
                         <ol>
                             <li><b>Array.toString()</b>
-                                <ul>
-                                    <li>This method used to convert array into string</li>
-                                    <li>Eg: const array=[Hello,World]
-                                        <button onclick="arrayToString()">Click Here to conver String</button>
-                                        <p>Result is: <span id="arrayToString"></span></p>
-                                    </li>
-                                </ul>
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method used to convert array into string</li>
+                                            <li>Eg: const array=[Hello,World]
+                                                <button onclick="arrayToString()">Click Here to conver String</button>
+                                                <p>Result is: <span id="arrayToString"></span></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arraytoStringCopyText" onclick="copyFunction('arraytoStringCopyText','arraytoStringFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arraytoStringFunction" class="language-javascript">
+function arrayToString(){
+    const array=["Hello", "World", "to","JavaScript","Array"];
+    //document.getElementById("arrayToString").innerHTML=array.toString();
+    console.log(array.toString());
+}       
+arrayToString();            
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
-                            <li><b>Array.join() Prefer to use</b>
-                                <ul>
-                                    <li>This method also used to convert array into string</li>
-                                    <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
-                                        <button onclick="arrayJoin()">Click Here to conver String</button>
-                                        <p>Result is: <span id="arrayJoin"></span></p>
-                                        <p>Difernece between toString() and Join(): <b>Join methods creates space between array elements and also add operators inbetween sperators</b></p>
-                                    </li>
-                                </ul>
+                            <li><b>Array.join() Prefer to use</b>                               
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method also used to convert array into string</li>
+                                            <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
+                                                <button onclick="arrayJoin()">Click Here to conver String</button>
+                                                <p>Result is: <span id="arrayJoin"></span></p>
+                                                <p>Difernece between toString() and Join(): <b>Join methods creates space between array elements and also add operators inbetween sperators</b></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arrayJoinCopyText" onclick="copyFunction('arrayJoinCopyText','arrayJoinFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arrayJoinFunction" class="language-javascript">
+function arrayJoin(){
+    const array=["Hello", "World", "to","JavaScript","Array"];
+    //document.getElementById("arrayJoin").innerHTML=array.join(" ");
+    console.log(array.join(" "))
+}       
+arrayJoin();            
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
-                            <li><b>Array.length</b>
-                                <ul>
-                                    <li>This method also used to get legth of array elements</li>
-                                    <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
-                                        <button onclick="arrayLength()">Click Here to Get Length</button>
-                                        <p>Result is: <span id="arrayLength"></span></p>
-                                    </li>
-                                </ul>
+                            <li><b>Array.length</b>                                
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method also used to get legth of array elements</li>
+                                            <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
+                                                <button onclick="arrayLength()">Click Here to Get Length</button>
+                                                <p>Result is: <span id="arrayLength"></span></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arrayLengthCopyText" onclick="copyFunction('arrayLengthCopyText','arrayLengthFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arrayLengthFunction" class="language-javascript">
+function arrayLength(){
+    const array=["Hello", "World", "to","JavaScript","Array"];
+    //document.getElementById("arrayLength").innerHTML=array.length;
+    console.log(array.length);
+}     
+arrayLength();            
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
                             <li><b>Array.push</b>
-                                <ul>
-                                    <li>This method is used to add elements at the <b>end of  array elements</b></li>
-                                    <li>Eg: const array=["Hello", "World", "to","JavaScript"]
-                                        <p>Add Elements: Array </p>
-                                        <button onclick="arrayPush()">Click Here to push array</button>
-                                        <p>Result is: <span id="arrayPush"></span> ,<span id="arrayPushRemaining"></span></p>
-                                        <p><b>Note: </b> Array.push() will return array elements length</p>
-                                    </li>
-                                </ul>
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method is used to add elements at the <b>end of  array elements</b></li>
+                                            <li>Eg: const array=["Hello", "World", "to","JavaScript"]
+                                                <p>Add Elements: Array </p>
+                                                <button onclick="arrayPush()">Click Here to push array</button>
+                                                <p>Result is: <span id="arrayPush"></span> ,<span id="arrayPushRemaining"></span></p>
+                                                <p><b>Note: </b> Array.push() will return array elements length</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arrayPushCopyText" onclick="copyFunction('arrayPushCopyText','arrayPushFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arrayPushFunction" class="language-javascript">
+function arrayPush(){
+    const array=["Hello", "World", "to","JavaScript"];
+    //document.getElementById("arrayPush").innerHTML=array.push("Array");
+    //document.getElementById("arrayPushRemaining").innerHTML=array.join(" ");
+    array.push("Array");
+    console.log(array)
+}    
+arrayPush();            
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
-                            <li><b>Array.pop</b>
-                                <ul>
-                                    <li>This method is used to remove elements at the <b>end of  array elements</b></li>
-                                    <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
-                                        <p>Add Elements: Array </p>
-                                        <button onclick="arrayPop()">Click Here to pop array</button>
-                                        <p>Result is: <span id="arrayPop"></span> ,<span id="arrayPopRemaining"></span></p>
-                                        <p><b>Note: </b> Array.pop() will return removed array elements</p>
-                                    </li>
-                                </ul>
+                            <li><b>Array.pop</b>                                
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method is used to remove elements at the <b>end of  array elements</b></li>
+                                            <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
+                                                <p>Add Elements: Array </p>
+                                                <button onclick="arrayPop()">Click Here to pop array</button>
+                                                <p>Result is: <span id="arrayPop"></span> ,<span id="arrayPopRemaining"></span></p>
+                                                <p><b>Note: </b> Array.pop() will return removed array elements</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arrayPopCopyText" onclick="copyFunction('arrayPopCopyText','arrayPopFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arrayPopFunction" class="language-javascript">
+function arrayPop(){
+    const array=["Hello", "World", "to","JavaScript","Array"];
+    //document.getElementById("arrayPop").innerHTML=array.pop();
+    //document.getElementById("arrayPopRemaining").innerHTML=array.join(" ");
+    array.pop()
+    console.log(array);
+}    
+arrayPop();            
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
                             <li><b>Array.shift</b>
-                                <ul>
-                                    <li>This method is used to remove elements at the <b>first element of array</b></li>
-                                    <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
-                                        <p>Shift Elements: Array </p>
-                                        <button onclick="arrayShift()">Click Here to Shift array</button>
-                                        <p>Result is: <span id="arrayShift"></span> ,<span id="arrayShiftRemaining"></span></p>
-                                        <p><b>Note: </b> Array.Shift() will return removed array elements</p>
-                                    </li>
-                                </ul>
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method is used to remove elements at the <b>first element of array</b></li>
+                                            <li>Eg: const array=["Hello", "World", "to","JavaScript","Array"]
+                                                <p>Shift Elements: Array </p>
+                                                <button onclick="arrayShift()">Click Here to Shift array</button>
+                                                <p>Result is: <span id="arrayShift"></span> ,<span id="arrayShiftRemaining"></span></p>
+                                                <p><b>Note: </b> Array.Shift() will return removed array elements</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arrayShiftCopyText" onclick="copyFunction('arrayShiftCopyText','arrayShiftFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arrayShiftFunction" class="language-javascript">
+function arrayShift(){
+    const array=["Hello", "World", "to","JavaScript","Array"];
+    //document.getElementById("arrayShift").innerHTML=array.shift();
+    //document.getElementById("arrayShiftRemaining").innerHTML=array.join(" ");
+    array.shift()
+    console.log(array);
+}     
+arrayShift();            
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
                             <li><b>Array.Unshift</b>
-                                <ul>
-                                    <li>This method is used to insert elements at the <b>first element of array</b></li>
-                                    <li>Eg: const array=[ "World", "to","JavaScript","Array"]
-                                        <p>Add Elements: Hello </p>
-                                        <button onclick="arrayUnshift()">Click Here to Unshift array</button>
-                                        <p>Result is: <span id="arrayUnshift"></span> ,<span id="arrayUnshiftRemaining"></span></p>
-                                        <p><b>Note: </b> Array.unshift() will return array elements length</p>
-                                    </li>
-                                </ul>
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method is used to insert elements at the <b>first element of array</b></li>
+                                            <li>Eg: const array=[ "World", "to","JavaScript","Array"]
+                                                <p>Add Elements: Hello </p>
+                                                <button onclick="arrayUnshift()">Click Here to Unshift array</button>
+                                                <p>Result is: <span id="arrayUnshift"></span> ,<span id="arrayUnshiftRemaining"></span></p>
+                                                <p><b>Note: </b> Array.unshift() will return array elements length</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arrayUnShiftCopyText" onclick="copyFunction('arrayUnShiftCopyText','arrayUnShiftFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arrayUnShiftFunction" class="language-javascript">
+function arrayUnshift(){
+    const array=["World", "to","JavaScript","Array"];
+    //document.getElementById("arrayUnshift").innerHTML=array.unshift("Hello");
+    //document.getElementById("arrayUnshiftRemaining").innerHTML=array.join(" ");
+    array.unshift("Hello");
+    console.log(array);
+}     
+arrayUnshift();            
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
-                            <li><b>Array.splice</b>
-                                <ul>
-                                    <li>This method is used to insert or replcae elements at the <b>first /inbetween / end element of array</b></li>
-                                    <li>Eg: const array=[ "Hello","World","JavaScript","Array"]
-                                        <p>Add Elements: to </p>
-                                        <button onclick="arraySplice()">Click Here to Splice array</button>
-                                        <p>Result is: <span id="arraySplice"></span> ,<span id="arraySpliceRemaining"></span></p>
-                                        <p><b>Note: </b> Array.unshift() will return array elements length</p>
-                                    </li>
-                                    <li><b>Array Splice is also used to delete elements of an array at any position</b>
-                                        <p>Eg: const array=[ "World", "to","JavaScript","Array"]</p>
-                                        <p>Delte Elements at 2nd index :"to"</p>
-                                        <button onclick="spliceRemove()">Click Here to remove element</button>
-                                        <p>Result is <span id="spliceRemove"></span>,<span id="spliceRemoveRemaining"></span></p>
-                                   </li>
-                                </ul>
+                            <li><b>Array.splice</b>                                
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method is used to insert or replcae elements at the <b>first /inbetween / end element of array</b></li>
+                                            <li>Eg: const array=[ "Hello","World","JavaScript","Array"]
+                                                <p>Add Elements: to </p>
+                                                <button onclick="arraySplice()">Click Here to Splice array</button>
+                                                <p>Result is: <span id="arraySplice"></span> ,<span id="arraySpliceRemaining"></span></p>
+                                                <p><b>Note: </b> Array.unshift() will return array elements length</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arraySpliceCopyText" onclick="copyFunction('arraySpliceCopyText','arraySpliceFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arraySpliceFunction" class="language-javascript">
+function arraySplice(){
+    const array=["Hello","World", "JavaScript","Array"];
+    //document.getElementById("arraySplice").innerHTML=array.splice(2,0,"to");
+    //document.getElementById("arraySpliceRemaining").innerHTML=array.join(" ");
+    array.splice(2,0,"to");
+    console.log(array);
+}     
+arraySplice();            
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li><b>Array Splice is also used to delete elements of an array at any position</b>
+                                                <p>Eg: const array=[ "World", "to","JavaScript","Array"]</p>
+                                                <p>Delte Elements at 2nd index :"to"</p>
+                                                <button onclick="spliceRemove()">Click Here to remove element</button>
+                                                <p>Result is <span id="spliceRemove"></span>,<span id="spliceRemoveRemaining"></span></p>
+                                           </li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arrayRemoveCopyText" onclick="copyFunction('arrayRemoveCopyText','arrayRemoveFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arrayRemoveFunction" class="language-javascript">
+function spliceRemove(){
+    const array=["Hello","World","to", "JavaScript","Array"];
+    //document.getElementById("spliceRemove").innerHTML=array.splice(2,1);
+    //document.getElementById("spliceRemoveRemaining").innerHTML=array.join(" ");
+    array.splice(2,1);
+    console.log(array);
+}  
+spliceRemove()          
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
-                            <li><b>Array.Slice</b>
-                                <ul>
-                                    <li>This method is used to slice elements of the array <b>creates new array</b></li>
-                                    <li>Eg: const array=[ "Hello","World", "to","JavaScript","Array"]
-                                        <p>Slice Elements: World </p>
-                                        <button onclick="arraySlice()">Click Here to Slice array</button>
-                                        <p>Result is: <span id="arraySlice"></span> ,<span id="arraySliceRemaining"></span></p>
-                                        <p><b>Note: </b> Array.unshift() will return new array</p>
-                                    </li>
-                                    <li>If you have 1 paramater (slice(1)) then remaining parameter will be deleted from source array</li>
-                                </ul>
+                            <li><b>Array.Slice</b>                                
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>This method is used to slice elements of the array <b>creates new array</b></li>
+                                            <li>Eg: const array=[ "Hello","World", "to","JavaScript","Array"]
+                                                <p>Slice Elements: World </p>
+                                                <button onclick="arraySlice()">Click Here to Slice array</button>
+                                                <p>Result is: <span id="arraySlice"></span> ,<span id="arraySliceRemaining"></span></p>
+                                                <p><b>Note: </b> Array.unshift() will return new array</p>
+                                            </li>
+                                            <li>If you have 1 paramater (slice(1)) then remaining parameter will be deleted from source array</li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arraySliceCopyText" onclick="copyFunction('arraySliceCopyText','arraySliceFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arraySliceFunction" class="language-javascript">
+function arraySlice(){
+    const array=["Hello","World","to", "JavaScript","Array"];
+    //document.getElementById("arraySlice").innerHTML=array.splice(1,1);
+    //document.getElementById("arraySliceRemaining").innerHTML=array.join(" ");
+    const newArray=array.splice(1,1);
+    console.log(newArray)
+}  
+arraySlice()          
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
                             <li><b>Array.concat</b>
-                                <ul>
-                                    <li>Array concatenation is used to <b>concatenate multiple arrays into new array</b></li>
-                                    <li>Eg: const arr1=[ "Hello","World", "to"], const arr2=[ "JavaScript","Array"]
-                                        <p>Concatenate array</p>
-                                        <button onclick="arrayConcatenate()">click here to concatenate array</button>
-                                        <p>Result is <span id="arrayConcatenate"></span></p>
-                                    </li>
-                                    <li>we can concatenate mulitle arrays like conct concate=arra1.concat(arr2,arr3)</li>
-                                    <li>We can concatenate array with values also lie const concat=arr1.concat("value")</li>
-                                </ul>
+                                <div class="flex-body">
+                                    <div class="flex-left-content">
+                                        <ul>
+                                            <li>Array concatenation is used to <b>concatenate multiple arrays into new array</b></li>
+                                            <li>Eg: const arr1=[ "Hello","World", "to"], const arr2=[ "JavaScript","Array"]
+                                                <p>Concatenate array</p>
+                                                <button onclick="arrayConcatenate()">click here to concatenate array</button>
+                                                <p>Result is <span id="arrayConcatenate"></span></p>
+                                            </li>
+                                            <li>we can concatenate mulitle arrays like conct concate=arra1.concat(arr2,arr3)</li>
+                                            <li>We can concatenate array with values also lie const concat=arr1.concat("value")</li>
+                                        </ul>
+                                    </div>
+                                    <div class="flex-right-content">
+                                        <button class="copy-icon" id="arrayConcatenateCopyText" onclick="copyFunction('arrayConcatenateCopyText','arrayConcatenateFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                        <pre style="tab-size: 2;">
+                                            <code id="arrayConcatenateFunction" class="language-javascript">
+function arrayConcatenate(){
+    const array1=["Hello","World","to"];
+    const array2=["JavaScript","Array"];
+    const concatenateArray=array1.concat(array2);
+    //document.getElementById("arrayConcatenate").innerHTML=concatenateArray.join(" ");
+    console.log(concatenateArray);
+}  
+arrayConcatenate()          
+                                            </code>
+                                        </pre>
+                                    </div>
+                                </div>
                             </li>
                         </ol>
                         </dd>
                         <dd><b>11.3.Array Sort</b>
                             <ol>
                                 <li>Array Sort Numbers:
-                                    <ul>
-                                        <li>Using Array Sort Method we can sort numbers array ascending order. Using <b>array.sort() & array.reverse()</b> we can sort array descending order</li>
-                                        <li>Array: [1,3,5,2,4]</li>
-                                        <li><b>Ascending Order:</b>
-                                            <button onclick="arraySortNumbersAscending()">Click Here to Sort Array in Ascending Order</button>
-                                            <p>Result: <span id="arraySortNumbersAscending"></span></p>
-                                        </li>
-                                        <li><b>Descending Order:</b>
-                                            <button onclick="arraySortNumbersDescending()">Click Here to Sort Array in Descending Order</button>
-                                            <p>Result: <span id="arraySortNumbersDescending"></span></p>
-                                        </li> 
-                                        <li>Sort Array and Numberical Strings:
-                                            <p>Array:[1,3,"4",5,"2"]</p>
-                                            <button onclick="arraySortNumbersStringAscending()">Click Here to Sort Array in Ascending Order</button>
-                                            <p>Result: <span id="arraySortNumbersStringAscending"></span></p>
-                                        </li>      
-                                        <li>Sort Array Numbers and  Strings:
-                                            <p>Array:["Ponniah",1,3,"2","Hi"]</p>
-                                            <button onclick="arraySortsNumbersTextAscending()">Click Here to Sort Array in Ascending Order</button>
-                                            <p>Result: <span id="arraySortsNumbersTextAscending"></span></p>
-                                        </li>                                  
-                                    </ul>
+                                        <div class="flex-body">
+                                            <div class="flex-left-content">
+                                                <ul>
+                                                    <li>Using Array Sort Method we can sort numbers array ascending order.</li>
+                                                    <li>Array: [1,3,5,2,4]</li>
+                                                    <li><b>Ascending Order:</b>
+                                                        <button onclick="arraySortNumbersAscending()">Click Here to Sort Array in Ascending Order</button>
+                                                        <p>Result: <span id="arraySortNumbersAscending"></span></p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="flex-right-content">
+                                                <button class="copy-icon" id="arraySortNumbersAscendingCopyText" onclick="copyFunction('arraySortNumbersAscendingCopyText','arraySortNumbersAscendingFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                                <pre style="tab-size: 2;">
+                                                    <code id="arraySortNumbersAscendingFunction" class="language-javascript">
+function arraySortNumbersAscending(){
+    const array=[1,3,5,2,4];
+    //document.getElementById("arraySortNumbersAscending").innerHTML=array.sort();
+    console.log(array.sort())
+}                                                                                                               
+arraySortNumbersAscending()          
+                                                    </code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                        <div class="flex-body">
+                                            <div class="flex-left-content">
+                                                <ul>
+                                                    <li>Using <b>array.sort() & array.reverse()</b> we can sort array descending order</li>
+                                                    <li>Array: [1,3,5,2,4]</li>
+                                                   <li><b>Descending Order:</b>
+                                                        <button onclick="arraySortNumbersDescending()">Click Here to Sort Array in Descending Order</button>
+                                                        <p>Result: <span id="arraySortNumbersDescending"></span></p>
+                                                    </li> 
+                                                </ul>
+                                            </div>
+                                            <div class="flex-right-content">
+                                                <button class="copy-icon" id="arraySortNumbersDescendingCopyText" onclick="copyFunction('arraySortNumbersDescendingCopyText','arraySortNumbersDescendingFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                                <pre style="tab-size: 2;">
+                                                    <code id="arraySortNumbersDescendingFunction" class="language-javascript">
+function arraySortNumbersDescending(){
+    const array=[1,3,5,2,4];
+    array.sort();
+    array.reverse()
+    //document.getElementById("arraySortNumbersDescending").innerHTML=array;
+    console.log(array);
+}
+arraySortNumbersDescending()          
+                                                    </code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                        <div class="flex-body">
+                                            <div class="flex-left-content">
+                                                <ul>
+                                                    <li>Sort Array and Numberical Strings:
+                                                        <p>Array:[1,3,"4",5,"2"]</p>
+                                                        <button onclick="arraySortNumbersStringAscending()">Click Here to Sort Array in Ascending Order</button>
+                                                        <p>Result: <span id="arraySortNumbersStringAscending"></span></p>
+                                                    </li> 
+                                                </ul>
+                                            </div>
+                                            <div class="flex-right-content">
+                                                <button class="copy-icon" id="arraySortNumbersStringAscendingCopyText" onclick="copyFunction('arraySortNumbersStringAscendingCopyText','arraySortNumbersStringAscendingFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                                <pre style="tab-size: 2;">
+                                                    <code id="arraySortNumbersStringAscendingFunction" class="language-javascript">
+function arraySortNumbersStringAscending(){
+    const array=[1,3,"4",5,"2"];
+    //document.getElementById("arraySortNumbersStringAscending").innerHTML=array.sort();
+    console.log(array.sort());
+}
+arraySortNumbersStringAscending()        
+                                                    </code>
+                                                </pre>
+                                            </div>
+                                        </div>
+                                        <div class="flex-body">
+                                            <div class="flex-left-content">
+                                                <ul>
+                                                    <li>Sort Array Numbers and  Strings:
+                                                        <p>Array:["Ponniah",1,3,"2","Hi"]</p>
+                                                        <button onclick="arraySortsNumbersTextAscending()">Click Here to Sort Array in Ascending Order</button>
+                                                        <p>Result: <span id="arraySortsNumbersTextAscending"></span></p>
+                                                    </li> 
+                                                </ul>
+                                            </div>
+                                            <div class="flex-right-content">
+                                                <button class="copy-icon" id="arraySortsNumbersTextAscendingCopyText" onclick="copyFunction('arraySortsNumbersTextAscendingCopyText','arraySortsNumbersTextAscendingFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                                <pre style="tab-size: 2;">
+                                                    <code id="arraySortsNumbersTextAscendingFunction" class="language-javascript">
+function arraySortsNumbersTextAscending(){
+    const array=["Ponniah",1,3,"2","Hi"];
+    //document.getElementById("arraySortsNumbersTextAscending").innerHTML=array.sort();
+    console.log(array.sort());
+}
+arraySortsNumbersTextAscending()       
+                                                    </code>
+                                                </pre>
+                                            </div>
+                                        </div>
                                 </li>
                                 <li>Array Sort Strings:
-                                    <ul>
-                                        <li><b>Sort Strings Ascending</b>
-                                            <p>Array:["Cat","Dog","Elephant","Ball","Apple"]</p>
-                                            <button onclick="sortStringsAscending()" >Click Here to Sort Strings Ascending</button>
-                                            <p>Result: <span id="sortStringsAscending"></span></p>
-                                        </li>
-                                        <li><b>Sort Strings Descending:</b>
-                                            <p>Array:["Cat","Dog","Elephant","Ball","Apple"]</p>
-                                            <button onclick="sortStringsDescending()" >Click Here to Sort Strings Descending</button>
-                                            <p>Result: <span id="sortStringsDescending"></span></p>
-                                        </li>
-                                    </ul>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <li><b>Sort Strings Ascending</b>
+                                                    <p>Array:["Cat","Dog","Elephant","Ball","Apple"]</p>
+                                                    <button onclick="sortStringsAscending()" >Click Here to Sort Strings Ascending</button>
+                                                    <p>Result: <span id="sortStringsAscending"></span></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="sortStringsAscendingCopyText" onclick="copyFunction('sortStringsAscendingCopyText','sortStringsAscendingFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="sortStringsAscendingFunction" class="language-javascript">
+function sortStringsAscending(){
+    const array=["Cat","Dog","Elephant","Ball","Apple"];
+    //document.getElementById("sortStringsAscending").innerHTML=array.sort();
+    console.log(array.sort());
+}
+sortStringsAscending()       
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <li><b>Sort Strings Descending:</b>
+                                                    <p>Array:["Cat","Dog","Elephant","Ball","Apple"]</p>
+                                                    <button onclick="sortStringsDescending()" >Click Here to Sort Strings Descending</button>
+                                                    <p>Result: <span id="sortStringsDescending"></span></p>
+                                                </li> 
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="sortStringsDescendingCopyText" onclick="copyFunction('sortStringsDescendingCopyText','sortStringsDescendingFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="sortStringsDescendingFunction" class="language-javascript">
+function sortStringsDescending(){
+    const array=["Cat","Dog","Elephant","Ball","Apple"];
+    array.sort();
+    array.reverse();
+    //document.getElementById("sortStringsDescending").innerHTML=array;
+    console.log(array);
+}
+sortStringsDescending()         
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>Find Min Number in Array
-                                    <ul>
-                                        <li>Traditional Method:
-                                            <p>Sort Arra in Ascening Order and get 1st index element</p>
-                                            <p>Array:[2,4,1,5,3]</p>
-                                            <button onclick="minNumberTraditional()">Click Here to find Min Array Value in Traditional Method</button>
-                                            <p>Result: <span id="minNumberTraditional"></span></p>
-                                        </li>
-                                        <li>Math.min Method:
-                                            <p>Using <b>Math.min.apply(null,array)</b> we can find min numbers in array</p>
-                                            <p>Array:[2,4,1,5,3]</p>
-                                            <button onclick="minNumberMethod()">Click Here to find Min Array Value Using Math.min method</button>
-                                            <p>Result: <span id="minNumberMethod"></span></p>
-                                        </li>
-                                    </ul>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <li>Traditional Method:
+                                                    <p>Sort Arra in Ascening Order and get 1st index element</p>
+                                                    <p>Array:[2,4,1,5,3]</p>
+                                                    <button onclick="minNumberTraditional()">Click Here to find Min Array Value in Traditional Method</button>
+                                                    <p>Result: <span id="minNumberTraditional"></span></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="minNumberTraditionalCopyText" onclick="copyFunction('minNumberTraditionalCopyText','minNumberTraditionalFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="minNumberTraditionalFunction" class="language-javascript">
+function minNumberTraditional(){
+    const array=[2,4,1,5,3];
+    array.sort();
+    //document.getElementById("minNumberTraditional").innerHTML=array[0];
+    console.log(array[0]);
+}
+minNumberTraditional()     
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <li>Math.min Method:
+                                                    <p>Using <b>Math.min.apply(null,array)</b> we can find min numbers in array</p>
+                                                    <p>Array:[2,4,1,5,3]</p>
+                                                    <button onclick="minNumberMethod()">Click Here to find Min Array Value Using Math.min method</button>
+                                                    <p>Result: <span id="minNumberMethod"></span></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="minNumberMethodCopyText" onclick="copyFunction('minNumberMethodCopyText','minNumberMethodFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="minNumberMethodFunction" class="language-javascript">
+function minNumberMethod(){
+    const array=[2,4,1,5,3];
+    //document.getElementById("minNumberMethod").innerHTML=Math.min.apply(null,array);
+    console.log(Math.min.apply(null,array));
+}
+minNumberMethod()      
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>Find Max Number in Array
-                                    <ul>
-                                        <li>Traditional Method:
-                                            <p>Sort Array in Ascening Order and get last index element</p>
-                                            <p>Array:[2,4,1,5,3]</p>
-                                            <button onclick="maxNumberTraditional()">Click Here to find Max Array Value in Traditional Method</button>
-                                            <p>Result: <span id="maxNumberTraditional"></span></p>
-                                        </li>
-                                        <li>Math.max Method:
-                                            <p>Using <b>Math.max.apply(null,array)</b> we can find max numbers in array</p>
-                                            <p>Array:[2,4,1,5,3]</p>
-                                            <button onclick="maxNumberMethod()">Click Here to find Max Array Value Using Math.min method</button>
-                                            <p>Result: <span id="maxNumberMethod"></span></p>
-                                        </li>
-                                    </ul>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <li>Traditional Method:
+                                                    <p>Sort Array in Ascening Order and get last index element</p>
+                                                    <p>Array:[2,4,1,5,3]</p>
+                                                    <button onclick="maxNumberTraditional()">Click Here to find Max Array Value in Traditional Method</button>
+                                                    <p>Result: <span id="maxNumberTraditional"></span></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="maxNumberTraditionalCopyText" onclick="copyFunction('maxNumberTraditionalCopyText','maxNumberTraditionalFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="maxNumberTraditionalFunction" class="language-javascript">
+function maxNumberTraditional(){
+    const array=[2,4,1,5,3];
+    array.sort();
+    //document.getElementById("maxNumberTraditional").innerHTML=array[(array.length)-1];
+    console.log(array[(array.length)-1])
+}
+maxNumberTraditional()  
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <li>Math.max Method:
+                                                    <p>Using <b>Math.max.apply(null,array)</b> we can find max numbers in array</p>
+                                                    <p>Array:[2,4,1,5,3]</p>
+                                                    <button onclick="maxNumberMethod()">Click Here to find Max Array Value Using Math.min method</button>
+                                                    <p>Result: <span id="maxNumberMethod"></span></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="maxNumberMethodCopyText" onclick="copyFunction('maxNumberMethodCopyText','maxNumberMethodFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="maxNumberMethodFunction" class="language-javascript">
+function maxNumberMethod(){
+    const array=[2,4,1,5,3];
+    //document.getElementById("maxNumberMethod").innerHTML=Math.max.apply(null,array);
+    console.log(Math.max.apply(null,array));
+}
+maxNumberMethod()     
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>Array Sort Objects:
-                                    <ul>
-                                        <li>Like Numbers and strings, sorting arrar of objects is not quite easy</li>
-                                        <p>Array:[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}]</p>
-                                        <button onclick="sortArrayObjectsID()">Click Here to Sort Array of Objects by using ID</button>
-                                        <p>Result: <span id="sortArrayObjectsID"></span></p>
-                                        <button onclick="sortArrayObjectsName()">Click Here to Sort Array of Objects by using Name</button>
-                                        <p>Result: <span id="sortArrayObjectsName"></span></p>
-                                        <li>Note: Using <b>JSON.stringfy()</b> we can display array of objects in HTML</li>
-                                    </ul>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <li>Like Numbers and strings, sorting arrar of objects is not quite easy</li>
+                                                <p>Array:[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}]</p>
+                                                <button onclick="sortArrayObjectsID()">Click Here to Sort Array of Objects by using ID</button>
+                                                <p>Result: <span id="sortArrayObjectsID"></span></p>
+                                                <li>Note: Using <b>JSON.stringfy()</b> we can display array of objects in HTML</li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="sortArrayObjectsIDCopyText" onclick="copyFunction('sortArrayObjectsIDCopyText','sortArrayObjectsIDFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="sortArrayObjectsIDFunction" class="language-javascript">
+function sortArrayObjectsID(){
+    const array=[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}];
+    const sortArrayObjectsID=array.sort(function(a,b){return a.id-b.id});
+    //document.getElementById("sortArrayObjectsID").innerHTML=JSON.stringify(sortArrayObjectsID)
+    console.log(JSON.stringify(sortArrayObjectsID));
+}
+sortArrayObjectsID()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <li>Like Numbers and strings, sorting arrar of objects is not quite easy</li>
+                                                <p>Array:[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}]</p>
+                                                <button onclick="sortArrayObjectsName()">Click Here to Sort Array of Objects by using Name</button>
+                                                <p>Result: <span id="sortArrayObjectsName"></span></p>
+                                                <li>Note: Using <b>JSON.stringfy()</b> we can display array of objects in HTML</li>
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="sortArrayObjectsNameCopyText" onclick="copyFunction('sortArrayObjectsNameCopyText','sortArrayObjectsNameFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="sortArrayObjectsNameFunction" class="language-javascript">
+function sortArrayObjectsName(){
+    const array=[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}];
+    const sortArrayObjectsID=array.sort(function(a,b){
+        let x = a.name.toLowerCase();
+        let y = b.name.toLowerCase();
+        if (x < y) {return -1;}
+        if (x > y) {return 1;}
+        return 0;
+    });
+    //document.getElementById("sortArrayObjectsName").innerHTML=JSON.stringify(sortArrayObjectsID);
+    console.log(JSON.stringify(sortArrayObjectsID));
+}
+sortArrayObjectsName()   
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>Fisher Yates Method: (Sort Array Elements in random order)
-                                    <p>Using <b>Math.random()</b>method we can sort array elemnts randomly</p>
-                                    <p>Array: [10,30,40,20,50]</p>
-                                    <button onclick="sortArrayRandomOrder()">Click Here to sort array randomly</button>
-                                    <p>Result: <span id="sortArrayRandomOrder"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <ul>
+                                                <p>Using <b>Math.random()</b>method we can sort array elemnts randomly</p>
+                                                <p>Array: [10,30,40,20,50]</p>
+                                                <button onclick="sortArrayRandomOrder()">Click Here to sort array randomly</button>
+                                                <p>Result: <span id="sortArrayRandomOrder"></span></p>                                                
+                                            </ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="sortArrayRandomOrderCopyText" onclick="copyFunction('sortArrayRandomOrderCopyText','sortArrayRandomOrderFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="sortArrayRandomOrderFunction" class="language-javascript">
+function sortArrayRandomOrder(){
+    const array= [10,30,40,20,50];
+    for(let i=array.length-1;i>0;i--){
+        let j=Math.floor(Math.random()*(i+1));
+        let k=array[i];
+        array[i]=array[j];
+        array[j]=k;
+    }
+    //document.getElementById("sortArrayRandomOrder").innerHTML=array;
+    console.log(array);
+}
+sortArrayRandomOrder()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                             </ol>
                         </dd>
                         <dd><b>11.4.Array Iteration</b>
                             <ol>
                                 <li>ForEach Function
-                                    <p>ForEach Function calls function at each element of the array</p>
-                                    <p>Syntax: Array.forEach(value,item,array)
-                                        <ul>Definitions:
-                                            <li>Value: Describes individual array element</li>
-                                            <li>Item:  Describes index of array element</li>
-                                            <li>Array: Describes Entire array</li>
-                                        </ul>
-                                    </p>
-                                    <p>Array: [10,20,30,40,50]</p>
-                                    <button onclick="forEachFunctionDisplayList()">ForEach Function to display individual element</button>
-                                    <ul id="forEachFunctionDisplayList"></ul>
-                                    <br>
-                                    <button onclick="forEachFunctionDisplayListArithmeticOperations()">ForEach Function to multiply 2 on each Array element</button>
-                                    <ul id="forEachFunctionDisplayListArithmeticOperations"></ul>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>ForEach Function calls function at each element of the array</p>
+                                            <p>Syntax: Array.forEach(value,item,array)
+                                                <ul>Definitions:
+                                                    <li>Value: Describes individual array element</li>
+                                                    <li>Item:  Describes index of array element</li>
+                                                    <li>Array: Describes Entire array</li>
+                                                </ul>
+                                            </p>
+                                            <p>Array: [10,20,30,40,50]</p>
+                                            <button onclick="forEachFunctionDisplayList()">ForEach Function to display individual element</button>
+                                            <ul id="forEachFunctionDisplayList"></ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="forEachFunctionDisplayListCopyText" onclick="copyFunction('forEachFunctionDisplayListCopyText','forEachFunctionDisplayListFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="forEachFunctionDisplayListFunction" class="language-javascript">
+function forEachFunctionDisplayList(){
+    const array= [10,30,40,20,50];
+    array.forEach((value,item,array)=>{
+        //let li=document.createElement('li');
+        //li.innerText=value;
+        //document.getElementById("forEachFunctionDisplayList").appendChild(li);
+        console.log(value)
+    }) 
+}
+forEachFunctionDisplayList()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>ForEach Function calls function at each element of the array</p>
+                                            <p>Syntax: Array.forEach(value,item,array)
+                                                <ul>Definitions:
+                                                    <li>Value: Describes individual array element</li>
+                                                    <li>Item:  Describes index of array element</li>
+                                                    <li>Array: Describes Entire array</li>
+                                                </ul>
+                                            </p>
+                                            <p>Array: [10,20,30,40,50]</p>
+                                            <button onclick="forEachFunctionDisplayListArithmeticOperations()">ForEach Function to multiply 2 on each Array element</button>
+                                            <ul id="forEachFunctionDisplayListArithmeticOperations"></ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="forEachFunctionDisplayListArithmeticOperationsCopyText" onclick="copyFunction('forEachFunctionDisplayListArithmeticOperationsCopyText','forEachFunctionDisplayListArithmeticOperationsFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="forEachFunctionDisplayListArithmeticOperationsFunction" class="language-javascript">
+function forEachFunctionDisplayListArithmeticOperations(){
+    const array= [10,30,40,20,50];
+    const array1=[{id:2,name:"Ponniah"},{id:0,name:"Hello"},{id:1,name:"World"}];
+    array1.forEach(value=>console.log(value.id, value.name))
+    array.forEach((value,item,array)=>{
+        //let li=document.createElement('li');
+        //li.innerText=value*2;
+        //document.getElementById("forEachFunctionDisplayListArithmeticOperations").appendChild(li);
+        console.log(value*2);
+    }) 
+}
+forEachFunctionDisplayListArithmeticOperations() 
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
-                                <li>Map Function
-                                    <p>Map Function calls function at each element of the array and store resultant operation in new array</p>
-                                    <p>Syntax: const newArray = Array.map(value,item,array)
-                                        <ul>Definitions:
-                                            <li>Value: Describes individual array element</li>
-                                            <li>Item:  Describes index of array element</li>
-                                            <li>Array: Describes Entire array</li>
-                                        </ul>
-                                    </p>
-                                    <p>Array: [10,20,30,40,50]</p>
-                                    <button onclick="mapFunctionDisplayList()">Map Function to display Square value of array element</button>
-                                    <ul id="mapFunctionDisplayList"></ul>
+                                <li>Map Function                                    
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Map Function calls function at each element of the array and store resultant operation in new array</p>
+                                            <p>Syntax: const newArray = Array.map(value,item,array)
+                                                <ul>Definitions:
+                                                    <li>Value: Describes individual array element</li>
+                                                    <li>Item:  Describes index of array element</li>
+                                                    <li>Array: Describes Entire array</li>
+                                                </ul>
+                                            </p>
+                                            <p>Array: [10,20,30,40,50]</p>
+                                            <button onclick="mapFunctionDisplayList()">Map Function to display Square value of array element</button>
+                                            <ul id="mapFunctionDisplayList"></ul>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="mapFunctionDisplayListCopyText" onclick="copyFunction('mapFunctionDisplayListCopyText','mapFunctionDisplayListFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="mapFunctionDisplayListFunction" class="language-javascript">
+function mapFunctionDisplayList(){
+    const array= [10,20,30,40,50];
+    array.map((value,item,array)=>{
+        console.log(value,item,array);
+        //let li=document.createElement('li');
+        //li.innerText=value**2;
+        //document.getElementById("mapFunctionDisplayList").appendChild(li)
+    }) 
+}
+mapFunctionDisplayList()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Filter Function
-                                    <p>Filter Function returns new array which contains specific exisiting array elements only if we met specific criteria</p>
-                                    <p>Syntax: const newArray= Array.filter(value,item,array)</p>
-                                    <p>Array : [10,20,30,40,50]</p>
-                                    <button onclick="filterFunction()">Filter Function to display array elements greater than 25</button>
-                                    <ul id="filterFunction"></ul>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Filter Function returns new array which contains specific exisiting array elements only if we met specific criteria</p>
+                                            <p>Syntax: const newArray= Array.filter(value,item,array)</p>
+                                            <p>Array : [10,20,30,40,50]</p>
+                                            <button onclick="filterFunction()">Filter Function to display array elements greater than 25</button>
+                                            <ul id="filterFunction"></ul>                                    
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="filterFunctionCopyText" onclick="copyFunction('filterFunctionCopyText','filterFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="filterFunctionFunction" class="language-javascript">
+function filterFunction(){
+    const array= [10,20,30,40,50];
+    const newArray=array.filter((value,item,array)=>{
+        if(value>25){
+            //let li=document.createElement('li');
+            //li.innerText=value;
+            //document.getElementById("filterFunction").appendChild(li);
+            console.log(value);
+        }
+    });
+}
+filterFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Reduce Function
-                                    <p>Reduce Function <b>reduce entire array into single value(Number/Strings) based on operations done between array elements</b></p>
-                                    <p>Syntax: const newArray = Array.map(<b>total</b>,value,item,array)
-                                        <ul>Definitions:
-                                            <li>Total: Describes Intial or previous result value</li>
-                                            <li>Value: Describes individual array element</li>
-                                            <li>Item:  Describes index of array element</li>
-                                            <li>Array: Describes Entire array</li>
-                                        </ul>
-                                    </p>
-                                    <p>Array: [10,20,30,40,50]</p>
-                                    <button onclick="reduceFunction()">Reduce Function to sum array elements</button>
-                                    <div id="reduceFunction"></div>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Reduce Function <b>reduce entire array into single value(Number/Strings) based on operations done between array elements</b></p>
+                                            <p>Syntax: const newArray = Array.map(<b>total</b>,value,item,array)
+                                                <ul>Definitions:
+                                                    <li>Total: Describes Intial or previous result value</li>
+                                                    <li>Value: Describes individual array element</li>
+                                                    <li>Item:  Describes index of array element</li>
+                                                    <li>Array: Describes Entire array</li>
+                                                </ul>
+                                            </p>
+                                            <p>Array: [10,20,30,40,50]</p>
+                                            <button onclick="reduceFunction()">Reduce Function to sum array elements</button>
+                                            <div id="reduceFunction"></div>                                                                       
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="reduceFunctionCopyText" onclick="copyFunction('reduceFunctionCopyText','reduceFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="reduceFunctionFunction" class="language-javascript">
+function reduceFunction(){
+    const array= [10,20,30,40,50];
+    const result=array.reduce((total,value,item,array)=>total+value);
+    //document.getElementById("reduceFunction").innerText=result;
+    console.log(result);
+}                                                    
+reduceFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>ReduceRight Function
-                                    <p>Reduce Right Function reduce entire array into single value(Number/Strings) based on operations done between array elements <b>starting from right to left</b></p>
-                                    <p>Syntax: const newArray = Array.map(<b>total</b>,value,item,array)
-                                        <ul>Definitions:
-                                            <li>Total: Describes Intial or previous result value</li>
-                                            <li>Value: Describes individual array element</li>
-                                            <li>Item:  Describes index of array element</li>
-                                            <li>Array: Describes Entire array</li>
-                                        </ul>
-                                    </p>
-                                    <p>Array: ['10','20','30','40','50']</p>
-                                    <button onclick="reduceRightFunction()">Reduce Function to sum array elements</button>
-                                    <div id="reduceRightFunction"></div>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Reduce Right Function reduce entire array into single value(Number/Strings) based on operations done between array elements <b>starting from right to left</b></p>
+                                            <p>Syntax: const newArray = Array.map(<b>total</b>,value,item,array)
+                                                <ul>Definitions:
+                                                    <li>Total: Describes Intial or previous result value</li>
+                                                    <li>Value: Describes individual array element</li>
+                                                    <li>Item:  Describes index of array element</li>
+                                                    <li>Array: Describes Entire array</li>
+                                                </ul>
+                                            </p>
+                                            <p>Array: ['10','20','30','40','50']</p>
+                                            <button onclick="reduceRightFunction()">Reduce Function to sum array elements</button>
+                                            <div id="reduceRightFunction"></div>                                                                       
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="reduceRightFunctionCopyText" onclick="copyFunction('reduceRightFunctionCopyText','reduceRightFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="reduceRightFunctionFunction" class="language-javascript">
+function reduceRightFunction(){
+    const array= ['10','20','30','40','50'];
+    const result=array.reduceRight((total,value,item,array)=>total+value);
+    //document.getElementById("reduceRightFunction").innerText=result;
+    console.log(result);
+}
+reduceRightFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Every Function
-                                    <p>Every function is used to <b>find out all the elements should pass test</b></p>
-                                    <p>Syntax: Array.every(value,index,array)</p>
-                                    <p>Example: Array=[10,20,30,40,50]</p>
-                                    <button onclick="everyFunction()">Every function to check all elements are greater than 5</button>
-                                    <p>Result: <span id="everyFunction"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Every function is used to <b>find out all the elements should pass test</b></p>
+                                            <p>Syntax: Array.every(value,index,array)</p>
+                                            <p>Example: Array=[10,20,30,40,50]</p>
+                                            <button onclick="everyFunction()">Every function to check all elements are greater than 5</button>
+                                            <p>Result: <span id="everyFunction"></span></p>                                                                  
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="everyFunctionCopyText" onclick="copyFunction('everyFunctionCopyText','everyFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="everyFunctionFunction" class="language-javascript">
+function everyFunction(){
+    const Array = [10,20,30,40,50];
+    const result= Array.every((value,index,array)=>value>5);
+    //document.getElementById("everyFunction").innerText=result.toString();
+    console.log(result);
+}
+everyFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Some Function
-                                    <p>Every function is used to <b>find out some of the elements should pass test</b></p>
-                                    <p>Syntax: Array.every(value,index,array)</p>
-                                    <p>Example: Array=[10,20,30,40,50]</p>
-                                    <button onclick="someFunction()">Some function to check all elements are greater than 20</button>
-                                    <p>Result: <span  id="someFunction"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Every function is used to <b>find out some of the elements should pass test</b></p>
+                                            <p>Syntax: Array.every(value,index,array)</p>
+                                            <p>Example: Array=[10,20,30,40,50]</p>
+                                            <button onclick="someFunction()">Some function to check all elements are greater than 20</button>
+                                            <p>Result: <span  id="someFunction"></span></p>                                                                
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="someFunctionCopyText" onclick="copyFunction('someFunctionCopyText','someFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="someFunctionFunction" class="language-javascript">
+function someFunction(){
+    const Array = [10,20,30,40,50];
+    const result = Array.some(value=>value>20)
+    //document.getElementById("someFunction").innerText=result.toString();
+    console.log(result);
+}
+someFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Index Function
-                                    <p>Index Function is used to <b> display index of first occurance of search text</b></p>
-                                    <p>Syntax: Array.indexOf(item,start)</p>
-                                    <p>Array: [10,20,30,40,50]</p>
-                                    <button onclick="indexofFunction()">Click Here to find indexOf element</button>
-                                    <p>Index of element 20: <span id="indexofFunction"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Index Function is used to <b> display index of first occurance of search text</b></p>
+                                            <p>Syntax: Array.indexOf(item,start)</p>
+                                            <p>Array: [10,20,30,40,50]</p>
+                                            <button onclick="indexofFunction()">Click Here to find indexOf element</button>
+                                            <p>Index of element 20: <span id="indexofFunction"></span></p>                                                                                                 
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="indexofFunctionCopyText" onclick="copyFunction('indexofFunctionCopyText','indexofFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="indexofFunctionFunction" class="language-javascript">
+function indexofFunction(){
+    const array=[10,20,30,40,50];
+    const result=array.indexOf(20);
+    //document.getElementById("indexofFunction").innerText=result;
+    console.log(result);
+}
+indexofFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
-                                <li>Last Index Function
-                                    <p>Index Function is used to <b> display index of last occurance of search text</b></p>
-                                    <p>Syntax: Array.lastIndexOf(item,start)</p>
-                                    <p>Array: [10,20,30,40,50]</p>
-                                    <button onclick="lastIndexofFunction()">Click Here to find Last indexOf element</button>
-                                    <p>Index of element 20: <span id="lastIndexofFunction"></span></p>
+                                <li>Last Index Function                                    
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Index Function is used to <b> display index of last occurance of search text</b></p>
+                                            <p>Syntax: Array.lastIndexOf(item,start)</p>
+                                            <p>Array: [10,20,30,40,50]</p>
+                                            <button onclick="lastIndexofFunction()">Click Here to find Last indexOf element</button>
+                                            <p>Index of element 20: <span id="lastIndexofFunction"></span></p>                                                                                                 
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="lastIndexofFunctionCopyText" onclick="copyFunction('lastIndexofFunctionCopyText','lastIndexofFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="lastIndexofFunctionFunction" class="language-javascript">
+function lastIndexofFunction(){
+    const array=[10,20,30,20,50];
+    const result=array.lastIndexOf(20);
+    //document.getElementById("lastIndexofFunction").innerText=result;
+    console.log(result);
+}
+lastIndexofFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Find Function
-                                    <p>Find Function <b>returns next element value of an array if its passes certain condition</b></p>
-                                    <p>Eg: Array=[5,10,15,20,25]</p>
-                                    <button onclick="findFunction()">Click Here to find Eleemnt of 12</button>
-                                    <p>Result: <span id="findFunction"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Find Function <b>returns next element value of an array if its passes certain condition</b></p>
+                                            <p>Eg: Array=[5,10,15,20,25]</p>
+                                            <button onclick="findFunction()">Click Here to find Eleemnt of 12</button>
+                                            <p>Result: <span id="findFunction"></span></p>                                                                                            
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="findFunctionCopyText" onclick="copyFunction('findFunctionCopyText','findFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="findFunctionFunction" class="language-javascript">
+function findFunction(){
+    const array=[5,10,15,20,25];
+    const result = array.find(val=>val>12);
+    //document.getElementById("findFunction").innerText=result;
+    console.log(result);
+}
+findFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>FindIndex Function
-                                    <p>FindIndex Function <b>returns index of an array if its passes certain condition</b></p>
-                                    <p>Eg: Array=[5,10,15,20,25]</p>
-                                    <button onclick="findIndexFunction()">Click Here to findIndex Element of 12</button>
-                                    <p>Result: <span id="findIndexFunction"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>FindIndex Function <b>returns index of an array if its passes certain condition</b></p>
+                                            <p>Eg: Array=[5,10,15,20,25]</p>
+                                            <button onclick="findIndexFunction()">Click Here to findIndex Element of 12</button>
+                                            <p>Result: <span id="findIndexFunction"></span></p>                                                                                           
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="findIndexFunctionCopyText" onclick="copyFunction('findIndexFunctionCopyText','findIndexFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="findIndexFunctionFunction" class="language-javascript">
+function findIndexFunction(){
+    const array=[5,10,15,20,25];
+    const result = array.findIndex(val=>val>12);
+    //document.getElementById("findIndexFunction").innerText=result;
+    console.log(result);
+}
+findIndexFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>From Function
-                                    <p>Array.from function returns new array from any object with length property</p>
-                                    <p>Given String: ABCDEFGH</p>
-                                    <button onclick="fromFunction()">CLick Here to covert String into Array</button>
-                                    <p>Result: <span id="fromFunction"></span></p>
-                                    <p>Result Length:<span id="fromFunctionLength"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Array.from function returns new array from any object with length property</p>
+                                            <p>Given String: ABCDEFGH</p>
+                                            <button onclick="fromFunction()">CLick Here to covert String into Array</button>
+                                            <p>Result: <span id="fromFunction"></span></p>
+                                            <p>Result Length:<span id="fromFunctionLength"></span></p>                                                                                          
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="fromFunctionLengthCopyText" onclick="copyFunction('fromFunctionLengthCopyText','fromFunctionLengthFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="fromFunctionLengthFunction" class="language-javascript">
+function fromFunction(){
+    let string="ABCDEFGH";
+    const arr=Array.from(string);
+    //document.getElementById("fromFunction").innerText=arr;
+    //document.getElementById("fromFunctionLength").innerText=arr.length;
+    console.log(arr);
+    console.log(arr.length);
+}
+fromFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Keys Function
-                                    <p>Array.keys function returns an array iterable object with key values</p>
-                                    <p>Given Array: [1,2,3,4,5]</p>
-                                    <button onclick="keysFunction()">Click Here to Find Keys of an array</button>
-                                    <p>Result: <span id="keysFunction"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Array.keys function returns an array iterable object with key values</p>
+                                            <p>Given Array: [1,2,3,4,5]</p>
+                                            <button onclick="keysFunction()">Click Here to Find Keys of an array</button>
+                                            <p>Result: <span id="keysFunction"></span></p>                                                                                          
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="keysFunctionCopyText" onclick="copyFunction('keysFunctionCopyText','keysFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="keysFunctionFunction" class="language-javascript">
+function keysFunction(){
+    const array=[1,2,3,4,5];
+    const keys=array.keys();
+    let text = "";
+    for (let x of keys) {
+    text += x + "<br>";
+    }
+    //document.getElementById("keysFunction").innerHTML=text;
+    console.log(text);
+}
+keysFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Entries Function
-                                    <p>Array.entries() method returns an iterable object with pair of keys and values</p>
-                                    <p>Array:["Apple","Orange","Banana"]</p>
-                                    <button onclick="arrayEntriesFunction()">Click Here to find array entries</button>
-                                    <p>Result: <span id="arrayEntriesFunction"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Array.entries() method returns an iterable object with pair of keys and values</p>
+                                            <p>Array:["Apple","Orange","Banana"]</p>
+                                            <button onclick="arrayEntriesFunction()">Click Here to find array entries</button>
+                                            <p>Result: <span id="arrayEntriesFunction"></span></p>                                                                                     
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="arrayEntriesFunctionCopyText" onclick="copyFunction('arrayEntriesFunctionCopyText','arrayEntriesFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="arrayEntriesFunctionFunction" class="language-javascript">
+function arrayEntriesFunction(){
+    const array=["Apple","Banana","Orange"];
+    const entries=array.entries();
+    let texts="";
+    for(let f of entries){
+        texts += f+"<br>"
+    }
+    document.getElementById("arrayEntriesFunction").innerHTML=texts;
+}
+arrayEntriesFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                                 <br>
                                 <li>Includes Function
-                                    <p>Array.includes function returns true or false whether array element was there are not</p>
-                                    <p>Given Array=["Apple","Banana", "Orange"]</p>
-                                    <button onclick="arrayIncludes()">Click Here to find whether Banana Element was there</button>
-                                    <p>Result: <span id="arrayIncludes"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Array.includes function returns true or false whether array element was there are not</p>
+                                            <p>Given Array=["Apple","Banana", "Orange"]</p>
+                                            <button onclick="arrayIncludes()">Click Here to find whether Banana Element was there</button>
+                                            <p>Result: <span id="arrayIncludes"></span></p>                                                                                  
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="arrayIncludesCopyText" onclick="copyFunction('arrayIncludesCopyText','arrayIncludesFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="arrayIncludesFunction" class="language-javascript">
+function arrayIncludes(){
+    const array=["Apple","Banana", "Orange"]
+    var includesResult=array.includes("Banana");
+    //document.getElementById("arrayIncludes").innerText=includesResult.toString()
+    console.log(includesResult)
+}
+arrayIncludes()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
+                                <br>
                                 <li>Flat function
-                                    <p>Array.flat function <b>merges nested arrays into single array</b></p>
-                                    <p>Array:[10,20,30,40[40.1,40.2,40.3[40.3.1,40.3.2],40.4,40.5],50]</p>
-                                    <button onclick="arrayFlat()">Click Here to flatten array</button>
-                                    <p>Result: <span id="arrayFlat"></span></p>
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Array.flat function <b>merges nested arrays into single array</b></p>
+                                            <p>Array:[10,20,30,40[40.1,40.2,40.3[40.3.1,40.3.2],40.4,40.5],50]</p>
+                                            <button onclick="arrayFlat()">Click Here to flatten array</button>
+                                            <p>Result: <span id="arrayFlat"></span></p>                                                                               
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="arrayFlatCopyText" onclick="copyFunction('arrayFlatCopyText','arrayFlatFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="arrayFlatFunction" class="language-javascript">
+function  arrayFlat(){
+    const array=[10,20,30,40,[40.1,40.2,40.3,[40.31,40.32],40.4,40.5],50];
+    var arrayFlatResult= array.flat(3);
+    console.log(arrayFlatResult);
+    //document.getElementById("arrayFlat").innerText=arrayFlatResult;
+}
+arrayFlat()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                                <br>
+                                <li>Set Function
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Array Set() function returns unique values in array/object</p>
+                                            <p>Syntax: const newArray= new Set(OldArray) // It will returns unique elements</p>
+                                            <p>Array=[1,2,3,4,5,6,5,4,3,2]</p>
+                                            <button onclick="arraySetFunction()">Click Here to find set function</button>
+                                            <p>Result:  <span id="arraySetFunction"></span></p>                                                                             
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="arraySetFunctionCopyText" onclick="copyFunction('arraySetFunctionCopyText','arraySetFunctionFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="arraySetFunctionFunction" class="language-javascript">
+function arraySetFunction(){
+    const array=[1,2,3,4,5,6,5,4,3,2];
+    const setResult=new Set(array);
+    const result=[...setResult];
+    //document.getElementById("arraySetFunction").innerText=result.join(" ");
+    console.log(result);
+}
+arraySetFunction()
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
                                 </li>
                             </ol>
                             <table class="table-border">
@@ -1174,47 +2116,6 @@
                         </dd>
                     </dl>
                     <br><br>
-                    <p>Special Scenarios</p>
-                    <ol>
-                        <li>Right Angle triangle
-                            <button onclick="rightAngleTriangle()">Click Here to Display Right angle tirangle of numbers</button>
-                            <div id="result"></div>
-                        </li>
-                        <li>Find Max Elements in an array and its occurance
-                            <p>Array = [1, 2, 3, 4, 1, 1, 2, 3, 4 ,4 ,4 ,4 ,4]</p>
-                            <button onclick="maxElementArray()">Click Here to find max occurance</button>
-                            <p>Max Occurance Element: <span id="maxElement"></span></p>
-                            <p>Length: <span id="length"></span></p>
-                        </li>
-                        <li>Find out Non repeated numbers
-                            <p>Array = [1, 3, 2, 2, 3, 3, 4, 7, 5, 5, 6, 5, 5, 5, 5]</p>
-                            <button onclick="nonRepeatedElements()">Click Here to find non repeated elements</button>
-                            <p>Repeated Element: <span id="nonRepeatedElements"></span></p>
-                        </li>
-                        <li>Find out Repeated numbers
-                            <p>Array = [1, 3, 2, 2, 3, 3, 4, 7, 5, 5, 6, 5, 5, 5, 5]</p>
-                            <button onclick="repeatedElements()">Click Here to find repeated elements</button>
-                            <p>Repeated Element: <span id="repeatedElements"></span></p>
-                        </li>
-                        <li>Find out Array of Objects Key properties
-                            <p>Array:[{id:"1",name:"Ponniah"},{id:"2",name:"Periyasamy"}]</p>
-                            <button onclick="objectKeyProperties()">Click Here to find key properties of array of objects</button>
-                            <p>Result: <span id="objectKeyProperties"></span></p>
-                        </li>
-                        <li>TimeLine Progress
-                            <h2>Welcome to Employee Database</h2>
-                            <div style="display: flex;"  id="milestone"></div>
-                            <p>Employee Name: <span id="name"></span></p>
-                            <p>Employee DOJ : <span id="DOJ">""</span></p>
-                            <b><p>Employee Role: <span id="Role">""</span></p></b>
-                        </li>
-                        <li>Find out Array Elements are sorted or not
-                            <p>We can find out whether elements are sorted ot not</p>
-                            <p>Given Array: [1,5,2,4,3]</p>
-                            <button onclick="sortedArray()">Click Here to find out whether above element sorted or not</button>
-                            <p>Result: <span id="sortedArray"></span></p>
-                        </li>
-                    </ol>
                 </div>
             </div>
         </div>
