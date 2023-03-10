@@ -7,7 +7,7 @@
     width: 100%;
     text-align: center;
     color:white;
-    padding: 50px 0px;
+    padding: 30px 0px;
 }
 
 .dark-flex-theme{
@@ -127,6 +127,51 @@
     padding: 20px;
 }
 
+.flex-layout-section1{
+    flex: 20%;
+    text-align: center;
+    color: white;
+}
+
+.flex-layout-section2{
+    flex: 40%;
+    padding: 20px 0px;
+}
+.flex-layout-section3{
+    flex: 40%;
+    padding: 20px 0px;
+}
+
+.flex-layout-intro{
+    flex: 80%;
+    /* padding: 20px 0px; */
+}
+
+.flex-intro-section1{
+    margin: 30px;
+    position: relative;
+    border-radius: 12px;
+}
+
+.flex-intro-section1::after{
+    content: " ";
+    position: absolute;
+    left: -25px;
+    top: 70px;
+    border-top: 15px solid transparent;
+    border-right: 25px solid #17252a;
+    border-left: none; 
+    border-bottom: 15px solid transparent;
+}
+
+.flex-intro-section2{
+    padding: 20px;
+}
+
+.flex-intro-section2-boldtext{
+    font-weight: 600;
+}
+
 @media(max-width:768px){
     .flex-body{
         flex-wrap: wrap;
@@ -135,6 +180,42 @@
     .flex-right-layout{
         flex:100%;
     }
+    .flex-layout-section1,
+    .flex-layout-section2,
+    .flex-layout-section3,
+    .flex-layout-intro{
+        flex: 100%;
+    }
+
+    .flex-intro-section1{
+        margin:30px 0px 0px 0px;
+    }
+    
+    .flex-intro-section1::after{
+        content: " ";
+        position: absolute;
+        top: -24px;
+        left:50%;
+        border-top: none;
+        border-right: 15px solid transparent;
+        border-left: 15px solid transparent; 
+        border-bottom: 25px solid #17252a;
+    }
+
+    /* .flex-intro-section2{
+        padding: 20px 0px 0px 0px;
+        font-weight: 600;
+    } */
+
+    .flex-layout-section2,
+    .flex-layout-section3{
+        padding: 20px 30px;
+    }
+
+    p.flex-layout-left-content-subheader1 {
+        margin: 70px 0px;
+    }
+
 }
 
 .flex-layout-left-content{
@@ -152,10 +233,17 @@
 
 .flex-layout-left-content-header{
     font-size: 32px;
+    margin-top: 0px;
+}
+
+.flex-layout-left-content-header-subheader1,
+.flex-layout-left-content-subheader1{
+    font-size:24px
 }
 
 .flex-layout-left-content-subheader1{
-    font-size:24px
+    margin-top: 50px;
+    font-weight: 600;
 }
 
 .flex-layout-left-content-subheader2{
@@ -192,6 +280,10 @@
     .flex-layout-left-links-description{
         flex-basis: 25%;
     }
+
+    .flex-layout-left-links-description-mobile{
+        flex-basis: 25%;
+    }
 }
 
 @media(min-width:1200px) and (max-width:1400px){
@@ -204,7 +296,9 @@
     color: white;
 }
 
-
+.techstacks .aspNetMvc{
+    padding: 5px 13px 14px 5px !important;
+}
 
 .techstacks .flex-navbar-link:hover a{
     color: #17252a;
@@ -215,6 +309,23 @@
     clip-rule:evenodd;
     fill:white;
 }
+
+/**Jenkins SVG Logo CSS starts **/
+.B{fill-rule:evenodd}
+
+.C{fill:white}
+
+.D{fill:white}
+
+.E{fill:#231f20}
+
+.F{fill:#f7e4cd}
+
+.G{stroke:#d33833}
+
+.H{stroke-width:.257}
+
+/**Jenkins SVG Logo CSS Ends **/
 
 .techstacks .flex-navbar-link:hover .st0{
     fill: #17252a;
