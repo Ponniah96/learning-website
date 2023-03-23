@@ -147,6 +147,31 @@
             array.upperCase();
             document.getElementById("arrayPrototype").innerText=array.join(" ");
         }
+        function nonRepeatedString()
+        {
+            var src="comiccomedy";
+            var inputArray=src.split("");
+            var count=0;
+            var finalCount=0;
+            var resultantArray=[];
+            var result=inputArray.filter((value,index,array)=>{
+                array.forEach((val,i,a)=>{
+                    if(a[i]==value){
+                        count=count+1;
+                    }
+                });
+                if(count==1){
+                    finalCount=finalCount+1;
+                    count=0;
+                    resultantArray.push(value)
+                }
+                else{
+                    count=0;
+                }
+            });
+            document.getElementById("nonRepeatedString").innerText=resultantArray.join("");
+            document.getElementById("nonRepeatedStringCount").innerText=finalCount;
+        }
         Array.prototype.upperCase=function(){
             for(let i=0;i<this.length;i++){
                 this[i]=this[i].toUpperCase();
@@ -417,6 +442,52 @@ function sortedArray(){
     }
 }
 sortedArray()
+                                        </code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </li>
+                        <li>Find out Non-Repated Elements and its count in String
+                            <div class="flex-body">
+                                <div class="flex-left-content">
+                                    <p>We can find out non-reated elements in string</p>
+                                    <p>Given String: comiccomedy</p>
+                                    <button onclick="nonRepeatedString()">Click Here to find out non-repeated characters in strings</button>
+                                    <p>Non Repeated Characters in Strings: <span id="nonRepeatedString"></span></p> 
+                                    <p>Non Repeated Characters COunt  in Strings: <span id="nonRepeatedStringCount"></span></p>                                                               
+                                </div>
+                                <div class="flex-right-content">
+                                    <button class="copy-icon" id="nonrepeatedstringcharacterCopyText" onclick="copyFunction('nonrepeatedstringcharacterCopyText','nonrepeatedstringcharacterFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                    <pre style="tab-size: 2;">
+                                        <code id="nonrepeatedstringcharacterFunction" class="language-javascript">
+function main(input)
+{
+        var src=input;
+        var inputArray=input.split("");
+        var count=0;
+        var finalCount=0;
+        var resultantArray=[];
+        var result=inputArray.filter((value,index,array)=>{
+            array.forEach((val,i,a)=>{
+                if(a[i]==value){
+                    count=count+1;
+                }
+            });
+            console.log(value,count);
+            if(count==1){
+                finalCount=finalCount+1;
+                count=0;
+                resultantArray.push(value)
+            }
+            else{
+                count=0;
+            }
+        });
+        console.log("Non Repeated Characters: ",resultantArray, resultantArray.join(""));
+        console.log("Non Repeated Character Counts: ",finalCount);
+        return finalCount;
+}
+main("comiccomedy");
                                         </code>
                                     </pre>
                                 </div>
