@@ -7,10 +7,50 @@
     <title>Javascript Introduction</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="cssStyles.css">
-    <link rel="stylesheet" href="cssAdvancedPhase.css">
+    <!-- <link rel="stylesheet" href="cssAdvancedPhase.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tomorrow-night-blue.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>
-
+        document.addEventListener("DOMContentLoaded",function(){
+            hljs.highlightAll();
+        })      
+        function copyFunction(buttonID, functionID){
+            var copyText = document.getElementById(functionID)
+            navigator.clipboard.writeText(copyText.innerText);
+            var buttonElement=document.getElementById(buttonID);
+            buttonElement.innerHTML= '<i class="bi bi-check2"></i> Copied';
+        }
+        
+        function classAddNumbers(){
+            const addNumbers = new AddNumbers(2,3) ;
+            addNumbers.add();
+        }
+        class AddNumbers{
+            constructor(num1, num2){
+                this.num1=num1!==undefined? num1 : 3;
+                this.num2=num2!==undefined? num2 : 4;
+            }
+            add(){
+                document.getElementById('classAddNumbers').innerText=this.num1+this.num2;
+                return this.num1 + this.num2;
+            }
+        }
+        class AddNumbersInheritance extends AddNumbers{
+            constructor(num3){
+                super();
+                this.newNumber=num3;
+                this.inheritanceValue= this.add();
+            }
+            newAdd(){
+                document.getElementById('classAddNumbersInheritance').innerText= this.newNumber + this.inheritanceValue;
+                return this.newNumber + this.inheritanceValue;
+            }
+        }
+        function classAddNumbersInheritance(){
+            const inheritanceClass= new AddNumbersInheritance(7);
+            inheritanceClass.newAdd()
+        }
     </script>
 </head>
 <body>
@@ -20,6 +60,7 @@
             <ul>
                 <li class="left-nav-header default-highlighted">Concepts</li>
                 <li><a href="#objects">12.Objects</a></li>
+                <li><a href="#classes">13.Classes</a></li>
             </ul>
         </nav>
         <div class="content-section">
@@ -90,6 +131,99 @@
                             </ol>
                         </dd>
 
+                    </dl>
+                    <dl id="classes">
+                        <dt><b>13.JavaScript Classes</b></dt>
+                        <dd>JavaScript classes are special functions which is introduced in ES6</dd>
+                        <dd>Key Features of javascript classes:
+                            <ul>
+                                <li>class keyword</li>
+                                <li>className</li>
+                                <li>constructor function</li>
+                                <li>methods</li>
+                                <li>Extends</li>
+                                <li>super</li>
+                                <li>static keyword</li>
+                                <li>public, private access specifier</li>
+                            </ul>
+                        </dd>
+                        <dd><b>Examples</b>
+                            <ol>
+                                <li>Simple Example:(Add 2 numbers)
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Input Numbers: 2, 3</p>
+                                            <button onclick="classAddNumbers()">Click Here to Find addition of numbers</button>
+                                            <p>Result: <span id="classAddNumbers"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="classAddNumbersCopyText" onclick="copyFunction('classAddNumbersCopyText','classAddNumbersFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="classAddNumbersFunction" class="language-javascript">
+class AddNumbers{
+    constructor(num1, num2){
+        this.num1=num1;
+        this.num2=num2;
+    }
+    add(){
+        console.log('Add: ',this.num1+this.num2);
+    }
+}
+function classAddNumbers(){
+    const addNumbers = new AddNumbers(2,3) ;
+    addNumbers.add();
+}   
+classAddNumbers()                                     
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>Inheritance:(Get Data from parent class)
+                                    <div class="flex-body">
+                                        <div class="flex-left-content">
+                                            <p>Input Numbers: output of parent component and new numbers </p>
+                                            <p>With the help of super constructor, we can parent class properties, methods, value</p>
+                                            <button onclick="classAddNumbersInheritance()">Click Here to Find addition of numbers using inheritance</button>
+                                            <p>Result: <span id="classAddNumbersInheritance"></span></p>
+                                        </div>
+                                        <div class="flex-right-content">
+                                            <button class="copy-icon" id="classAddNumbersInheritanceCopyText" onclick="copyFunction('classAddNumbersInheritanceCopyText','classAddNumbersInheritanceFunction')"><i class="bi bi-clipboard"></i>Copy</button>
+                                            <pre style="tab-size: 2;">
+                                                <code id="classAddNumbersInheritanceFunction" class="language-javascript">
+class AddNumbers1{
+    constructor(num1, num2){
+        this.num1=num1!==undefined? num1 : 3;
+        this.num2=num2!==undefined? num2 : 4;
+    }
+    add(){
+        console.log('Parent Add Result: ',this.num1 + this.num2);
+        return this.num1 + this.num2;
+    }
+}
+class AddNumbersInheritance1 extends AddNumbers1{
+    constructor(num3){
+        super();
+        this.newNumber=num3;
+        this.inheritanceValue= this.add();
+    }
+    newAdd(){
+        console.log('Child Add Result: ',this.newNumber + this.inheritanceValue);
+        return this.newNumber + this.inheritanceValue;
+    }
+}
+function classAddNumbersInheritance(){
+    const inheritanceClass= new AddNumbersInheritance1(7);
+    inheritanceClass.newAdd()
+}   
+classAddNumbersInheritance()                                 
+                                                </code>
+                                            </pre>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </dt>
                     </dl>
                 </div>
             </div>
