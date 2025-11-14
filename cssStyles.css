@@ -406,3 +406,83 @@ overflow-x: auto;
     border: 1px solid white;
     background-color: white;
 }
+
+/*** Carousel Styles ***/
+.carousel-container{
+    display: flex;
+    gap: 16px;
+    margin: 16px auto;
+    width: 95%;
+    overflow-x: auto;
+    /* Smooth Scrolling effect */
+    scroll-behavior: smooth; 
+    /* New way of positioning */
+    anchor-name: --carousel;
+    /* Scroll start position changes */
+    scroll-snap-type: x mandatory;
+    /* Number of slides shown at the bottom */
+    scroll-marker-group: after;
+}
+
+.carousel-container::-webkit-scrollbar{
+    display: none;
+}
+
+.carousel-container::scroll-button(left),
+.carousel-container::scroll-button(right){
+    background-color: grey;
+    color: white;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    font-size: 32px;
+    position: fixed;
+    position-anchor: --carousel;
+}
+
+.carousel-container::scroll-button(left){
+    content: "←";
+    position-area: left center;
+    translate: 75%;
+}
+.carousel-container::scroll-button(right){
+    content: "→";
+    position-area: right center;
+    translate: -75%;
+}
+
+.carousel-container::scroll-button(left):disabled,
+.carousel-container::scroll-button(right):disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.carousel-container::scroll-marker-group{
+    display: flex;
+    margin: 25px 0;
+    gap: 16px;
+    justify-content: center;
+}
+
+.carousel-elements{
+    scroll-snap-align: start;
+}
+
+.carousel-elements::scroll-marker{
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.carousel-elements::scroll-marker:target-current{
+    background-color: gray;
+}
+
+.carousel-container img{
+    max-width: 100%;
+    height: auto;
+}
